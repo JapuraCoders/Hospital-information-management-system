@@ -1,0 +1,8 @@
+.root{
+-fx-background-image:url("../assets/bg.png");
+-fx-background-size:cover;
+}
+ .button:hover {
+        -fx-background-color: #383838;
+        -fx-scale-y: 1.1;
+}
