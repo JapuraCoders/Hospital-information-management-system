@@ -13,7 +13,7 @@ public abstract class Person {
 
     //setters
     public void setName(String name){
-            this.name = name;
+        this.name = name;
     }
     public void setPhone(String phone){
         this.phone = phone;
@@ -30,6 +30,10 @@ public abstract class Person {
     }
     public String getNIC(){
         return this.nIC;
+    }
+    @Override
+    public String toString(){
+        return this.getName() + "\n" + this.getPhone() + "\n" + this.getNIC();
     }
 
 }
