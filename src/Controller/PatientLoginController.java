@@ -11,8 +11,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-
-
 public  class PatientLoginController implements Initializable {
     @FXML
     private TextField username;
