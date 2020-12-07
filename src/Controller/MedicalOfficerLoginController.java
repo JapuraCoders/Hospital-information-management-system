@@ -20,6 +20,12 @@ public class MedicalOfficerLoginController implements Initializable{
 
 
         @FXML
+        private Label label;
+
+        @FXML
+        private Label signupbtn;
+
+        @FXML
         private void handleClose(MouseEvent event) {
                 System.exit(0);
         }
@@ -29,5 +35,4 @@ public class MedicalOfficerLoginController implements Initializable{
         public void initialize(URL url, ResourceBundle resourceBundle) {
 
         }
-
 }
