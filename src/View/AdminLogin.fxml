@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="774.0" stylesheets="@../assets/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminLoginController">
+   <children>
+      <AnchorPane layoutX="196.0" layoutY="102.0" prefHeight="395.0" prefWidth="382.0" style="-fx-background-color: #F7FAFC; -fx-background-radius: 15; -fx-text-fill: #172B4D;">
+         <children>
+            <Label layoutX="60.0" layoutY="57.0" prefHeight="7.0" prefWidth="262.0" text="Welcome Back! Please Login to continue" textFill="#172b4d" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="57.0">
+               <font>
+                  <Font name="Gotham-Bold" size="12.0" />
+               </font>
+            </Label>
+            <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="307.0" prefHeight="34.0" prefWidth="76.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Sign In" textFill="WHITE">
+               <font>
+                  <Font name="GothamRounded-Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXCheckBox alignment="CENTER_RIGHT" checkedColor="#11cdef" graphicTextGap="5.0" layoutX="52.0" layoutY="253.0" text="Remeber me" textFill="#172b4d" unCheckedColor="#172b4d">
+               <font>
+                  <Font name="Gotham-Book" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets top="5.0" />
+               </opaqueInsets>
+            </JFXCheckBox>
+            <Label layoutX="229.0" layoutY="253.0" prefHeight="18.0" prefWidth="105.0" text="Forgot Password ?" textFill="#172b4d">
+               <font>
+                  <Font name="Gotham-Book" size="11.0" />
+               </font>
+            </Label>
+            <Pane layoutX="52.0" layoutY="105.0" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+               <children>
+                  <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/mail.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="username" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Username" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                     <font>
+                        <Font name="GothamRounded-Bold" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </TextField>
+               </children>
+            </Pane>
+            <Pane layoutX="52.0" layoutY="172.0" prefHeight="50.0" prefWidth="269.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+               <children>
+                  <ImageView fitHeight="22.0" fitWidth="20.0" layoutX="4.0" layoutY="14.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/UserIcon.png" />
+                     </image>
+                  </ImageView>
+                  <PasswordField fx:id="password" layoutX="34.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Password" style="-fx-text-fill: #172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                     <font>
+                        <Font name="GothamRounded-Bold" size="12.0" />
+                     </font>
+                  </PasswordField>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Label layoutX="753.0" layoutY="-3.0" onMouseClicked="#handleClose" prefHeight="34.0" prefWidth="14.0" text="x" textFill="#f7fafc">
+         <font>
+            <Font name="Gill Sans MT" size="28.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
