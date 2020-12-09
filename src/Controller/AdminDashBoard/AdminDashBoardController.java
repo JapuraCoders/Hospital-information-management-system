@@ -1,4 +1,4 @@
-package Controller;
+package Controller.AdminDashBoard;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
