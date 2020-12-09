@@ -31,5 +31,9 @@ public abstract class Person {
     public String getNIC(){
         return this.nIC;
     }
+    @Override
+    public String toString(){
+        return this.getName() + "\n" + this.getPhone() + "\n" + this.getNIC();
+    }
 
 }
