@@ -1,3 +1,4 @@
+import Model.Image;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,8 +16,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
     public static void main(String[] args) {
         launch(args);
+
+        /*Image myImage = new Image(512,512);
+        myImage.addImage("Image.png");
+        myImage.saveImage("ABC1.jpg");*/
+
     }
 }
