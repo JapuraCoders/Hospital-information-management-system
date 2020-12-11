@@ -58,25 +58,63 @@ public class AdminDashBoardController implements Initializable {
     @FXML
     private Label exit;
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         exit.setOnMouseClicked(e->{
             System.exit(0);
         });
-        try{
-            Parent fxml = FXMLLoader.load(getClass().getResource("AdminHome.fxml"));
-            contentArea.getChildren().removeAll();
-            contentArea.getChildren().setAll(fxml);
-        }catch (IOException ex){
-            Logger.getLogger(ModuleLayer.Controller.class.getName()).log(Level.SEVERE, null, ex);
+
         }
 
+    @FXML
+    void HandlePatient(ActionEvent event) {
+        System.out.println("you clicked me");
+        FXMLLoader object = new FXMLLoader();
+        pane view = object.getPane("AdminHome.fxml");
+        mainPane.setCenter(view);
 
+    }
 
+    @FXML
+    void handleAppointment(ActionEvent event) {
 
+    }
+
+    @FXML
+    void handleComplaint(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleHome(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleMedical(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleModule(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleReceptionist(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleSetting(ActionEvent event) {
 
     }
 
 
-    }
+
+}
+
+
 
