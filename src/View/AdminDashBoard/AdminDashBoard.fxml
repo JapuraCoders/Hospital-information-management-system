@@ -24,7 +24,7 @@
                   </Label>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="btnHome" layoutX="-1.0" layoutY="-4.0" prefHeight="58.0" prefWidth="246.0" text="Home" textFill="#172b4d">
+                        <JFXButton fx:id="HomePage" layoutX="-1.0" layoutY="-4.0" onAction="#handleHome" prefHeight="58.0" prefWidth="246.0" text="Home" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Light" size="16.0" />
                            </font>
@@ -38,7 +38,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="btnAppointments" layoutX="-1.0" layoutY="-4.0" prefHeight="58.0" prefWidth="246.0" text="             Appointments" textFill="#172b4d">
+                        <JFXButton fx:id="AppointmentsPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleAppointment" prefHeight="58.0" prefWidth="246.0" text="             Appointments" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>
@@ -52,7 +52,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="btnComplaints" layoutX="-1.0" layoutY="-4.0" prefHeight="58.0" prefWidth="246.0" text="        Compliants" textFill="#172b4d">
+                        <JFXButton fx:id="ComplaintsPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleComplaint" prefHeight="58.0" prefWidth="246.0" text="        Compliants" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>
@@ -66,7 +66,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="btnPatients" layoutX="-1.0" layoutY="-4.0" prefHeight="58.0" prefWidth="246.0" text="   Patients" textFill="#172b4d">
+                        <JFXButton fx:id="PatientsPage" layoutX="-1.0" layoutY="-4.0" onAction="#HandlePatient" prefHeight="58.0" prefWidth="246.0" text="   Patients" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>
@@ -80,7 +80,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="btnMedicalOfficer" layoutX="-1.0" layoutY="-4.0" prefHeight="58.0" prefWidth="246.0" text="              Medical officer" textFill="#172b4d">
+                        <JFXButton fx:id="MedicalOfficerPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleMedical" prefHeight="58.0" prefWidth="246.0" text="              Medical officer" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>
@@ -94,7 +94,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="btnReceptionist" layoutX="-1.0" layoutY="-4.0" prefHeight="58.0" prefWidth="246.0" text="         Receptionist" textFill="#172b4d">
+                        <JFXButton fx:id="ReceptionistPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleReceptionist" prefHeight="58.0" prefWidth="246.0" text="         Receptionist" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>
@@ -108,7 +108,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="btnModule" layoutX="-1.0" layoutY="-4.0" prefHeight="58.0" prefWidth="246.0" text=" Module" textFill="#172b4d">
+                        <JFXButton fx:id="ModulePage" layoutX="-1.0" layoutY="-4.0" onAction="#handleModule" prefHeight="58.0" prefWidth="246.0" text=" Module" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Light" size="16.0" />
                            </font>
@@ -122,7 +122,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="btnSettings" layoutX="-1.0" layoutY="-4.0" prefHeight="58.0" prefWidth="246.0" text="  Settings" textFill="#172b4d">
+                        <JFXButton fx:id="SettingsPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleSetting" prefHeight="58.0" prefWidth="246.0" text="  Settings" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>

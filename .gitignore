@@ -53,7 +53,7 @@ cmake-build-*/
 
 # IntelliJ
 out/
-
+out/production/OPDSYSTEM/Main.class
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
