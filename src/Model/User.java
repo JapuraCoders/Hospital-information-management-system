@@ -10,7 +10,7 @@ public abstract class User extends Person {
     protected MaritalStatus maritalStatus;
     protected Account account;
 
-    protected User(String name,String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus, Account account){
+    protected User(){
         super (name, phone, nIC);
         this.setUserName(userName);
         this.setGender(gender);
