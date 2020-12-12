@@ -11,14 +11,14 @@ public class Image {
     private String imageID;
     BufferedImage image = null;
 
-    public Image(int height, int width, String inputFileName, String imageID){
+    public Image(int height, int width, String inputFileName, String storageFolderName, String imageID){
         this.setHeight(height);
         this.setWidth(width);
         this.setImageID(imageID);
 
         //image process
         addImage(inputFileName);
-        saveImage(imageID);
+        saveImage(storageFolderName,imageID);
     }
 
     // setters
@@ -56,9 +56,9 @@ public class Image {
     }
 
     //save image method
-    public void saveImage(String imageID){
+    public void saveImage(String folderName, String imageID){
         try {
-            File save = new File("Files\\UserPhotos\\"+imageID);//output file path
+            File save = new File("Files\\"+ folderName +"\\"+ imageID);//output file path
             ImageIO.write(image,"jpg", save);
         } catch (Exception e) {
             System.out.println("Error: " + e);

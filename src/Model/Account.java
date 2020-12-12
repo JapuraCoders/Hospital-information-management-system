@@ -109,7 +109,7 @@ public class Account {
         else{
             System.out.println("Cannot add defaultImage cause of Invalid Gender");
         }
-        return new Image(520,520,inputFileName,this.getAccountID());
+        return new Image(520,520,inputFileName,"UserPhotos",this.getAccountID());
     }
 
     @Override
