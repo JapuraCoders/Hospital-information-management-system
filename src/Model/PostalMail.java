@@ -68,7 +68,7 @@ public abstract class PostalMail {
 
 
 
-    public String tostring(){
+    public String toString(){
         return getToName()+"\n"+getFromName()+"\n"+getRefNo()+"\n"+getAddress()+"\n"+getDate();
     }
 

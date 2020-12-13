@@ -25,12 +25,11 @@ public abstract class Person {
     public String getName(){
         return this.name;
     }
-    public String getPhone(){
-        return this.phone;
-    }
+    public String getPhone(){ return this.phone; }
     public String getNIC(){
         return this.nIC;
     }
+
     @Override
     public String toString(){
         return this.getName() + "\n" + this.getPhone() + "\n" + this.getNIC();

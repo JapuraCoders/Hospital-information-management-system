@@ -57,6 +57,7 @@ public abstract class User extends Person {
     public Account getAccount(){
         return this.account;
     }
+
     @Override
     public String toString(){
         return super.toString() + "\n" + this.getUserName() + "\n" + this.getGender() + "\n" + this.getDOB() + "\n" + this.getAddress() + "\n" + this.getMaritalStatus() + "\n" + this.getAccount();
