@@ -6,7 +6,7 @@ public class Patient extends User {
     private String allergies;
 
 
-    Patient(String userName,Gender gender,Date dob, String address,MartialStatus martialStatus,Account account,BloodType bloodType,String allergies){
+    Patient(){
         super(userName,gender,dob,address,martialStatus,account);
         this.setBloodType(bloodType);
         this.setAllergies(allergies);
