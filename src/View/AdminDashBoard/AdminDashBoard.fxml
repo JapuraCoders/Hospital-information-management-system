@@ -6,16 +6,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="788.0" prefWidth="1285.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminDashBoard.AdminDashBoardController">
    <children>
-      <Pane fx:id="mainPane" prefHeight="621.0" prefWidth="250.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <VBox prefHeight="786.0" prefWidth="250.0" spacing="15.0">
+      <BorderPane fx:id="mainpane" layoutX="-2.0" layoutY="-1.0" prefHeight="788.0" prefWidth="1285.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="788.0" prefWidth="249.0" spacing="15.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="246.0" text="Admin" textFill="#172b4d">
                      <font>
@@ -24,7 +24,7 @@
                   </Label>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="HomePage" layoutX="-1.0" layoutY="-4.0" onAction="#handleHome" prefHeight="58.0" prefWidth="246.0" text="Home" textFill="#172b4d">
+                        <JFXButton layoutX="-1.0" layoutY="-4.0" onAction="#HandleAdminHome" prefHeight="58.0" prefWidth="246.0" text="Home" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Light" size="16.0" />
                            </font>
@@ -38,7 +38,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="AppointmentsPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleAppointment" prefHeight="58.0" prefWidth="246.0" text="             Appointments" textFill="#172b4d">
+                        <JFXButton fx:id="AppointmentsPage" layoutX="-1.0" layoutY="-4.0" onAction="#HandleAdminAppointment" prefHeight="58.0" prefWidth="246.0" text="             Appointments" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>
@@ -52,7 +52,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="ComplaintsPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleComplaint" prefHeight="58.0" prefWidth="246.0" text="        Compliants" textFill="#172b4d">
+                        <JFXButton fx:id="ComplaintsPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleAdminComplaint" prefHeight="58.0" prefWidth="246.0" text="        Compliants" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>
@@ -66,7 +66,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="PatientsPage" layoutX="-1.0" layoutY="-4.0" onAction="#HandlePatient" prefHeight="58.0" prefWidth="246.0" text="   Patients" textFill="#172b4d">
+                        <JFXButton fx:id="PatientsPage" layoutX="-1.0" layoutY="-4.0" onAction="#HandleAdminPatient" prefHeight="58.0" prefWidth="246.0" text="   Patients" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>
@@ -78,9 +78,9 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Pane prefHeight="51.0" prefWidth="246.0">
+                  <Pane prefHeight="51.0" prefWidth="1186.0">
                      <children>
-                        <JFXButton fx:id="MedicalOfficerPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleMedical" prefHeight="58.0" prefWidth="246.0" text="              Medical officer" textFill="#172b4d">
+                        <JFXButton fx:id="MedicalOfficerPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleMedicalOfficerMedical" prefHeight="58.0" prefWidth="246.0" text="              Medical officer" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>
@@ -94,7 +94,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="ReceptionistPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleReceptionist" prefHeight="58.0" prefWidth="246.0" text="         Receptionist" textFill="#172b4d">
+                        <JFXButton fx:id="ReceptionistPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleAdminReceptionist" prefHeight="58.0" prefWidth="246.0" text="         Receptionist" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>
@@ -108,7 +108,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="ModulePage" layoutX="-1.0" layoutY="-4.0" onAction="#handleModule" prefHeight="58.0" prefWidth="246.0" text=" Module" textFill="#172b4d">
+                        <JFXButton fx:id="ModulePage" layoutX="-1.0" layoutY="-4.0" onAction="#handleAdminModule" prefHeight="58.0" prefWidth="246.0" text=" Module" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Light" size="16.0" />
                            </font>
@@ -122,7 +122,7 @@
                   </Pane>
                   <Pane prefHeight="51.0" prefWidth="246.0">
                      <children>
-                        <JFXButton fx:id="SettingsPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleSetting" prefHeight="58.0" prefWidth="246.0" text="  Settings" textFill="#172b4d">
+                        <JFXButton fx:id="SettingsPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleAdminSetting" prefHeight="58.0" prefWidth="246.0" text="  Settings" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>
@@ -134,9 +134,9 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Pane prefHeight="51.0" prefWidth="246.0" VBox.vgrow="ALWAYS">
+                  <Pane prefHeight="0.0" prefWidth="1296.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <JFXButton fx:id="btnLogout" layoutY="42.0" prefHeight="58.0" prefWidth="250.0" text="Logout" textFill="#172b4d">
+                        <JFXButton layoutY="42.0" onAction="#HandleAdminLogout" prefHeight="58.0" prefWidth="250.0" text="Logout" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="16.0" />
                            </font>
@@ -159,9 +159,7 @@
                   <Insets bottom="5.0" left="45.0" />
                </opaqueInsets>
             </VBox>
-         </children>
-      </Pane>
-      <StackPane fx:id="contentArea" layoutX="252.0" layoutY="32.0" prefHeight="755.0" prefWidth="1034.0" />
-      <Label fx:id="exit" layoutX="1243.0" layoutY="14.0" text="X" />
+         </left>
+      </BorderPane>
    </children>
 </AnchorPane>
