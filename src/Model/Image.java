@@ -1,5 +1,6 @@
 package Model;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -9,11 +10,13 @@ public class Image {
     private int height;
     private int width;
     private String imageID;
+    private String storageFolderName;
     BufferedImage image = null;
 
     public Image(int height, int width, String inputFileName, String storageFolderName, String imageID){
         this.setHeight(height);
         this.setWidth(width);
+        this.setStorageFolderName(storageFolderName);
         this.setImageID(imageID);
 
         //image process
@@ -31,6 +34,9 @@ public class Image {
     public void setImageID(String imageID){
         this.imageID=imageID;
     }
+    public void setStorageFolderName(String storageFolderName){
+        this.storageFolderName = storageFolderName;
+    }
 
     //getters
     public int getHeight(){
@@ -41,6 +47,9 @@ public class Image {
     }
     public String getImageID(){
         return this.imageID;
+    }
+    public String getStorageFolderName(){
+        return this.storageFolderName;
     }
 
     //add new image method
@@ -65,9 +74,17 @@ public class Image {
         }
     }
 
+    public void openImage(){
+       try{
+           Desktop.getDesktop().open(new File("Files\\"+ this.getStorageFolderName() +"\\"+ this.getImageID()));
+       }
+       catch (Exception e){
+           System.out.println("Error : " + e);
+       }
+    }
+
     @Override
     public String toString(){
         return this.getHeight() + "\n" + this.getWidth() + "\n" + this.getImageID();
     }
 }
-

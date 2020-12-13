@@ -19,7 +19,8 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
 
-        //Image myImage = new Image(512,512,"Image.png","UserPhotos","DefaultFemale.jpg");
+        Image myImage = new Image(512,512,"Image.png","UserPhotos","DefaultFemale.jpg");
+        myImage.openImage();
 
     }
 }
