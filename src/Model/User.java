@@ -19,6 +19,11 @@ public abstract class User extends Person {
         this.setMaritalStus(maritalStatus);
         //this.setAccount(account);
     }
+
+    public User(String userName, Gender gender, Date dob, String address, MartialStatus martialStatus, Account account) {
+        super();
+    }
+
     //Setters
     public void setUserName(String userName) {
         this.userName = userName;
