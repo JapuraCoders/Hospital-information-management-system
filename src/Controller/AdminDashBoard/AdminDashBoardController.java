@@ -1,120 +1,85 @@
 package Controller.AdminDashBoard;
 
-import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
+import Controller.FxmlLoader;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.fxml.FXML;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 
-
-import javax.swing.*;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class AdminDashBoardController implements Initializable {
 
     @FXML
-    private Pane mainPane;
+    private BorderPane mainpane;
+
 
     @FXML
-    private JFXButton btnHome;
+    void HandleAdminAppointment(javafx.event.ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("AdminAppointments");
+        mainpane.setCenter(view);
+    }
 
     @FXML
-    private JFXButton btnAppointments;
+    void HandleAdminHome(javafx.event.ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("AdminHome");
+        mainpane.setCenter(view);
+    }
+
 
     @FXML
-    private JFXButton btnComplaints;
+    void HandleAdminPatient(javafx.event.ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("AdminPatient");
+        mainpane.setCenter(view);
+    }
 
     @FXML
-    private JFXButton btnPatients;
+    void handleAdminComplaint(javafx.event.ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("AdminComplaints");
+        mainpane.setCenter(view);
+    }
 
     @FXML
-    private JFXButton btnMedicalOfficer;
+    void handleAdminModule(javafx.event.ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("AdminModule");
+        mainpane.setCenter(view);
+    }
 
     @FXML
-    private JFXButton btnReceptionist;
+    void handleAdminReceptionist(javafx.event.ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("AdminReceptionist");
+        mainpane.setCenter(view);
+    }
 
     @FXML
-    private JFXButton btnModule;
+    void handleAdminSetting(javafx.event.ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("AdminSettings");
+        mainpane.setCenter(view);
+    }
 
     @FXML
-    private JFXButton btnSettings;
+    void handleMedicalOfficerMedical(javafx.event.ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("AdminMedicalOfficer");
+        mainpane.setCenter(view);
+    }
+
 
     @FXML
-    private JFXButton btnLogout;
+    void HandleAdminLogout(javafx.event.ActionEvent event) {
 
-    @FXML
-    private StackPane contentArea;
-
-    @FXML
-    private Label exit;
-
-
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        exit.setOnMouseClicked(e->{
-            System.exit(0);
-        });
-
-        }
-
-    @FXML
-    void HandlePatient(ActionEvent event) {
-        System.out.println("you clicked me");
-        FXMLLoader object = new FXMLLoader();
-        pane view = object.getPane("AdminHome.fxml");
-        mainPane.setCenter(view);
 
     }
-
-    @FXML
-    void handleAppointment(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleComplaint(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleHome(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleMedical(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleModule(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleReceptionist(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleSetting(ActionEvent event) {
-
-    }
-
-
-
 }
-
-
-
