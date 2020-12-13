@@ -4,10 +4,11 @@ public class Patient extends User {
 
     private BloodType bloodType;
     private String allergies;
+    private PatientRecords patientRecords;
 
 
-    Patient(String userName,Gender gender,Date dob, String address,MartialStatus martialStatus,Account account,BloodType bloodType,String allergies){
-        super(userName,gender,dob,address,martialStatus,account);
+    Patient(String userName,Gender gender,Date dob, String address,MaritalStatus maritalStatus,Account account,BloodType bloodType,String allergies,PatientRecords patientRecords){
+        super(userName,gender,dob,address,maritalStatus,account);
         this.setBloodType(bloodType);
         this.setAllergies(allergies);
     }
@@ -21,6 +22,8 @@ public class Patient extends User {
         this.allergies=allergies;
     }
 
+    public void setPatientRecords(PatientRecords patientRecords){this.patientRecords=patientRecords;}
+
 
     public BloodType getBloodType()	{
         return this.bloodType;
@@ -30,6 +33,9 @@ public class Patient extends User {
     public String getAllergies(){
         return this.allergies;
     }
+
+    public PatientRecords getPatientRecords(){return this.patientRecords;}
+    
     void getBloodInformation(BloodType type) {
         switch (type) {
             case A_PLUS:
