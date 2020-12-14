@@ -35,7 +35,7 @@ public class Patient extends User {
     }
 
     public PatientRecords getPatientRecords(){return this.patientRecords;}
-    
+
     void getBloodInformation(BloodType type) {
         switch (type) {
             case A_PLUS:
