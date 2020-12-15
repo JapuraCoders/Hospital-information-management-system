@@ -2,6 +2,9 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -23,6 +26,17 @@
                         <Font name="Gotham-Book" size="12.0" />
                      </font>
                   </JFXButton>
+                  <TableView layoutX="10.0" layoutY="76.0" prefHeight="467.0" prefWidth="972.0">
+                    <columns>
+                      <TableColumn prefWidth="81.60000419616699" text="No." />
+                      <TableColumn prefWidth="253.59996795654297" text="Name" />
+                        <TableColumn prefWidth="168.00003051757812" text="NIC" />
+                        <TableColumn prefWidth="201.5999755859375" text="Assigned doctor" />
+                        <TableColumn prefWidth="172.79998779296875" text="Date" />
+                        <TableColumn prefWidth="92.0" text="Edit" />
+                    </columns>
+                  </TableView>
+                  <ScrollBar layoutX="988.0" layoutY="79.0" orientation="VERTICAL" prefHeight="462.0" prefWidth="14.0" />
                </children>
             </Pane>
          </children>

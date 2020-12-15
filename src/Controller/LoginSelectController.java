@@ -36,7 +36,7 @@ public class LoginSelectController implements Initializable {
     }
 
     @FXML
-    void selectAdmin(ActionEvent event) throws IOException {
+    void selectAdmin(javafx.event.ActionEvent event) throws IOException {
         Stage stage =(Stage) adminBtn.getScene().getWindow();
         stage.close();
         Stage primaryStage = new Stage();
