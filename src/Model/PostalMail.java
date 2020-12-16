@@ -4,6 +4,9 @@ import java.util.Date;
 
 public abstract class PostalMail {
 
+    protected String mailType;//add a new attribute to display extends classes.
+    // becouse extended classes also have these attributes nothing else.
+    // mail type means either recieved mail or dipached mail.
     protected String toName;
     protected String fromName;
     protected String refNo;
@@ -14,7 +17,8 @@ public abstract class PostalMail {
 
 
     //constructer
-    protected PostalMail(String toName,String fromName,String refNo,String address,String note,Date date){
+    protected PostalMail(String mailType,String toName,String fromName,String refNo,String address,String note,Date date){
+        this.setMailType(mailType);
         this.setToName(toName);
         this.setFromName(fromName);
         this.setRefNo(refNo);
@@ -25,6 +29,7 @@ public abstract class PostalMail {
 
 
     //setters
+    public void setMailType(String mailType){this.mailType=mailType; }
     public void setToName(String toName){
         this.toName=toName;
     }
@@ -46,6 +51,9 @@ public abstract class PostalMail {
 
 
     //getters
+    public String getMailType(){
+        return this.mailType;
+    }
     public String getToName(){
         return this.toName;
     }
@@ -65,7 +73,7 @@ public abstract class PostalMail {
 
     @Override
     public String toString(){
-        return getToName()+"\n"+getFromName()+"\n"+getRefNo()+"\n"+getAddress()+"\n"+getDate();
+        return getMailType()+"\n"+getToName()+"\n"+getFromName()+"\n"+getRefNo()+"\n"+getAddress()+"\n"+getDate();
     }
 
 

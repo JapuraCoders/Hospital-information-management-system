@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="599.0" prefWidth="774.0" stylesheets="@../assets/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginSelectController">
+   <children>
+      <Label layoutX="228.0" layoutY="103.0" prefHeight="20.0" prefWidth="318.0" text="Choose Account Type" textFill="WHITE">
+         <font>
+            <Font name="Gotham-Bold" size="28.0" />
+         </font>
+      </Label>
+      <Button fx:id="patientBtn" layoutX="202.0" layoutY="183.0" mnemonicParsing="false" onAction="#selectPatient" prefHeight="115.0" prefWidth="108.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+         <graphic>
+            <ImageView fitHeight="136.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/LoginDashBoard/patienticon@2x.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets bottom="-2.0" left="-2.0" right="-2.0" top="-2.0" />
+         </padding>
+      </Button>
+      <Button fx:id="medicalOfficerBtn" layoutX="449.0" layoutY="183.0" mnemonicParsing="false" onAction="#selectMedicalOfficer" prefHeight="115.0" prefWidth="108.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+         <graphic>
+            <ImageView fitHeight="136.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/LoginDashBoard/medicalofficericon@2x.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets bottom="-2.0" left="-2.0" right="-2.0" top="-2.0" />
+         </padding>
+      </Button>
+      <Button fx:id="receptionistBtn" layoutX="202.0" layoutY="364.0" mnemonicParsing="false" onAction="#selectReceptionist" prefHeight="115.0" prefWidth="108.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+         <padding>
+            <Insets bottom="-2.0" left="-2.0" right="-2.0" top="-2.0" />
+         </padding>
+         <graphic>
+            <ImageView fitHeight="136.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/LoginDashBoard/receptionisticon@2x.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="adminBtn" layoutX="449.0" layoutY="364.0" mnemonicParsing="false" onAction="#selectAdmin" prefHeight="115.0" prefWidth="108.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+         <graphic>
+            <ImageView fitHeight="136.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/LoginDashBoard/adminicon@2x.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets bottom="-2.0" left="-2.0" right="-2.0" top="-2.0" />
+         </padding>
+      </Button>
+      <Label layoutX="745.0" onMouseClicked="#handleClose" prefHeight="34.0" prefWidth="14.0" text="x" textFill="#f7fafc">
+         <font>
+            <Font name="Gill Sans MT" size="28.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
