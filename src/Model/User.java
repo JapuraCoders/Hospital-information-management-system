@@ -9,9 +9,9 @@ public abstract class User extends Person {
     protected String address;
     protected MaritalStatus maritalStatus;
 
-    protected User(String name,String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus/*, Account account*/){
+    protected User(String name,String phone, String nIC, Gender gender, Date dOB, String address, MaritalStatus maritalStatus/*, Account account*/){
         super (name, phone, nIC);
-        this.setUserName(userName);
+        this.setUserName(name);
         this.setGender(gender);
         this.setDOB(dOB);
         this.setAddress(address);
@@ -56,6 +56,6 @@ public abstract class User extends Person {
 
     @Override
     public String toString(){
-        return super.toString() + "\n" + this.getUserName() + "\n" + this.getGender() + "\n" + this.getDOB() + "\n" + this.getAddress() + "\n" + this.getMaritalStatus();
+        return super.toString() + "-" + this.getUserName() + "-" + this.getGender() + "-" + this.getDOB() + "-" + this.getAddress() + "-" + this.getMaritalStatus();
     }
 }

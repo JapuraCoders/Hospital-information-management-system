@@ -1,7 +1,8 @@
 package Model;
 
 import java.io.*;
-class VisitorRecords
+class
+VisitorRecords
 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
