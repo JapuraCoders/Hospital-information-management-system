@@ -1,7 +1,7 @@
 package Model;
 
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class AccountRecord {
     private String fileName;
@@ -19,12 +19,12 @@ public class AccountRecord {
 
     //methods
 
-    //View all details
-    public void viewAllAccounts() throws IOException{
+    //View all login details
+    public List<String> viewAllAccounts() throws IOException, NoSuchElementException {
+        String record,ID,password,image,user,userType,accountRecord;
+        List<String> recordList = new ArrayList<>();
         try{
             BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
-
-            String record,ID,password,image,user,userType;
 
             while( ( record = br.readLine() ) != null ) {
 
@@ -36,21 +36,25 @@ public class AccountRecord {
                 user = accountDetail.nextToken();
                 userType = accountDetail.nextToken();
 
-                System.out.println("AccountID : "+ID+"\nPassword : "+password+"\nImage : "+image+"\nUserDetails : "+user+"\nUserType : "+userType+"\n");
+                accountRecord = "\nAccountID : "+ID+"\nPassword : "+password+"\nImage : "+image+"\nUserDetails : "+user+"\nUserType : "+userType+"\n----------------------------";
 
+                recordList.add(accountRecord);
             }
             br.close();
         }
         catch (IOException e){
             System.out.println("Error : " + e);
         }
+        catch (NoSuchElementException e){
+            System.out.println("Error : "+ e);
+        }
+        return recordList;
     }
 
     //return details of Account by It's ID
-    public void viewByID(String accountID) throws IOException{
+    public String viewByID(String accountID) throws IOException{
+        String ID = accountID,password,image,user,userType,record, accountRecord = "Null";
         try{
-            String record, ID = accountID,password,image,user,userType;
-
             BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
 
             System.out.println("\t\t Search Account Record\n");
@@ -59,20 +63,21 @@ public class AccountRecord {
 
                 StringTokenizer accountDetail = new StringTokenizer(record,",");
                 if( record.contains(ID) ) {
-                    //return AccountDetails
+                    ID = accountDetail.nextToken();
                     password = accountDetail.nextToken();
                     image =accountDetail.nextToken();
                     user = accountDetail.nextToken();
                     userType = accountDetail.nextToken();
-                    System.out.println("AccountID : "+ID+"\nPassword : "+password+"\nImage : "+image+"\nUserDetails : "+user+"\nUserType : "+userType);
-                }
 
+                    accountRecord = "AccountID : "+ID+"\nPassword : "+password+"\nImage : "+image+"\nUserDetails : "+user+"\nUserType : "+userType;
+                }
             }
             br.close();
         }
         catch (IOException e){
-        System.out.println("Error : "+e);
+         System.out.println("Error : "+e);
         }
+        return accountRecord;
     }
 
     //add new account record
@@ -96,6 +101,7 @@ public class AccountRecord {
         }
         catch (IOException e){
             System.out.println("An error occurred : " + e);
+            e.getStackTrace();
         }
     }
 
@@ -113,11 +119,11 @@ public class AccountRecord {
             System.out.println("\t\t Delete Account Record\n");
 
             while ((record = br.readLine()) != null) {
-                if (record.contains(ID))
-                    continue;
-                bw.write(record);
-                bw.flush();
-                bw.newLine();
+                if (!record.contains(ID)) {
+                    bw.write(record);
+                    bw.flush();
+                    bw.newLine();
+                }
             }
             br.close();
             bw.close();
