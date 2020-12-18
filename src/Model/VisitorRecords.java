@@ -1,135 +1,114 @@
 package Model;
 
 import java.io.*;
-class VisitorRecords
-{
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.*;
 
-    public void addRecords() throws IOException
-    {
-        // Create or Modify a file for Database
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new
-                FileWriter("Records.txt",true)));
-        String name, nIC, note, inTime, date,outTime;
-        long telephoneNo;
-        String s;
-        boolean addMore = false;
-        // Read Data
-        do
-        {
-            System.out.print("\nEnter name: ");
-            name = br.readLine();
+public class VisitorRecords {
+    private String fileName;
 
-            System.out.print("nIC: ");
-            nIC = br.readLine();
+    public VisitorRecords(String fileName){
+        this.setFileName(fileName);
+    }
 
-            System.out.print("note: ");
-            note = br.readLine();
+    public void setFileName(String fileName){
+        this.fileName = fileName;
+    }
 
-            System.out.print("inTime: ");
-            inTime = br.readLine();
+    public String getFileName(){
+        return this.fileName;
+    }
 
-            System.out.print("outTime: ");
-            outTime = br.readLine();
+    //This will return all the visitor details
+    public List<String> viewAllRecords() throws IOException, NoSuchElementException {
+        String name,phone,nIC,date,inTime,outTime,note,record,visitorRecord;
+        List<String> visitorRecordList = new ArrayList<>();
+        try{
+            BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
 
+            while( ( record = br.readLine() ) != null ) {
 
+                StringTokenizer visitorDetail = new StringTokenizer(record,",");
 
-            System.out.print("Date(dd/mm/yy) : ");
-            date = br.readLine();
+                name = visitorDetail.nextToken();
+                phone = visitorDetail.nextToken();
+                nIC =visitorDetail.nextToken();
+                date = visitorDetail.nextToken();
+                inTime = visitorDetail.nextToken();
+                outTime = visitorDetail.nextToken();
+                note = visitorDetail.nextToken();
 
+                visitorRecord = "\nName : " + name + "\nPhone number : " + phone + "\nNIC : " +nIC + "\nDate : " + date + "\nInTime : " + inTime + "\nOutTime : " +outTime +  "\nNote : " + note+"\n----------------------";
 
-            System.out.print("Telephone No.: ");
-            telephoneNo = Long.parseLong(br.readLine());
-            // Print to File
-            pw.println(name);
-            pw.println(nIC);
-            pw.println(note);
-            pw.println(inTime);
-            pw.println(outTime);
-            pw.println(date);
-            pw.println(telephoneNo);
-
-            System.out.print("\nRecords added successfully !\n\nDo you want to add more records ? (y/n) : ");
-            s = br.readLine();
-            if(s.equalsIgnoreCase("y"))
-            {
-                addMore = true;
-                System.out.println();
+                visitorRecordList.add(visitorRecord);
             }
-            else
-                addMore = false;
+            br.close();
         }
-        while(addMore);
-        pw.close();
-        showMenu();
+        catch (IOException e){
+            System.out.println("Error : " + e);
+        }
+        catch (NoSuchElementException e){
+            System.out.println("Error : " + e);
+        }
+        return visitorRecordList;
     }
-    public void readRecords() throws IOException
-    {
-        try
-        {
-            // Open the file
-            BufferedReader file = new BufferedReader(new
-                    FileReader("Records.txt"));
-            String name;
-            int i=1;
-            // Read records from the file
-            while((name = file.readLine()) != null)
-            {
-                System.out.println("S.No. : " +(i++));
-                System.out.println("-------------");
-                System.out.println("\nName: " +name);
-                System.out.println("nIC : "+file.readLine());
-                System.out.println("note: "+file.readLine());
-                System.out.println("inTime: "+file.readLine());
-                System.out.println("outTime: "+file.readLine());
-                System.out.println("Date: "+file.readLine());
-                System.out.println("Tel. No.: "+Long.parseLong(file.readLine()));
-                System.out.println();
+public static void main(String []args)throws IOException{
+        Visitor vis1=new Visitor("taniya","0987654","56789043", LocalDate.now(), LocalTime.now(),LocalTime.now(),"ggggggggggggg");
+        Visitor vis2=new Visitor("Anne","9876654","456778990",LocalDate.now(),LocalTime.now(),LocalTime.now(),"yyyyyyyyyyyy");
+        Visitor  vis3=new Visitor("ganiya","8976547","54321679",LocalDate.now(),LocalTime.now(),LocalTime.now(),"tttttttttt");
+
+        Visitor [] visArray=new Visitor[4];
+
+        visArray[0]=vis1;
+        visArray[1]=vis2;
+        visArray[2]=vis3;
+        for( int  i=0;i<visArray.length; i++){
+            String outputText=visArray[i].getName()+"|"+visArray[i].getPhone()+"|"+visArray[i].getNIC()+"|"+visArray[i].getDate()+"|"+visArray[i].getInTime()+"|"+visArray[i].getOutTime()+"|"+visArray[i].getNote();
+            AddRecord("C:\\Users\\thiruthisara\\Desktop\\New folder (2)\\VisitorRecord.txt",outputText,true);
+    }
+
+}
+
+    //add new visitor record
+ public static void AddRecord(String fileName,String text,boolean append)throws IOException{
+        File file1=new File(fileName);
+        FileWriter fw=new FileWriter(file1,append);
+        PrintWriter pw=new PrintWriter(fw);
+        pw.println(text);
+        pw.close();
+
+ }
+    //Delete visitor details according to nIC
+    public void dlt(String nIC) throws IOException {
+        try {
+            String record, ID = nIC;
+
+            File tempDB = new File("visitor_db_temp.txt");
+            File db = new File(this.getFileName());
+
+            BufferedReader br = new BufferedReader(new FileReader(db));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
+
+            System.out.println("\t Delete Account Record of nIC : " + nIC);
+
+            while ((record = br.readLine()) != null) {
+                if (!record.contains(ID)) {
+                    bw.write(record);
+                    bw.flush();
+                    bw.newLine();
+                }
             }
-            file.close();
-            showMenu();
+            br.close();
+            bw.close();
+
+            db.delete();
+
+            tempDB.renameTo(db);
         }
-        catch(FileNotFoundException e)
-        {
-            System.out.println("\nERROR : File not Found !!!");
-        }
-    }
-    public void clear() throws IOException
-    {
-        // Create a blank file
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new
-                FileWriter("Records.txt")));
-        pw.close();
-        System.out.println("\nAll Records cleared successfully !");
-        for(int i=0;i<999999999;i++); // Wait for some time
-        showMenu();
-    }
-    public void showMenu() throws IOException
-    {
-        System.out.print("1 : Add Records\n2 : Display Records\n3 : Clear All Records\n4 : Exit\n\nYour Choice : ");
-        int choice = Integer.parseInt(br.readLine());
-        switch(choice)
-        {
-            case 1:
-                addRecords();
-                break;
-            case 2:
-                readRecords();
-                break;
-            case 3:
-                clear();
-                break;
-            case 4:
-                System.exit(1);
-                break;
-            default:
-                System.out.println("\nInvalid Choice !");
-                break;
+        catch (IOException e){
+            System.out.println("Error : "+e);
         }
     }
-    public static void main(String args[]) throws IOException
-    {
-        VisitorRecords call = new VisitorRecords();
-        call.showMenu();
-    }
+
 }
