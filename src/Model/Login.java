@@ -1,27 +1,39 @@
 package Model;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+
+import java.util.Date;
 
 public class Login {
     private String loginID;
     private String typedUserName; //this user name will be entered by the user at login time
     private String typedPassword;
-    private LocalDate loginDate;
-    private LocalTime loginTime;
+    private Date loginDateAndTime;
     private Boolean loginStatus;
+    private static int loginCounter;
 
-    private static int loginCounter = 0;
+    public Login(){
+        this.setLoginID(null);
+        this.setTypedUserName(null);
+        this.setTypedPassword(null);
+        this.setLoginDateAndTime(null);
+        this.setLoginStatus(null);
+    }
 
-    public Login (String typedUserName, String typedPassword){
+    //this constructor will be use when passing old details
+    public Login(String loginID, String typedUserName, String typedPassword,Date loginDateAndTime,boolean loginStatus){
+        this.setLoginID(loginID);
+        this.setTypedUserName(typedUserName);
+        this.setTypedPassword(typedPassword);
+        this.setLoginDateAndTime(loginDateAndTime);
+        this.setLoginStatus(loginStatus);
+    }
+    //this constructor will be use when new login
+    public Login (String typedUserName, String typedPassword,Date loginDateAndTime){
         this.setLoginID(loginIDGenerator());
         this.setTypedUserName(typedUserName);
         this.setTypedPassword(typedPassword);
-        this.setLoginDate(java.time.LocalDate.now());
-        this.setLoginTime(java.time.LocalTime.now());
+        this.setLoginDateAndTime(loginDateAndTime);
         this.setLoginStatus(false);
-
-        loginCounter++;
     }
 
     //setters
@@ -34,11 +46,8 @@ public class Login {
     public void setTypedPassword (String typedPassword){
         this.typedPassword = typedPassword;
     }
-    public void setLoginDate(LocalDate loginDate){
-        this.loginDate = loginDate;
-    }
-    public void setLoginTime (LocalTime loginTime){
-        this.loginTime = loginTime;
+    public void setLoginDateAndTime(Date loginDateAndTime){
+        this.loginDateAndTime = loginDateAndTime;
     }
     public void setLoginStatus(Boolean loginStatus){
         this.loginStatus = loginStatus;
@@ -53,11 +62,8 @@ public class Login {
     public String getTypedPassword(){
         return this.typedPassword;
     }
-    public LocalDate getLoginDate(){
-        return this.loginDate;
-    }
-    public LocalTime getLoginTime(){
-        return this.loginTime;
+    public Date getLoginDateAndTime(){
+        return this.loginDateAndTime;
     }
     public Boolean getLoginStatus(){
         return this.loginStatus;
@@ -71,20 +77,20 @@ public class Login {
 
     public String loginIDGenerator(){
 
-        String date, time, loginNumber, generatedLoginID;
+        String generatedLoginID;
+        int loginNumber;
 
-        date = String.valueOf(this.getLoginDate());
-        time = String.valueOf(this.getLoginTime());
-        loginNumber = String.valueOf(this.getLoginCounter());
+        loginNumber = this.getLoginCounter();
 
-        generatedLoginID = date + "|" + time + "|" +  loginNumber;
+        generatedLoginID = String.format("#%05d", loginNumber);
+        loginCounter++;
 
         return generatedLoginID;
     }
 
     @Override
     public String toString(){
-        return this.getLoginID() + "," + this.getTypedUserName() + "," + this.getTypedPassword() + "," + this.getLoginDate() + "," + this.getLoginTime() + "," + this.getLoginStatus();
+        return this.getLoginID() + "," + this.getTypedUserName() + "," + this.getTypedPassword() + "," + this.getLoginDateAndTime() + "," + this.getLoginStatus();
     }
 
 }

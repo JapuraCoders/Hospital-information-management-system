@@ -1,7 +1,5 @@
 package Model;
 
-import java.io.*;
-
 public class Account {
         private String accountID;
         private String password;
@@ -102,13 +100,14 @@ public class Account {
             else{
                 System.out.println("Cannot generate accountID cause of Invalid User Type");
             }
-            return accountType + String.valueOf(accountNo);
+            return String.format("%s%05d",accountType,accountNo);
         }
 
         public String defaultPassword(){
             return user.getNIC();
         }
 
+        //If user did not add profile image then default image would add as profile image
         public Image defaultImage(){
             String inputFileName = "Null";
             if(this.getUser().getGender()==Gender.MALE){
