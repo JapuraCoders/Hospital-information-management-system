@@ -5,8 +5,9 @@ import java.util.Date;
 public abstract class MedicalOfficer extends Staff {
     protected String specialtyArea;
 
-    protected MedicalOfficer(String name, String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus, String staffID, String staffEmailAddress, Date dateJoining, Image staffPhotograph) {
-        super(name, phone, nIC, userName, gender, dOB, address, maritalStatus, staffID, staffEmailAddress, dateJoining, staffPhotograph);
+    public MedicalOfficer(String name, String phone, String nIC, Gender gender, Date dOB, String address, MaritalStatus maritalStatus, String staffID, String staffEmailAddress, Date dateJoining, Image staffPhotograph, String specialtyArea) {
+        super(name, phone, nIC, gender, dOB, address, maritalStatus, staffID, staffEmailAddress, dateJoining, staffPhotograph);
+        this.specialtyArea = specialtyArea;
     }
 
     //setters

@@ -1,11 +1,19 @@
 package Controller.AdminDashBoard;
 
 import Controller.FxmlLoader;
+import com.sun.glass.ui.View;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Screen;
+
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -15,11 +23,15 @@ public class AdminDashBoardController implements Initializable {
     private BorderPane mainpane;
 
 
+
     @FXML
     void HandleAdminAppointment(javafx.event.ActionEvent event) {
+
+
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPage("AdminAppointments");
         mainpane.setCenter(view);
+
     }
 
     @FXML

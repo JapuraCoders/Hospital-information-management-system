@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -40,10 +41,12 @@ public class LoginSelectController implements Initializable {
         Stage stage =(Stage) adminBtn.getScene().getWindow();
         stage.close();
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/View/adminLogin.fxml"));
+        Parent root =  FXMLLoader.load(getClass().getResource("/View/adminLogin.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
+
     }
 
     @FXML

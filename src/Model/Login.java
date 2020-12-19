@@ -3,6 +3,7 @@ package Model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+
 public class Login {
     private String loginID;
     private String typedUserName; //this user name will be entered by the user at login time
@@ -13,7 +14,7 @@ public class Login {
 
     private static int loginCounter = 0;
 
-    public Login (String typedUserName, String typedPassword){
+    public Login(){
         this.setLoginID(loginIDGenerator());
         this.setTypedUserName(typedUserName);
         this.setTypedPassword(typedPassword);
@@ -81,6 +82,7 @@ public class Login {
 
         return generatedLoginID;
     }
+
 
     @Override
     public String toString(){

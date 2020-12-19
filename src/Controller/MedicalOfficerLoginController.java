@@ -65,6 +65,7 @@ public class MedicalOfficerLoginController implements Initializable{
                                                 primaryStage.initStyle(StageStyle.DECORATED);
                                                 primaryStage.setScene(new Scene(root));
                                                 primaryStage.show();
+
                                         }
                                         else{
                                                 errorMsg.setText("Invalid UserName or Password!");

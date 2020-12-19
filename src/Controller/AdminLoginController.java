@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Login;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +41,6 @@ public class AdminLoginController implements Initializable {
 
     @FXML
     private Label errorMsg;
-
 
 
     @FXML

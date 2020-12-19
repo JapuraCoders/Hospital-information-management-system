@@ -7,13 +7,14 @@ public abstract class Staff extends User{
     protected Date dateJoining;
     protected Image staffPhotograph;
 
-    protected Staff(String name,String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus,String staffID,String staffEmailAddress,Date dateJoining,Image staffPhotograph) {
-        super(name, phone, nIC, userName, gender, dOB, address, maritalStatus);
-        this.setStaffID(staffID);
-        this.setStaffEmailAddress(staffEmailAddress);
-        this.setDateJoining(dateJoining);
-        this.setStaffPhotograph(staffPhotograph);
+    public Staff(String name, String phone, String nIC, Gender gender, Date dOB, String address, MaritalStatus maritalStatus, String staffID, String staffEmailAddress, Date dateJoining, Image staffPhotograph) {
+        super(name, phone, nIC, gender, dOB, address, maritalStatus);
+        this.staffID = staffID;
+        this.staffEmailAddress = staffEmailAddress;
+        this.dateJoining = dateJoining;
+        this.staffPhotograph = staffPhotograph;
     }
+
     //setters
     public void setStaffID (String staffID){
         this.staffID = staffID;
