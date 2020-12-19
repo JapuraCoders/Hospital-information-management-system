@@ -10,10 +10,11 @@ import javafx.stage.StageStyle;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.Date;
 
-public class Main extends Application {
+public class Main /*extends Application*/ {
 
-   @Override
+  /* @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("View/LoginSelect.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
@@ -21,26 +22,34 @@ public class Main extends Application {
         primaryStage.show();
 
 
-    }
+    }*/
 
-    /*public static String removeFirstAndLast(String str)
+    public static String removeFirstAndLast(String str)
     {   // Removing first and last character of a string using substring() method
         str = str.substring(1, str.length() - 1);
         return str;
-    }*/
+    }
+    public static Date getCurrentDate(){
+        return java.util.Calendar.getInstance().getTime();
+        //getting current date and time from the CPU
+    }
 
     public static void main(String[] args) throws IOException {
-        launch(args);
+        //launch(args);
 
-        /*Login login1 = new Login("User1","password");
-        Login login2 = new Login("User2","pass");
+        //Login login1 = new Login("Romenia","abc",getCurrentDate());
+        //Login login2 = new Login("Movini","xyz",getCurrentDate());
+        //Login login3 = new Login("Thiromi","123",getCurrentDate());
         LoginRecord userLogin = new LoginRecord("Files\\Details\\LoginDetails.txt");
 
-        userLogin.add(login1);
-        userLogin.add(login2);
-        userLogin.dlt("null|null|0");
-        System.out.println(userLogin.viewByID("null|null|1"));
-        System.out.println(removeFirstAndLast(userLogin.viewAllLogins().toString()));*/
+        //userLogin.add(login1);
+        //userLogin.add(login2);
+        //userLogin.add(login3);
+
+        //userLogin.dlt("00000");
+        //userLogin.editLoginData("#00001","loginStatus","true");
+         System.out.println(userLogin.viewByID("#00001"));
+         System.out.println(removeFirstAndLast(userLogin.viewAllLogins().toString()));
 
     }
 }

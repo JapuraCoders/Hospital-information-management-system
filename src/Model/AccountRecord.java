@@ -53,11 +53,11 @@ public class AccountRecord {
 
     //return details of Account by It's ID
     public String viewByID(String accountID) throws IOException{
-        String ID = accountID,password,image,user,userType,record, accountRecord = "Null";
+        String ID = accountID,password,image,user,userType,record, accountRecord = "There is no record contained " + accountID;
         try{
             BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
 
-            System.out.println("\t\t Search Account Record\n");
+            System.out.println("\t Search Account Record of accountID : " + accountID);
 
             while( ( record = br.readLine() ) != null ) {
 
@@ -80,21 +80,11 @@ public class AccountRecord {
         return accountRecord;
     }
 
-    //add new account record
+    //----------------------------------Add new account record---------------------------------------------
     public void add(Account account) throws IOException {
         try {
-
             BufferedWriter bw = new BufferedWriter( new FileWriter(this.getFileName(),true) );
-
-            String accountID, password, image, user, userType;
-
-            accountID = account.getAccountID();
-            password = account.getPassword();
-            image = account.getImage().toString();
-            user = account.getUser().toString();
-            userType = account.getUserType().toString();
-
-            bw.write(accountID+","+password+","+image+","+user+","+userType);
+            bw.write(account.toString());
             bw.flush();
             bw.newLine();
             bw.close();
@@ -105,7 +95,7 @@ public class AccountRecord {
         }
     }
 
-    //Delete any account
+    //-------------------------------------Delete any account------------------------------------------------
     public void dlt(String accountID) throws IOException {
         try {
             String record, ID = accountID;
@@ -116,7 +106,7 @@ public class AccountRecord {
             BufferedReader br = new BufferedReader(new FileReader(db));
             BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
 
-            System.out.println("\t\t Delete Account Record\n");
+            System.out.println("\t Delete Account Record of accountID : " + accountID);
 
             while ((record = br.readLine()) != null) {
                 if (!record.contains(ID)) {
@@ -129,12 +119,13 @@ public class AccountRecord {
             bw.close();
 
             db.delete();
-
             tempDB.renameTo(db);
+            System.out.println("\t Delete Account Record of login ID : " + accountID + "is successfully");
         }
         catch (IOException e){
             System.out.println("Error : "+e);
         }
     }
+    //Edit element in file
 
 }
