@@ -7,12 +7,12 @@ public class Patient extends User {
     private PatientRecords patientRecords;
 
 
-    Patient(String userName,Gender gender,Date dob, String address,MaritalStatus maritalStatus,Account account,BloodType bloodType,String allergies,PatientRecords patientRecords){
-        super(userName,gender,dob,address,maritalStatus,account);
-        this.setBloodType(bloodType);
-        this.setAllergies(allergies);
+    public Patient(String s, String name, String phone, String nIC, Gender gender, Date dOB, String address, MaritalStatus maritalStatus, BloodType bloodType, String allergies, PatientRecords patientRecords) {
+        super(s, name, phone, nIC, gender, dOB, address, maritalStatus);
+        this.bloodType = bloodType;
+        this.allergies = allergies;
+        this.patientRecords = patientRecords;
     }
-
 
     public void setBloodType(BloodType bloodType){
         this.bloodType=bloodType;
