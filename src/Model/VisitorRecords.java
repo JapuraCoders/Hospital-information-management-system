@@ -33,11 +33,8 @@ VisitorRecords
             System.out.print("outTime: ");
             outTime = br.readLine();
 
-
-
             System.out.print("Date(dd/mm/yy) : ");
             date = br.readLine();
-
 
             System.out.print("Telephone No.: ");
             telephoneNo = Long.parseLong(br.readLine());
