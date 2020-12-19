@@ -100,13 +100,14 @@ public class Account {
             else{
                 System.out.println("Cannot generate accountID cause of Invalid User Type");
             }
-            return accountType + String.valueOf(accountNo);
+            return String.format("%s%05d",accountType,accountNo);
         }
 
         public String defaultPassword(){
             return user.getNIC();
         }
 
+        //If user did not add profile image then default image would add as profile image
         public Image defaultImage(){
             String inputFileName = "Null";
             if(this.getUser().getGender()==Gender.MALE){
@@ -127,5 +128,4 @@ public class Account {
         public String toString(){
             return this.getAccountID() + "\n" + this.getPassword() + "\n" + this.getImage() + "\n" + this.getUser() + "\n" + this.getUserType();
         }
-
     }

@@ -1,8 +1,8 @@
 package Model;
 
-public enum Status {
+public enum AppointmentStatus {
     PENDING,
     APPROVED,
     COMPLETED;
-
 }
+

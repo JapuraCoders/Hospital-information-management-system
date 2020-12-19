@@ -9,5 +9,10 @@ public class Complaint {
     private String description;
     private String actionTaken;
     private String note;
+    private ArrayList<Refference> complainList;
+
+
+    public
+
 
 }

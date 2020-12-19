@@ -10,17 +10,17 @@ public class Appointment {
     private String symptoms;
     private int appointmentNo;
     private MedicalOfficer medicalOfficer;
-    private Status status;
+    private AppointmentStatus appointmentStatus;
     private static int appointmentCounter;
 
-    public Appointment(Patient patient,LocalDate appointmentDate,LocalTime time,String symptoms,int appointmentNo,MedicalOfficer medicalOfficer,Status status){
+    public Appointment(Patient patient,LocalDate appointmentDate,LocalTime time,String symptoms,int appointmentNo,MedicalOfficer medicalOfficer,AppointmentStatus appointmentStatus){
         this.setPatient(patient);
         this.setAppointmentDate(appointmentDate);
         this.setTime(time);
         this.setSymptoms(symptoms);
         this.setAppointmentNo(appointmentNo);
         this.setMedicalOfficer(medicalOfficer);
-        this.setStatus(status);
+        this.setStatus(appointmentStatus);
         appointmentCounter++;
     }
 
@@ -40,8 +40,8 @@ public class Appointment {
         this.medicalOfficer = medicalOfficer;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStatus(AppointmentStatus appointmentStatus) {
+        this.appointmentStatus = appointmentStatus;
     }
 
 
@@ -80,13 +80,8 @@ public class Appointment {
         return this.appointmentNo;
     }
 
-    public Status getStatus() {
-        return this.status;
-    }
-
-    public MedicalOfficer getMedicalOfficer() {
-        return this.medicalOfficer;
-    }
+    public AppointmentStatus getAppointmentStatus() {
+        return this.appointmentStatus;}
 
     public int getAppointmentCounter() {
         return Appointment.appointmentCounter;
@@ -94,6 +89,6 @@ public class Appointment {
 
     @Override
     public String toString(){
-        return this.getPatient()+ "," + this.getAppointmentDate()+ "," + this.getPatient()+ "," + this.getTime()+ "," + this.getSymptoms()+ "," + this.getAppointmentNo()+","+this.getStatus();
+        return this.getPatient()+ "," + this.getAppointmentDate()+ "," + this.getPatient()+ "," + this.getTime()+ "," + this.getSymptoms()+ "," + this.getAppointmentNo()+","+this.getAppointmentStatus();
     }
 }

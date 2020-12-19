@@ -1,7 +1,7 @@
 package Model;
 
 import java.time.LocalTime;
-import java.time.LocalDate;
+import java.util.Date;
 
 
 public  class  Visitor extends Person{
@@ -9,22 +9,27 @@ public  class  Visitor extends Person{
 
 
 
-    private LocalDate date;
-    private LocalTime inTime;
+    private Date dateAndTime;
+
     private LocalTime outTime;
     private String note;
 
 
     private static int visitorCounter;
 
-
+    public Visitor(){
+        super(null,null,null);
+        this.setDateAndTime(null);
+        this.setOutTime(null);
+        this.setNote(null);
+    }
 
 
     //this constructor valid when creating a visitor by admin and receptionist
-    public Visitor(String name, String phone, String nIC,LocalDate date,LocalTime inTime,LocalTime outTime,String note) {
+    public Visitor(String name, String phone, String nIC,Date dateAndTime,LocalTime outTime,String note) {
         super(name, phone, nIC);
-        this.setDate(java.time.LocalDate.now());
-        this.setInTime(java.time.LocalTime.now());
+
+        this.setDateAndTime(dateAndTime);
         this.setOutTime(java.time.LocalTime.now());
         this.setNote(note);
         visitorCounter++;
@@ -37,19 +42,13 @@ public  class  Visitor extends Person{
         visitorCounter++;
     }
 
-    public Visitor(){
-        super("","","");
+
+
+
+    public void setDateAndTime(Date dateAndTime){
+        this.dateAndTime =dateAndTime;
     }
 
-
-
-    public void setDate(LocalDate date){
-        this.date =LocalDate.now();
-    }
-
-    public void setInTime(LocalTime inTime) {
-        this.inTime=LocalTime.now();
-    }
 
     public void setOutTime(LocalTime outTime) {
         this.outTime=LocalTime.now();
@@ -63,13 +62,11 @@ public  class  Visitor extends Person{
     }
 
 
-    public LocalDate getDate(){
-        return this.date;
+    public Date getDateAndTime(){
+        return this.dateAndTime;
     }
 
-    public LocalTime getInTime(){
-        return this.inTime;
-    }
+
 
     public LocalTime getOutTime(){
         return this.outTime;
@@ -84,7 +81,9 @@ public  class  Visitor extends Person{
     }
     @Override
     public String toString(){
-        return this.getName()+ "," + this.getPhone()+ "," + this.getNIC()+ "," + this.getDate() + "," + this.getInTime() + "," + this.getOutTime()+","+this.getNote();
+        return this.getName()+ "," + this.getPhone()+ "," + this.getNIC()+ "," + this.getDateAndTime()   + "," + this.getOutTime()+","+this.getNote();
     }
 
 }
+
+

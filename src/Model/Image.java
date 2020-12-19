@@ -85,6 +85,6 @@ public class Image {
 
     @Override
     public String toString(){
-        return this.getHeight() + "\n" + this.getWidth() + "\n" + this.getImageID();
+        return this.getHeight() + "-" + this.getWidth() + "-" + this.getImageID();
     }
 }
