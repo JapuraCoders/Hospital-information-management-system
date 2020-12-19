@@ -1,5 +1,6 @@
 package Model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class PostalMail {
@@ -13,11 +14,11 @@ public class PostalMail {
     private String address;
     private String note;
     //private document;put here document data type and update constructor,getters setters and toString method
-    private Date date;//assign here current date
+    private LocalDateTime date;//assign here current date
 
 
     //constructer
-    protected PostalMail(String refNo,String mailType,String toName,String fromName,String address,String note,Date date){
+    protected PostalMail(String refNo,String mailType,String toName,String fromName,String address,String note,LocalDateTime date){
         this.setRefNo(refNo);
         this.setMailType(mailType);
         this.setToName(toName);
@@ -45,7 +46,7 @@ public class PostalMail {
     public void setNote(String note){
         this.note=note;
     }
-    public void setDate(Date date){
+    public void setDate(LocalDateTime date){
         this.date=date;
     }
 
@@ -64,7 +65,7 @@ public class PostalMail {
     public String getAddress(){
         return this.note;
     }
-    public Date getDate(){
+    public LocalDateTime getDate(){
         return this.date;
     }
 

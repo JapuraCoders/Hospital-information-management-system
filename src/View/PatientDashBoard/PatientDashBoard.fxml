@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="788.0" prefWidth="1285.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminDashBoard.AdminDashBoardController">
+   <children>
+      <BorderPane fx:id="mainpane" layoutX="-2.0" layoutY="-1.0" prefHeight="788.0" prefWidth="1285.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <Pane prefHeight="780.0" prefWidth="256.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutY="-242.0" prefHeight="1022.0" prefWidth="265.0" spacing="15.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="246.0" text="Patient" textFill="#172b4d">
+                           <font>
+                              <Font name="Gotham-Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Pane prefHeight="51.0" prefWidth="246.0">
+                           <children>
+                              <JFXButton layoutX="-1.0" layoutY="-4.0" onAction="#HandleAdminHome" prefHeight="58.0" prefWidth="246.0" text="Home" textFill="#172b4d">
+                                 <font>
+                                    <Font name="Gotham-Light" size="16.0" />
+                                 </font>
+                              </JFXButton>
+                              <ImageView fitHeight="28.0" fitWidth="42.0" layoutX="43.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/AdminDashBoard/Group%20287@2x.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="51.0" prefWidth="246.0">
+                           <children>
+                              <JFXButton fx:id="AppointmentsPage" layoutX="-1.0" layoutY="-4.0" onAction="#HandleAdminAppointment" prefHeight="58.0" prefWidth="246.0" text="             Appointments" textFill="#172b4d">
+                                 <font>
+                                    <Font name="Gotham-Book" size="16.0" />
+                                 </font>
+                              </JFXButton>
+                              <ImageView fitHeight="28.0" fitWidth="39.0" layoutX="49.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/AdminDashBoard/Group%20307@2x.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="51.0" prefWidth="246.0">
+                           <children>
+                              <JFXButton fx:id="ComplaintsPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleAdminComplaint" prefHeight="58.0" prefWidth="246.0" text="        Compliants" textFill="#172b4d">
+                                 <font>
+                                    <Font name="Gotham-Book" size="16.0" />
+                                 </font>
+                              </JFXButton>
+                              <ImageView fitHeight="28.0" fitWidth="42.0" layoutX="51.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/AdminDashBoard/Group%20323@2x.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="51.0" prefWidth="246.0">
+                           <children>
+                              <JFXButton fx:id="PatientsPage" layoutX="-1.0" layoutY="-4.0" onAction="#HandleAdminPatient" prefHeight="58.0" prefWidth="246.0" text="   Patients" textFill="#172b4d">
+                                 <font>
+                                    <Font name="Gotham-Book" size="16.0" />
+                                 </font>
+                              </JFXButton>
+                              <ImageView fitHeight="28.0" fitWidth="42.0" layoutX="44.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/AdminDashBoard/Group%20368@2x.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="51.0" prefWidth="1186.0">
+                           <children>
+                              <JFXButton fx:id="MedicalOfficerPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleMedicalOfficerMedical" prefHeight="58.0" prefWidth="246.0" text="              Medical officer" textFill="#172b4d">
+                                 <font>
+                                    <Font name="Gotham-Book" size="16.0" />
+                                 </font>
+                              </JFXButton>
+                              <ImageView fitHeight="28.0" fitWidth="39.0" layoutX="49.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/AdminDashBoard/Group%20359@2x.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="51.0" prefWidth="246.0">
+                           <children>
+                              <JFXButton fx:id="ReceptionistPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleAdminReceptionist" prefHeight="58.0" prefWidth="246.0" text="         Receptionist" textFill="#172b4d">
+                                 <font>
+                                    <Font name="Gotham-Book" size="16.0" />
+                                 </font>
+                              </JFXButton>
+                              <ImageView fitHeight="28.0" fitWidth="49.0" layoutX="47.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/AdminDashBoard/Group%20378@2x.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="51.0" prefWidth="246.0">
+                           <children>
+                              <JFXButton fx:id="ModulePage" layoutX="-1.0" layoutY="-4.0" onAction="#handleAdminModule" prefHeight="58.0" prefWidth="246.0" text=" Module" textFill="#172b4d">
+                                 <font>
+                                    <Font name="Gotham-Light" size="16.0" />
+                                 </font>
+                              </JFXButton>
+                              <ImageView fitHeight="28.0" fitWidth="42.0" layoutX="47.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/AdminDashBoard/Group%20404@2x.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="51.0" prefWidth="246.0">
+                           <children>
+                              <JFXButton fx:id="SettingsPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleAdminSetting" prefHeight="58.0" prefWidth="246.0" text="  Settings" textFill="#172b4d">
+                                 <font>
+                                    <Font name="Gotham-Book" size="16.0" />
+                                 </font>
+                              </JFXButton>
+                              <ImageView fitHeight="28.0" fitWidth="39.0" layoutX="44.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/AdminDashBoard/Group%20422@2x.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="0.0" prefWidth="1296.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <JFXButton layoutY="42.0" onAction="#HandleAdminLogout" prefHeight="58.0" prefWidth="250.0" text="Logout" textFill="#172b4d">
+                                 <font>
+                                    <Font name="Gotham-Book" size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets bottom="5.0" />
+                                 </padding>
+                              </JFXButton>
+                              <ImageView fitHeight="26.0" fitWidth="23.0" layoutX="51.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/AdminDashBoard/log-out@2x.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="45.0" />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </Pane>
+         </left>
+         <top>
+            <Pane prefHeight="242.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane depthTest="DISABLE" layoutX="265.0" layoutY="-1.0" prefHeight="242.0" prefWidth="1020.0" style="-fx-background-color: #172B4D;" />
+               </children>
+            </Pane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
