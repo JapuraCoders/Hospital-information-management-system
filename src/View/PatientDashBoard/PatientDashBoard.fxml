@@ -17,7 +17,7 @@
          <left>
             <Pane prefHeight="780.0" prefWidth="256.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox layoutY="-242.0" prefHeight="1022.0" prefWidth="265.0" spacing="15.0">
+                  <VBox prefHeight="780.0" prefWidth="265.0" spacing="15.0">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="246.0" text="Patient" textFill="#172b4d">
                            <font>
@@ -165,13 +165,6 @@
                </children>
             </Pane>
          </left>
-         <top>
-            <Pane prefHeight="242.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Pane depthTest="DISABLE" layoutX="265.0" layoutY="-1.0" prefHeight="242.0" prefWidth="1020.0" style="-fx-background-color: #172B4D;" />
-               </children>
-            </Pane>
-         </top>
       </BorderPane>
    </children>
 </AnchorPane>
