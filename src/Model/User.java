@@ -9,7 +9,7 @@ public class User extends Person {
     public String address;
     public MaritalStatus maritalStatus;
 
-    public User(String name, String phone, String nIC, Gender gender, Date dOB, String address, MaritalStatus maritalStatus/*, Account account*/){
+    public User(String name, String phone, String nIC, Gender gender, Date dOB, String address, MaritalStatus maritalStatus){
         super (name, phone, nIC);
         this.setUserName(name);
         this.setGender(gender);

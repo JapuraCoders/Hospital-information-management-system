@@ -1,26 +1,32 @@
 package Model;
 
 public class Account {
-        private String accountID;
-        private String password;
-        private Image image;
-        private UserType userType;
-        private User user;
-        private static int accountCounter = 0; //static counter variable
+    private String accountID;
+    private String password;
+    private Image image;
+    private UserType userType;
+    private User user;
+    private static int accountCounter = 0; //static counter variable
+
+    public Account(){
+        this.setAccountID(null);
+        this.setPassword(null);
+    }
 
         //this constructor valid when creating a user by admin
         public Account(UserType userType, User user){
             this.setAccountID(accountIDGenerator());
             this.setPassword(defaultPassword());
-            this.setImage(defaultImage());
+            this.setImage(new Image(520,520,"Files\\UserPhotos",this.getAccountID()));
             this.setUser(user);
             this.setUserType(userType);
 
             accountCounter++;
+            this.image.addNewImage(defaultImage());
         }
 
         //these constructors valid when patient create own account
-        public Account(String password, Image image, UserType userType, User user){
+        public Account(String password, Image image, String imagePath, UserType userType, User user){
             this.setAccountID(accountIDGenerator());
             this.setPassword(password);
             this.setImage(image);
@@ -28,16 +34,18 @@ public class Account {
             this.setUserType(userType);
 
             accountCounter++;
+            this.image.addNewImage(imagePath);
         }
         //this constructor valid when patient did not add a image
     public Account(String password, User user, UserType userType){
         this.setAccountID(accountIDGenerator());
         this.setPassword(password);
-        this.setImage(defaultImage());
+        this.setImage(new Image(520,520,"Files\\UserPhotos",this.getAccountID()));
         this.setUser(user);
         this.setUserType(userType);
 
         accountCounter++;
+        this.image.addNewImage(defaultImage());
     }
 
         //setters
@@ -108,7 +116,7 @@ public class Account {
         }
 
         //If user did not add profile image then default image would add as profile image
-        public Image defaultImage(){
+        public String defaultImage(){
             String inputFileName = "Null";
             if(this.getUser().getGender()==Gender.MALE){
                 inputFileName = "Files\\UserPhotos\\DefaultMale";
@@ -121,11 +129,11 @@ public class Account {
             else{
                 System.out.println("Cannot add defaultImage cause of Invalid Gender");
             }
-            return new Image(520,520,inputFileName,"UserPhotos",this.getAccountID());
+            return inputFileName;
         }
 
         @Override
         public String toString(){
-            return this.getAccountID() + "," + this.getPassword() + "," + this.getImage() + "," + this.getUserType() + "," + this.getUser();
+            return this.getAccountID() + "," + this.getPassword() + "," + this.getImage().toString() + "," + this.getUserType() + "," + this.getUser().toString();
         }
     }
