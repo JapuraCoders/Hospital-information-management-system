@@ -1,6 +1,8 @@
 package Model;
 
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class AccountRecord {
@@ -18,76 +20,81 @@ public class AccountRecord {
     }
 
     //methods
-
-    //View all login details
-    public List<String> viewAllAccounts() throws IOException, NoSuchElementException {
-        String record,ID,password,image,user,userType,accountRecord;
-        List<String> recordList = new ArrayList<>();
+    //------------------------------This will return all the login details----------------------------------------------
+    public List<Login> viewAllLogins() throws IOException, NoSuchElementException {
+        String record;
+        Login loginRecord = new Login();
+        SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+        List<Login> loginRecordList = new ArrayList<>();
         try{
             BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
 
+            //read line by line from the file
             while( ( record = br.readLine() ) != null ) {
+                //separate data into tokens by ","
+                StringTokenizer loginDetail = new StringTokenizer(record,",");
+                //set data to loginRecordObject
+                loginRecord.setLoginID(loginDetail.nextToken());
+                loginRecord.setTypedUserName(loginDetail.nextToken());
+                loginRecord.setTypedPassword(loginDetail.nextToken());
+                loginRecord.setLoginDateAndTime(formatter.parse(loginDetail.nextToken()));
+                loginRecord.setLoginStatus(Boolean.parseBoolean(loginDetail.nextToken()));
 
-                StringTokenizer accountDetail = new StringTokenizer(record,",");
-
-                ID = accountDetail.nextToken();
-                password = accountDetail.nextToken();
-                image =accountDetail.nextToken();
-                user = accountDetail.nextToken();
-                userType = accountDetail.nextToken();
-
-                accountRecord = "\nAccountID : "+ID+"\nPassword : "+password+"\nImage : "+image+"\nUserDetails : "+user+"\nUserType : "+userType+"\n----------------------------";
-
-                recordList.add(accountRecord);
+                loginRecordList.add(loginRecord);
             }
             br.close();
         }
-        catch (IOException e){
+        catch (IOException | NoSuchElementException | ParseException e){
             System.out.println("Error : " + e);
         }
-        catch (NoSuchElementException e){
-            System.out.println("Error : "+ e);
-        }
-        return recordList;
+        return loginRecordList;
     }
 
-    //return details of Account by It's ID
-    public String viewByID(String accountID) throws IOException{
-        String ID = accountID,password,image,user,userType,record, accountRecord = "There is no record contained " + accountID;
+    //-----------------------------Return Login object by It's ID-------------------------------------------------------
+    public Login viewByID(String loginID) throws IOException{
+        String record;
+        Login loginRecord = new Login();
+        SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
         try{
             BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
 
-            System.out.println("\t Search Account Record of accountID : " + accountID);
+            System.out.println("\t Search Login Record of LoginID : " + loginID);
 
+            //read line by line from the file
             while( ( record = br.readLine() ) != null ) {
-
-                StringTokenizer accountDetail = new StringTokenizer(record,",");
-                if( record.contains(ID) ) {
-                    ID = accountDetail.nextToken();
-                    password = accountDetail.nextToken();
-                    image =accountDetail.nextToken();
-                    user = accountDetail.nextToken();
-                    userType = accountDetail.nextToken();
-
-                    accountRecord = "AccountID : "+ID+"\nPassword : "+password+"\nImage : "+image+"\nUserDetails : "+user+"\nUserType : "+userType;
+                //separate data into tokens by ","
+                StringTokenizer loginDetail = new StringTokenizer(record,",");
+                //Check whether that the login record looking for
+                if( record.contains(loginID) ) {
+                    //set data to loginRecordObject
+                    loginRecord.setLoginID(loginDetail.nextToken());
+                    loginRecord.setTypedUserName(loginDetail.nextToken());
+                    loginRecord.setTypedPassword(loginDetail.nextToken());
+                    loginRecord.setLoginDateAndTime(formatter.parse(loginDetail.nextToken()));
+                    loginRecord.setLoginStatus(Boolean.parseBoolean(loginDetail.nextToken()));
                 }
             }
             br.close();
         }
-        catch (IOException e){
-         System.out.println("Error : "+e);
+        catch (IOException | ParseException | NullPointerException e){
+            System.out.println("Error : "+e);
         }
-        return accountRecord;
+        if(loginRecord==null){
+            System.out.println("There is no record contained " + loginID);
+        }
+        return loginRecord;
     }
 
-    //----------------------------------Add new account record---------------------------------------------
-    public void add(Account account) throws IOException {
+    //--------------------------------------Add new login record to the file--------------------------------------------
+    public void add(Login login) throws IOException {
         try {
-            BufferedWriter bw = new BufferedWriter( new FileWriter(this.getFileName(),true) );
-            bw.write(account.toString());
+            BufferedWriter bw = new BufferedWriter(new FileWriter(this.getFileName(),true));
+            //write on file according to Object's toString format
+            bw.write(login.toString());
             bw.flush();
             bw.newLine();
             bw.close();
+            System.out.println("\"" + login.toString() + "\" record added to " + this.getFileName() + "successfully");
         }
         catch (IOException e){
             System.out.println("An error occurred : " + e);
@@ -95,18 +102,18 @@ public class AccountRecord {
         }
     }
 
-    //-------------------------------------Delete any account------------------------------------------------
-    public void dlt(String accountID) throws IOException {
+    //--------------------------------Delete login details according to loginID-----------------------------------------
+    public void dlt(String loginID) throws IOException {
         try {
-            String record, ID = accountID;
+            String record, ID = loginID;
 
-            File tempDB = new File("account_db_temp.txt");
+            //open Login details file for read the data
             File db = new File(this.getFileName());
-
             BufferedReader br = new BufferedReader(new FileReader(db));
-            BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
 
-            System.out.println("\t Delete Account Record of accountID : " + accountID);
+            //create temporary file for write updated data
+            File tempDB = new File("login_db_temp.txt");
+            BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
 
             while ((record = br.readLine()) != null) {
                 if (!record.contains(ID)) {
@@ -120,12 +127,68 @@ public class AccountRecord {
 
             db.delete();
             tempDB.renameTo(db);
-            System.out.println("\t Delete Account Record of login ID : " + accountID + "is successfully");
+            System.out.println("\t Delete Account Record of login ID : " + loginID + "is successfully");
         }
         catch (IOException e){
             System.out.println("Error : "+e);
         }
     }
-    //Edit element in file
 
+    //--------------------------------Edit single data in a file--------------------------------------------------------
+    public void editLoginData(String loginID, String editfield, String updatedData) throws IOException{
+        String loginId, typedUserName, typedPassword, loginDateNTime, loginStatus, record;
+        SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+        try{
+            //open Login details file for read the data
+            File db = new File(this.getFileName());
+            BufferedReader br = new BufferedReader(new FileReader(db));
+
+            //create temporary file for write updated data
+            File tempDb = new File("temp.txt");
+            BufferedWriter bw = new BufferedWriter(new FileWriter(tempDb));
+
+            //Load data line by line
+            while( ( record = br.readLine() ) != null ) {
+                StringTokenizer loginDetail = new StringTokenizer(record,",");
+
+                loginId = loginDetail.nextToken();
+                typedUserName = loginDetail.nextToken();
+                typedPassword =loginDetail.nextToken();
+                loginDateNTime = loginDetail.nextToken();
+                loginStatus = loginDetail.nextToken();
+
+                //create loginRec Objects by reading data of the file
+                Login loginRec = new Login(loginId,typedUserName,typedPassword,formatter.parse(loginDateNTime),Boolean.parseBoolean(loginStatus));
+                //Check whether that the login record to be edited... if it is then replace that record field according to given data
+                if(loginId.equals(loginID)){
+                    switch (editfield) {
+                        case "typedUserName":
+                            loginRec.setTypedUserName(updatedData);
+                            break;
+                        case "typedPassword":
+                            loginRec.setTypedPassword(updatedData);
+                            break;
+                        case "loginDateNTime":
+                            loginRec.setLoginDateAndTime(formatter.parse(updatedData));
+                            break;
+                        case "loginStatus":
+                            loginRec.setLoginStatus(Boolean.parseBoolean(updatedData));
+                            break;
+                        default:
+                            System.out.println("Invalid Editfield");
+                    }
+                }
+                // add loginRec object to the temporary file
+                bw.write(loginRec.toString());
+                bw.flush();
+                bw.newLine();
+            }
+            br.close();
+            bw.close();
+            db.delete();
+            tempDb.renameTo(db);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 }

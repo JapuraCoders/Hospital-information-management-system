@@ -50,7 +50,5 @@ public class Main extends Application {
         userLogin.dlt("null|null|0");
         System.out.println(userLogin.viewByID("null|null|1"));
         System.out.println(removeFirstAndLast(userLogin.viewAllLogins().toString()));*/
-
     }
 }
-

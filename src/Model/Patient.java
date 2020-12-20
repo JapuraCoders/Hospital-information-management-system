@@ -1,18 +1,16 @@
+
 package Model;
 import java.util.Date;
 public class Patient extends User {
 
     private BloodType bloodType;
     private String allergies;
-    private PatientRecords patientRecords;
 
-
-    Patient(String userName,Gender gender,Date dob, String address,MaritalStatus maritalStatus,Account account,BloodType bloodType,String allergies,PatientRecords patientRecords){
-        super(userName,gender,dob,address,maritalStatus,account);
+    public Patient(String name, String phone, String nIC ,Gender gender, Date dob, String address, MaritalStatus maritalStatus,BloodType bloodType, String allergies){
+        super(name, phone, nIC, gender,dob,address,maritalStatus);
         this.setBloodType(bloodType);
         this.setAllergies(allergies);
     }
-
 
     public void setBloodType(BloodType bloodType){
         this.bloodType=bloodType;
@@ -22,21 +20,16 @@ public class Patient extends User {
         this.allergies=allergies;
     }
 
-    public void setPatientRecords(PatientRecords patientRecords){this.patientRecords=patientRecords;}
-
 
     public BloodType getBloodType()	{
         return this.bloodType;
     }
 
-
     public String getAllergies(){
         return this.allergies;
     }
 
-    public PatientRecords getPatientRecords(){return this.patientRecords;}
-
-    void getBloodInformation(BloodType type) {
+    public void getBloodInformation(BloodType type) {
         switch (type) {
             case A_PLUS:
                 System.out.println("Blood Type A+");
@@ -63,27 +56,14 @@ public class Patient extends User {
                 System.out.println("Blood Type AB-");
                 break;
 
-
             default:
                 System.out.println("There is no code for the type you write !!");
         }
-
     }
-
-
-
-
-
-    public static void main(String[] args)  {
-
-        BloodType type=BloodType.AB_PLUS;
-        System.out.println(type);
-
+    @Override
+    public String toString(){
+        return super.toString() + "," + this.getBloodType() + "," + this.getAllergies();
     }
-
-
-
-
 }
 
 

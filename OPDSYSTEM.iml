@@ -12,5 +12,6 @@
     <orderEntry type="library" name="javfx" level="project" />
     <orderEntry type="library" name="jfoenix-9.0.10" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="pdfbox" level="project" />
   </component>
 </module>

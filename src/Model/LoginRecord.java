@@ -29,10 +29,11 @@ public class LoginRecord {
         try{
             BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
 
+            //read line by line from the file
             while( ( record = br.readLine() ) != null ) {
-
+                //separate data into tokens by ","
                 StringTokenizer loginDetail = new StringTokenizer(record,",");
-
+                //set data to loginRecordObject
                 loginRecord.setLoginID(loginDetail.nextToken());
                 loginRecord.setTypedUserName(loginDetail.nextToken());
                 loginRecord.setTypedPassword(loginDetail.nextToken());
@@ -190,5 +191,4 @@ public class LoginRecord {
             e.printStackTrace();
         }
     }
-
 }

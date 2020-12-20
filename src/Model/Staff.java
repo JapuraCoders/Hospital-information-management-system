@@ -2,13 +2,14 @@ package Model;
 import java.util.Date;
 
 public abstract class Staff extends User{
-    protected String staffID;
-    protected String staffEmailAddress;
-    protected Date dateJoining;
-    protected Image staffPhotograph;
+    private String staffID;
+    private String staffEmailAddress;
+    private Date dateJoining;
+    private Image staffPhotograph;
+    private Document cv;
 
-    protected Staff(String name,String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus,String staffID,String staffEmailAddress,Date dateJoining,Image staffPhotograph) {
-        super(name, phone, nIC, userName, gender, dOB, address, maritalStatus);
+    public Staff(String name,String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus,String staffID,String staffEmailAddress,Date dateJoining,Image staffPhotograph) {
+        super(name, phone, nIC, gender, dOB, address, maritalStatus);
         this.setStaffID(staffID);
         this.setStaffEmailAddress(staffEmailAddress);
         this.setDateJoining(dateJoining);
@@ -42,9 +43,7 @@ public abstract class Staff extends User{
         return this.staffPhotograph;
     }
 
-    //Methods
-    public abstract Image defaultStaffPhotograph();
-
+    @Override
     public String toString(){
         return super.toString() + "\n" + this.getStaffID() + "\n" + this.getStaffEmailAddress() + "\n" + this.getDateJoining() + this.getStaffPhotograph();
     }

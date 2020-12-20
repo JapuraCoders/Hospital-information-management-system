@@ -4,12 +4,12 @@ public class Account {
         private String accountID;
         private String password;
         private Image image;
-        private User user;
         private UserType userType;
+        private User user;
         private static int accountCounter = 0; //static counter variable
 
         //this constructor valid when creating a user by admin
-        public Account(User user, UserType userType){
+        public Account(UserType userType, User user){
             this.setAccountID(accountIDGenerator());
             this.setPassword(defaultPassword());
             this.setImage(defaultImage());
@@ -20,7 +20,7 @@ public class Account {
         }
 
         //these constructors valid when patient create own account
-        public Account(String password, Image image, User user, UserType userType){
+        public Account(String password, Image image, UserType userType, User user){
             this.setAccountID(accountIDGenerator());
             this.setPassword(password);
             this.setImage(image);
@@ -126,6 +126,6 @@ public class Account {
 
         @Override
         public String toString(){
-            return this.getAccountID() + "\n" + this.getPassword() + "\n" + this.getImage() + "\n" + this.getUser() + "\n" + this.getUserType();
+            return this.getAccountID() + "," + this.getPassword() + "," + this.getImage() + "," + this.getUserType() + "," + this.getUser();
         }
     }
