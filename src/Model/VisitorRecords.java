@@ -1,133 +1,166 @@
 package Model;
 
+
 import java.io.*;
-class
-VisitorRecords
-{
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.util.*;
 
-    public void addRecords() throws IOException
-    {
-        // Create or Modify a file for Database
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new
-                FileWriter("Records.txt",true)));
-        String name, nIC, note, inTime, date,outTime;
-        long telephoneNo;
-        String s;
-        boolean addMore = false;
-        // Read Data
-        do
-        {
-            System.out.print("\nEnter name: ");
-            name = br.readLine();
+public class VisitorRecords {
+    private String fileName;
 
-            System.out.print("nIC: ");
-            nIC = br.readLine();
+    public VisitorRecords(String fileName){
+        this.setFileName(fileName);
+    }
 
-            System.out.print("note: ");
-            note = br.readLine();
+    public void setFileName(String fileName){
+        this.fileName = fileName;
+    }
 
-            System.out.print("inTime: ");
-            inTime = br.readLine();
+    public String getFileName(){
+        return this.fileName;
+    }
 
-            System.out.print("outTime: ");
-            outTime = br.readLine();
+    //------------------------------This will return all the visitor details----------------------------------------------
+    public List<Visitor> viewAllLVisitorRecords() throws IOException, NoSuchElementException {
+        String record;
+        Visitor visitorRecord = new Visitor();
+        SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+        List<Visitor> visitorRecordList = new ArrayList<>();
+        try{
+            BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
 
-            System.out.print("Date(dd/mm/yy) : ");
-            date = br.readLine();
+            while( ( record = br.readLine() ) != null ) {
 
-            System.out.print("Telephone No.: ");
-            telephoneNo = Long.parseLong(br.readLine());
-            // Print to File
-            pw.println(name);
-            pw.println(nIC);
-            pw.println(note);
-            pw.println(inTime);
-            pw.println(outTime);
-            pw.println(date);
-            pw.println(telephoneNo);
+                StringTokenizer visitorDetail = new StringTokenizer(record,",");
 
-            System.out.print("\nRecords added successfully !\n\nDo you want to add more records ? (y/n) : ");
-            s = br.readLine();
-            if(s.equalsIgnoreCase("y"))
-            {
-                addMore = true;
-                System.out.println();
+                visitorRecord.setName(visitorDetail.nextToken());
+                visitorRecord.setPhone(visitorDetail.nextToken());
+                visitorRecord.setNIC(visitorDetail.nextToken());
+                visitorRecord.setDateAndTime(formatter.parse(visitorDetail.nextToken()));
+                visitorRecord.setOutTime(LocalTime.parse(visitorDetail.nextToken()));
+                visitorRecord.setNote(visitorDetail.nextToken());
+                visitorRecordList.add(visitorRecord);
             }
-            else
-                addMore = false;
+            br.close();
         }
-        while(addMore);
-        pw.close();
-        showMenu();
+        catch (IOException | NoSuchElementException | ParseException e){
+            System.out.println("Error : " + e);
+        }
+        return visitorRecordList;
     }
-    public void readRecords() throws IOException
-    {
-        try
-        {
-            // Open the file
-            BufferedReader file = new BufferedReader(new
-                    FileReader("Records.txt"));
-            String name;
-            int i=1;
-            // Read records from the file
-            while((name = file.readLine()) != null)
-            {
-                System.out.println("S.No. : " +(i++));
-                System.out.println("-------------");
-                System.out.println("\nName: " +name);
-                System.out.println("nIC : "+file.readLine());
-                System.out.println("note: "+file.readLine());
-                System.out.println("inTime: "+file.readLine());
-                System.out.println("outTime: "+file.readLine());
-                System.out.println("Date: "+file.readLine());
-                System.out.println("Tel. No.: "+Long.parseLong(file.readLine()));
-                System.out.println();
+
+
+
+    //--------------------------------------Add new visitor record to the file--------------------------------------------
+    public void add(Visitor visitor) throws IOException {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(this.getFileName(),true));
+            //write on file according to Object's toString format
+            bw.write(visitor.toString());
+            bw.flush();
+            bw.newLine();
+            bw.close();
+            System.out.println("\"" + visitor.toString() + "\" record added to " + this.getFileName() + "successfully");
+        }
+        catch (IOException e){
+            System.out.println("An error occurred : " + e);
+            e.getStackTrace();
+        }
+    }
+
+    //--------------------------------Delete visitor details according to nic-----------------------------------------
+    public void dlt(String nIC) throws IOException {
+        try {
+            String record, ID = nIC;
+
+            //open Login details file for read the data
+            File db = new File(this.getFileName());
+            BufferedReader br = new BufferedReader(new FileReader(db));
+
+            //create temporary file for write updated data
+            File tempDB = new File("visitor_db_temp.txt");
+            BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
+
+            while ((record = br.readLine()) != null) {
+                if (!record.contains(ID)) {
+                    bw.write(record);
+                    bw.flush();
+                    bw.newLine();
+                }
             }
-            file.close();
-            showMenu();
+            br.close();
+            bw.close();
+
+            db.delete();
+            tempDB.renameTo(db);
+            System.out.println("\t Delete Account Record of nic : " + nIC + "is successfully");
         }
-        catch(FileNotFoundException e)
-        {
-            System.out.println("\nERROR : File not Found !!!");
-        }
-    }
-    public void clear() throws IOException
-    {
-        // Create a blank file
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new
-                FileWriter("Records.txt")));
-        pw.close();
-        System.out.println("\nAll Records cleared successfully !");
-        for(int i=0;i<999999999;i++); // Wait for some time
-        showMenu();
-    }
-    public void showMenu() throws IOException
-    {
-        System.out.print("1 : Add Records\n2 : Display Records\n3 : Clear All Records\n4 : Exit\n\nYour Choice : ");
-        int choice = Integer.parseInt(br.readLine());
-        switch(choice)
-        {
-            case 1:
-                addRecords();
-                break;
-            case 2:
-                readRecords();
-                break;
-            case 3:
-                clear();
-                break;
-            case 4:
-                System.exit(1);
-                break;
-            default:
-                System.out.println("\nInvalid Choice !");
-                break;
+        catch (IOException e){
+            System.out.println("Error : "+e);
         }
     }
-    public static void main(String args[]) throws IOException
-    {
-        VisitorRecords call = new VisitorRecords();
-        call.showMenu();
+
+    //--------------------------------Edit single data in a file--------------------------------------------------------
+    public void editLoginData(String nNIC, String editfield, String updatedData) throws IOException{
+        String  name,phone,nIC,dateAndTime,outTime,note, record;
+        SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+        try{
+            //open Login details file for read the data
+            File db = new File(this.getFileName());
+            BufferedReader br = new BufferedReader(new FileReader(db));
+
+            //create temporary file for write updated data
+            File tempDb = new File("temp.txt");
+            BufferedWriter bw = new BufferedWriter(new FileWriter(tempDb));
+
+            //Load data line by line
+            while( ( record = br.readLine() ) != null ) {
+                StringTokenizer visitorDetail = new StringTokenizer(record,",");
+
+                name = visitorDetail.nextToken();
+                phone = visitorDetail.nextToken();
+                nIC =visitorDetail.nextToken();
+                dateAndTime= visitorDetail.nextToken();
+                outTime = visitorDetail.nextToken();
+                note = visitorDetail.nextToken();
+                //create VisRec Objects by reading data of the file
+                Visitor visRec = new Visitor( name,phone,nIC,formatter.parse(dateAndTime),LocalTime.parse(outTime),note );
+                //Check whether that the visitor record to be edited... if it is then replace that record field according to given data
+                if(nIC.equals(nNIC)){
+                    switch (editfield) {
+                        case "name":
+                            visRec.setName(updatedData);
+                            break;
+                        case "phone":
+                            visRec.setPhone(updatedData);
+                            break;
+                        case "dateAndTime":
+                            visRec.setDateAndTime(formatter.parse(updatedData));
+                            break;
+                        case "outTime":
+                            visRec.setOutTime(LocalTime.parse(updatedData));
+                            break;
+                        case "note":
+                            visRec.setNote(updatedData);
+                            break;
+                        default:
+                            System.out.println("Invalid Editfield");
+                    }
+                }
+                // add loginRec object to the temporary file
+                bw.write(visRec.toString());
+                bw.flush();
+                bw.newLine();
+            }
+            br.close();
+            bw.close();
+            db.delete();
+            tempDb.renameTo(db);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
+
 }
