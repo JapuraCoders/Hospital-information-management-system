@@ -25,6 +25,7 @@ public  class  Visitor extends Person{
         this.setDateAndTime(null);
         this.setOutTime(null);
         this.setNote(null);
+        visitorCounter++;
     }
 
 
@@ -40,8 +41,10 @@ public  class  Visitor extends Person{
     }
 
     //when no note is added
-    public Visitor(String name, String phone, String nIC){
+    public Visitor(String name, String phone, String nIC,Date dateAndTime,LocalTime outTime){
         super(name, phone, nIC);
+        this.setDateAndTime(dateAndTime);
+        this.setOutTime(java.time.LocalTime.now());
         visitorCounter++;
     }
 

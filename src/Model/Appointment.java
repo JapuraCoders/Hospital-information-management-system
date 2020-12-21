@@ -1,33 +1,50 @@
 package Model;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 
+import java.util.Date;
 public class Appointment {
-    private Patient patient;
-    private LocalDate appointmentDate;
-    private LocalTime time;
+    private String patientName;
+    private Date appointmentDateAndTime;
+
     private String symptoms;
     private int appointmentNo;
-    private MedicalOfficer medicalOfficer;
+
     private AppointmentStatus appointmentStatus;
+    private String medicalOfficerName;
+    private String medicalOfficerSpeciality;
     private static int appointmentCounter;
 
-    public Appointment(Patient patient,LocalDate appointmentDate,LocalTime time,String symptoms,int appointmentNo,MedicalOfficer medicalOfficer,AppointmentStatus appointmentStatus){
-        this.setPatient(patient);
-        this.setAppointmentDate(appointmentDate);
-        this.setTime(time);
+    public Appointment(){
+        this.setPatientName(null);
+        this.setAppointmentDateAndTime(null);
+        this.setSymptoms(null);
+        this.setAppointmentNo(0);
+        this.setMedicalOfficerName(null);
+        this.setMedicalOfficerSpeciality(null);
+        this.setAppointmentStatus(null);
+        appointmentCounter++;
+
+    }
+
+
+    public Appointment(String patientName,Date appointmentDateAndTime,String symptoms,int appointmentNo,AppointmentStatus appointmentStatus,String medicalOfficerName,String medicalOfficerSpeciality){
+        this.setPatientName(patientName);
+        this.setAppointmentDateAndTime(appointmentDateAndTime);
+
         this.setSymptoms(symptoms);
         this.setAppointmentNo(appointmentNo);
-        this.setMedicalOfficer(medicalOfficer);
-        this.setStatus(appointmentStatus);
+
+        this.setAppointmentStatus(appointmentStatus);
+        this.setMedicalOfficerName(medicalOfficerName);
+        this.setMedicalOfficerSpeciality(medicalOfficerSpeciality);
         appointmentCounter++;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
+    public void setPatientName(String patientName){this.patientName=patientName;}
 
+    public void setMedicalOfficerName(String medicalOfficerName){this.medicalOfficerName=medicalOfficerName;}
+
+    public void setMedicalOfficerSpeciality(String medicalOfficerSpeciality){this.medicalOfficerSpeciality=medicalOfficerSpeciality;}
     public void setSymptoms(String symptoms) {
         this.symptoms = symptoms;
     }
@@ -36,40 +53,35 @@ public class Appointment {
         this.appointmentNo = appointmentNo;
     }
 
-    public void setMedicalOfficer(MedicalOfficer medicalOfficer) {
-        this.medicalOfficer = medicalOfficer;
-    }
 
-    public void setStatus(AppointmentStatus appointmentStatus) {
+    public void setAppointmentStatus(AppointmentStatus appointmentStatus) {
         this.appointmentStatus = appointmentStatus;
     }
 
 
-    public void setAppointmentDate(LocalDate appointmentDate) {
-        this.appointmentDate = LocalDate.now();
+    public void setAppointmentDateAndTime(Date appointmentDateAndTime){
+        this.appointmentDateAndTime =appointmentDateAndTime;
     }
 
-    public void setTime(LocalTime time) {
-        this.time = LocalTime.now();
-    }
+
 
 
     public void setAppointmentCounter(int appointmentCounter) {
         Appointment.appointmentCounter = appointmentCounter;
     }
 
+    public String getPatientName(){return this.patientName;}
 
-    public LocalDate getAppointmentDate() {
-        return this.appointmentDate;
+    public String getMedicalOfficerName(){return this.medicalOfficerName;}
+
+    public String getMedicalOfficerSpeciality(){return this.medicalOfficerSpeciality;}
+    public Date getAppointmentDateAndTime(){
+        return this.appointmentDateAndTime;
     }
 
-    public LocalTime getTime() {
-        return this.time;
-    }
 
-    public Patient getPatient() {
-        return this.patient;
-    }
+
+
 
     public String getSymptoms() {
         return this.symptoms;
@@ -89,7 +101,8 @@ public class Appointment {
 
     @Override
     public String toString(){
-        return this.getPatient()+ "," + this.getAppointmentDate()+ "," + this.getPatient()+ "," + this.getTime()+ "," + this.getSymptoms()+ "," + this.getAppointmentNo()+","+this.getAppointmentStatus();
+        return this.getPatientName()+ "," + this.getAppointmentDateAndTime()+    "," + this.getSymptoms()+ "," + this.getAppointmentNo()+","+this.getAppointmentStatus()+","+this.getMedicalOfficerName()+","+this.getMedicalOfficerSpeciality();
     }
 }
+
 
