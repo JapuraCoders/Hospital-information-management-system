@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="788.0" prefWidth="1285.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MedicalOfficerController.MedicalOfficerDashBoardController">
+   <children>
+      <BorderPane fx:id="mainpane" layoutX="-2.0" layoutY="-1.0" prefHeight="788.0" prefWidth="1285.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="788.0" prefWidth="249.0" spacing="15.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="246.0" text="Medical Officer" textFill="#172b4d">
+                     <font>
+                        <Font name="Gotham-Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="51.0" prefWidth="246.0">
+                     <children>
+                        <JFXButton layoutX="-1.0" layoutY="-4.0" onAction="#HandleMedicalOfficerHome" prefHeight="58.0" prefWidth="246.0" text="Home" textFill="#172b4d">
+                           <font>
+                              <Font name="Gotham-Light" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="28.0" fitWidth="42.0" layoutX="43.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/AdminDashBoard/Group%20287@2x.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="51.0" prefWidth="246.0">
+                     <children>
+                        <JFXButton fx:id="AppointmentsPage" layoutX="-1.0" layoutY="-4.0" onAction="#HandleMedicalOfficerAppointment" prefHeight="58.0" prefWidth="246.0" text="             Appointments" textFill="#172b4d">
+                           <font>
+                              <Font name="Gotham-Book" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="28.0" fitWidth="39.0" layoutX="49.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/AdminDashBoard/Group%20307@2x.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="51.0" prefWidth="246.0">
+                     <children>
+                        <JFXButton fx:id="SettingsPage" layoutX="-1.0" layoutY="-4.0" onAction="#handleMedicalOfficerSetting" prefHeight="58.0" prefWidth="246.0" text="  Settings" textFill="#172b4d">
+                           <font>
+                              <Font name="Gotham-Book" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="28.0" fitWidth="39.0" layoutX="44.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/AdminDashBoard/Group%20422@2x.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="0.0" prefWidth="1296.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <JFXButton layoutY="42.0" onAction="#HandleMedicalOfficerLogout" prefHeight="58.0" prefWidth="250.0" text="Logout" textFill="#172b4d">
+                           <font>
+                              <Font name="Gotham-Book" size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                        </JFXButton>
+                        <ImageView fitHeight="26.0" fitWidth="23.0" layoutX="51.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/AdminDashBoard/log-out@2x.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </Pane>
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="45.0" />
+               </opaqueInsets>
+            </VBox>
+         </left>
+         <center>
+            <GridPane fx:id="gridpane" BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
