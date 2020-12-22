@@ -1,4 +1,4 @@
-package Controller.AdminDashBoard;
+package Controller.PatientDashBoardController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -7,7 +7,7 @@ import javafx.scene.control.TableView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminPatientController implements Initializable {
+public class PatientAppointmentController implements Initializable {
     @FXML //  fx:id="tableView"
     private TableView<?> tableView; // Value injected by FXMLLoader
 

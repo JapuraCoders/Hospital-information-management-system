@@ -18,20 +18,20 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="788.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminDashBoard.AdminComplaintController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="788.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientDashBoardController.PatientComplaintController">
     <center>
         <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F1F3F9;" BorderPane.alignment="CENTER">
             <children>
                 <AnchorPane layoutX="27.0" layoutY="20.0" prefHeight="548.0" prefWidth="995.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="28.200000000000045" AnchorPane.topAnchor="20.0">
                     <children>
                         <Pane layoutX="796.0" layoutY="14.0" prefHeight="51.0" prefWidth="170.0" AnchorPane.rightAnchor="28.800000000000068">
-                            <children>
-                                <JFXButton layoutX="8.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Export Data" textFill="WHITE">
-                                    <font>
-                                        <Font name="Gotham-Book" size="12.0" />
-                                    </font>
-                                </JFXButton>
-                            </children>
+                     <children>
+                        <JFXButton layoutX="8.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Add Complaint" textFill="WHITE">
+                           <font>
+                              <Font name="Gotham-Book" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
                         </Pane>
                         <Label layoutX="25.0" layoutY="26.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="26.0" prefWidth="153.0" text="COMPLAINT LIST" textFill="#172b4d">
                             <font>
@@ -53,7 +53,6 @@
                             </children>
                         </StackPane>
                         <ScrollBar layoutX="959.0" layoutY="141.0" orientation="VERTICAL" prefHeight="386.0" prefWidth="14.0" AnchorPane.rightAnchor="21.800000000000047" />
-                        <Pane layoutX="614.0" layoutY="15.0" prefHeight="48.0" prefWidth="170.0" AnchorPane.bottomAnchor="465.0" AnchorPane.rightAnchor="210.80000000000007" AnchorPane.topAnchor="15.0" />
                     </children>
                 </AnchorPane>
             </children>
