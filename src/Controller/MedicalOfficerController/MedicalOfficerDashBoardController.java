@@ -1,5 +1,4 @@
-package Controller.PatientDashBoardController;
-
+package Controller.MedicalOfficerController;
 
 import Controller.FxmlLoader;
 import com.sun.glass.ui.View;
@@ -18,49 +17,39 @@ import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PatientDashBoardController implements Initializable{
-
+public class MedicalOfficerDashBoardController implements Initializable {
     @FXML
     private BorderPane mainpane;
 
 
 
     @FXML
-    void HandlePatientAppointment(javafx.event.ActionEvent event) {
+    void HandleMedicalOfficerAppointment(javafx.event.ActionEvent event) {
 
 
         FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage("PatientAppointments");
+        Pane view = object.getPage("MedicalOfficerAppointments");
         mainpane.setCenter(view);
 
     }
 
     @FXML
-    void HandlePatientHome(javafx.event.ActionEvent event) {
+    void HandleMedicalOfficerHome(javafx.event.ActionEvent event) {
         FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage("PatientHome");
+        Pane view = object.getPage("MedicalOfficerHome");
+        mainpane.setCenter(view);
+    }
+
+    @FXML
+    void handleMedicalOfficerSetting(javafx.event.ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("MedicalOfficerSettings");
         mainpane.setCenter(view);
     }
 
 
     @FXML
-    void handlePatientComplaint(javafx.event.ActionEvent event) {
-        FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage("PatientComplaints");
-        mainpane.setCenter(view);
-    }
-
-
-    @FXML
-    void handlePatientSetting(javafx.event.ActionEvent event) {
-        FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage("PatientSettings");
-        mainpane.setCenter(view);
-    }
-
-
-    @FXML
-    void HandlePatientLogout(javafx.event.ActionEvent event) {
+    void HandleMedicalOfficerLogout(javafx.event.ActionEvent event) {
 
     }
 
@@ -68,5 +57,4 @@ public class PatientDashBoardController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
 }
