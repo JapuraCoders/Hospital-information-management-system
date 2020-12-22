@@ -6,6 +6,13 @@ public class Patient extends User {
     private String allergies;
     private PatientRecords patientRecords;
 
+    public Patient(){
+        super(null,null,null,null,null,null,null,null);
+        this.setBloodType(null);
+        this.setAllergies(null);
+
+    }
+
 
     public Patient(String s, String name, String phone, String nIC, Gender gender, Date dOB, String address, MaritalStatus maritalStatus, BloodType bloodType, String allergies, PatientRecords patientRecords) {
         super(s, name, phone, nIC, gender, dOB, address, maritalStatus);
