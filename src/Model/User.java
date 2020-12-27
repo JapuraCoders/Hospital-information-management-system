@@ -1,5 +1,7 @@
 package Model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class User extends Person {
@@ -8,10 +10,12 @@ public class User extends Person {
     public Date dOB;
     public String address;
     public MaritalStatus maritalStatus;
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
-    public User(String name, String phone, String nIC, Gender gender, Date dOB, String address, MaritalStatus maritalStatus){
+
+    public User(String name, String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus){
         super (name, phone, nIC);
-        this.setUserName(name);
+        this.setUserName(userName);
         this.setGender(gender);
         this.setDOB(dOB);
         this.setAddress(address);
@@ -25,8 +29,12 @@ public class User extends Person {
     public void setGender(Gender gender){
         this.gender = gender;
     }
-    public void setDOB(Date dOB){
-        this.dOB = dOB;
+    public void setDOB(String dOB){
+        try {
+            this.dOB = formatter.parse(dOB);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
     public void setAddress(String address){
         this.address = address;

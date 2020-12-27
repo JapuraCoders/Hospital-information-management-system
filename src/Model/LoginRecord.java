@@ -21,7 +21,7 @@ public class LoginRecord {
     }
 
     //------------------------------This will return all the login details----------------------------------------------
-    public List<Login> viewAllLogins() throws IOException, NoSuchElementException {
+    public List<Login> viewAllLogins() throws NoSuchElementException {
         String record;
         Login loginRecord = new Login();
         SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
@@ -51,7 +51,7 @@ public class LoginRecord {
     }
 
     //-----------------------------Return Login object by It's ID-------------------------------------------------------
-    public Login viewByID(String loginID) throws IOException{
+    public Login viewByID(String loginID){
         String record;
         Login loginRecord = new Login();
         SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
@@ -86,7 +86,7 @@ public class LoginRecord {
     }
 
     //--------------------------------------Add new login record to the file--------------------------------------------
-    public void add(Login login) throws IOException {
+    public void add(Login login){
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(this.getFileName(),true));
             //write on file according to Object's toString format
@@ -103,7 +103,7 @@ public class LoginRecord {
     }
 
     //--------------------------------Delete login details according to loginID-----------------------------------------
-    public void dlt(String loginID) throws IOException {
+    public void dlt(String loginID){
         try {
             String record, ID = loginID;
 
@@ -135,7 +135,7 @@ public class LoginRecord {
     }
 
     //--------------------------------Edit single data in a file--------------------------------------------------------
-    public void editLoginData(String loginID, String editfield, String updatedData) throws IOException{
+    public void editLoginData(String loginID, String editfield, String updatedData){
         String loginId, typedUserName, typedPassword, loginDateNTime, loginStatus, record;
         SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
         try{
@@ -189,6 +189,9 @@ public class LoginRecord {
             tempDb.renameTo(db);
         } catch (ParseException e) {
             e.printStackTrace();
+            System.out.println("Error :" + e);
+        }catch (IOException e){
+            System.out.println("Error :" + e);
         }
     }
 }

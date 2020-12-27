@@ -1,6 +1,5 @@
 
-import Model.Login;
-import Model.LoginRecord;
+import Model.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,8 +10,8 @@ import javafx.stage.StageStyle;
 import java.awt.*;
 import java.io.IOException;
 
-public class Main extends Application {
-    private static double xOffset = 0;
+public class Main /*extends Application*/ {
+   /* private static double xOffset = 0;
     private static double yOffset = 0;
    @Override
     public void start(Stage primaryStage) throws Exception{
@@ -30,12 +29,13 @@ public class Main extends Application {
            primaryStage.setY(event.getScreenY() - yOffset);
        });
 
-   }
+   }*/
 
 
     public static void main(String[] args) throws IOException {
-        launch(args);
-
+       /* launch(args);*/
+        User admin = new User("ABC","1234567890","1234567890", "user", Gender.MALE,"22/01/2000","1234", MaritalStatus.SINGLE);
+        System.out.println(admin);
 
     }
 }
