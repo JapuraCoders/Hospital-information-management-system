@@ -81,18 +81,5 @@
             <Font name="Gill Sans MT" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="312.0" layoutY="509.0" prefHeight="18.0" prefWidth="83.0" text="New Patient ?" textFill="WHITE">
-         <font>
-            <Font name="GothamRounded-Bold" size="11.0" />
-         </font>
-      </Label>
-      <Label fx:id="signupbtn" accessibleRole="BUTTON" layoutX="395.0" layoutY="509.0" mnemonicParsing="true" mouseTransparent="true" prefHeight="18.0" prefWidth="47.0" text="Sign Up" textFill="#11cdef">
-         <font>
-            <Font name="Gotham-BoldItalic" size="11.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Label>
    </children>
 </AnchorPane>
