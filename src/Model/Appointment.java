@@ -5,10 +5,8 @@ import java.util.Date;
 public class Appointment {
     private String patientName;
     private Date appointmentDateAndTime;
-
     private String symptoms;
     private int appointmentNo;
-
     private AppointmentStatus appointmentStatus;
     private String medicalOfficerName;
     private String medicalOfficerSpeciality;

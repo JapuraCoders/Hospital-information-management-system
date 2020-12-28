@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="788.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminDashBoard.AdminPatientController">
+<BorderPane fx:id="mainpane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="788.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminDashBoard.AdminPatientController">
    <center>
       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F1F3F9;" BorderPane.alignment="CENTER">
          <children>
@@ -53,9 +53,9 @@
                      </children>
                   </StackPane>
                   <ScrollBar layoutX="966.0" layoutY="91.0" orientation="VERTICAL" prefHeight="415.0" prefWidth="14.0" AnchorPane.rightAnchor="15.0" />
-                  <Pane layoutX="614.0" layoutY="15.0" prefHeight="48.0" prefWidth="170.0" AnchorPane.bottomAnchor="465.0" AnchorPane.rightAnchor="210.80000000000007" AnchorPane.topAnchor="15.0">
+                  <Pane layoutX="614.0" layoutY="15.0" prefHeight="45.0" prefWidth="170.0" AnchorPane.bottomAnchor="454.0" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="15.0">
                      <children>
-                        <JFXButton layoutX="8.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Add Patient" textFill="WHITE">
+                        <JFXButton layoutX="8.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#AddPatient" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Add Patient" textFill="WHITE">
                            <font>
                               <Font name="Gotham-Book" size="12.0" />
                            </font>
