@@ -1,22 +1,14 @@
 package Controller.PatientDashBoardController;
 
 
-import Controller.FxmlLoader;
-import com.sun.glass.ui.View;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
-import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Screen;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class PatientDashBoardController implements Initializable{
 
@@ -30,7 +22,7 @@ public class PatientDashBoardController implements Initializable{
 
 
         FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage("PatientAppointments");
+        Pane view = object.getPage("PatientAppointment");
         mainpane.setCenter(view);
 
     }
@@ -46,7 +38,7 @@ public class PatientDashBoardController implements Initializable{
     @FXML
     void handlePatientComplaint(javafx.event.ActionEvent event) {
         FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage("PatientComplaints");
+        Pane view = object.getPage("PatientComplaint");
         mainpane.setCenter(view);
     }
 
@@ -54,7 +46,7 @@ public class PatientDashBoardController implements Initializable{
     @FXML
     void handlePatientSetting(javafx.event.ActionEvent event) {
         FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage("PatientSettings");
+        Pane view = object.getPage("PatientSetting");
         mainpane.setCenter(view);
     }
 

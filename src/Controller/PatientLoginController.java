@@ -62,7 +62,7 @@ public  class PatientLoginController implements Initializable {
                         Stage stage =(Stage) signInBtn.getScene().getWindow();
                         stage.close();
                         Stage primaryStage = new Stage();
-                        Parent root = FXMLLoader.load(getClass().getResource("/View/AdminDashBoard/AdminDashBoard.fxml"));
+                        Parent root = FXMLLoader.load(getClass().getResource("/View/PatientDashBoard/PatientDashBoard.fxml"));
                         primaryStage.initStyle(StageStyle.DECORATED);
                         primaryStage.setScene(new Scene(root));
                         primaryStage.show();

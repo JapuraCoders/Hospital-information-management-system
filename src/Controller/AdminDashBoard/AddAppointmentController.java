@@ -7,7 +7,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
@@ -23,8 +22,8 @@ public class AddAppointmentController<line> implements Initializable {
 
 
     @FXML
-    private ComboBox<String> specialityAreaCombo;
-    Reference doctorSpecialtyArea = new Reference("/DoctorSpecialtyArea.txt");
+    private JFXComboBox<String> specialityAreaCombo;
+    Reference doctorSpecialtyArea = new Reference("DoctorSpecialtyArea.txt");
     private ObservableList<String> dbTypeList = FXCollections.observableArrayList(doctorSpecialtyArea.view());
 
 
