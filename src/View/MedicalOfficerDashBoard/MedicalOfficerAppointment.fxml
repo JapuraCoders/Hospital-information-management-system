@@ -33,12 +33,12 @@
                      <children>
                         <TableView fx:id="tableView" maxWidth="1.7976931348623157E308" prefHeight="414.0" prefWidth="921.0">
                            <columns>
-                              <TableColumn editable="false" prefWidth="75.0" text="No" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="203.19996643066406" text="Name" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="160.79998779296875" text="NIC" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="218.39996337890625" text="Assigned Doctor" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="143.199951171875" text="Date" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="104.0" text="Edit " />
+                              <TableColumn editable="false" prefWidth="81.0" text="No" />
+                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="158.0" text="Appointment No" />
+                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="193.0" text="Name" />
+                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="144.0" text="NIC" />
+                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="147.0" text="Date" />
+                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="184.0" text="Edit Status " />
                            </columns>
                         </TableView>
                      </children>
