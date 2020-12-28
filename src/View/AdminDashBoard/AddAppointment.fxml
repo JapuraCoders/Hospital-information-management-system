@@ -4,7 +4,6 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -18,7 +17,7 @@
 
 <AnchorPane prefHeight="644.0" prefWidth="882.0" style="-fx-background-color: #FFFFFF;" styleClass="root" stylesheets="@../../assets/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminDashBoard.AddAppointmentController">
    <children>
-      <VBox alignment="CENTER" layoutX="29.0" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="607.0" prefWidth="815.0" spacing="20.0" style="-fx-background-color: #F7FAFC; -fx-background-radius: 15;" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="24.0">
+      <VBox alignment="CENTER" layoutX="59.0" layoutY="28.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="589.0" prefWidth="765.0" spacing="40.0" style="-fx-background-color: #F7FAFC; -fx-background-radius: 15;" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="28.0">
          <children>
             <Label prefHeight="22.0" prefWidth="117.0" text="New Appointment" textFill="#172b4d">
                <font>
@@ -58,7 +57,7 @@
                               <Image url="@../../assets/mail.png" />
                            </image>
                         </ImageView>
-                        <ComboBox fx:id="specialityAreaCombo" layoutX="33.0" layoutY="5.0" prefHeight="41.0" prefWidth="277.0" />
+                        <JFXComboBox fx:id="specialityAreaCombo" focusColor="WHITE" layoutX="32.0" layoutY="5.0" prefHeight="41.0" prefWidth="277.0" promptText="Select specialty type" unFocusColor="WHITE" />
                      </children>
                   </Pane>
                </children>
@@ -72,7 +71,7 @@
                               <Image url="@../../assets/mail.png" />
                            </image>
                         </ImageView>
-                        <JFXComboBox fx:id="DoctorCombo" focusColor="WHITE" layoutX="36.0" layoutY="5.0" prefHeight="41.0" prefWidth="277.0" unFocusColor="WHITE" />
+                        <JFXComboBox fx:id="DoctorCombo" focusColor="WHITE" layoutX="33.0" layoutY="5.0" prefHeight="41.0" prefWidth="277.0" promptText="Select Doctor" unFocusColor="WHITE" />
                      </children>
                   </Pane>
                </children>
@@ -115,7 +114,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <Label layoutX="862.0" layoutY="7.0" prefHeight="34.0" prefWidth="14.0" text="x" textFill="#f7fafc">
+      <Label layoutX="861.0" layoutY="4.0" prefHeight="34.0" prefWidth="14.0" text="x" textFill="#f7fafc">
          <font>
             <Font name="Gill Sans MT" size="28.0" />
          </font>

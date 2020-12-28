@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Reference {
@@ -25,7 +26,7 @@ public class Reference {
     public List<String> view() throws IOException, NoSuchElementException {
         String line;
 
-        ArrayList<String> dbTypeList = new ArrayList<>();
+        List<String> dbTypeList = new ArrayList<>();
         try{
             BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
 

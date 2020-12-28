@@ -1,19 +1,12 @@
 package Controller.ReceptionistDashBoardController;
 
-import Controller.FxmlLoader;
-import com.sun.glass.ui.View;
-import javafx.event.ActionEvent;
+import Controller.AdminDashBoard.FxmlLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Screen;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 

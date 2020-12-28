@@ -1,7 +1,6 @@
-package Controller;
-import Controller.AdminDashBoard.AdminDashBoardController;
+package Controller.AdminDashBoard;
 import javafx.fxml.FXMLLoader;
-import  javafx.scene.layout.Pane;
+import javafx.scene.layout.Pane;
 
 import java.net.URL;
 
@@ -11,9 +10,9 @@ public class FxmlLoader {
 
     public Pane getPage(String fileName) {
 
-        try{
+        try {
             URL fileUrl = AdminDashBoardController.class.getResource("/View/AdminDashBoard/" + fileName + ".fxml");
-            if(fileUrl == null){
+            if (fileUrl == null) {
                 throw new java.io.FileNotFoundException("FXML file can't be found");
             }
 
@@ -26,4 +25,5 @@ public class FxmlLoader {
 
         return view;
     }
+
 }

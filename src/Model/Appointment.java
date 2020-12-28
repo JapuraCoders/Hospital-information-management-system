@@ -31,7 +31,6 @@ public class Appointment {
 
         this.setSymptoms(symptoms);
         this.setAppointmentNo(appointmentNo);
-
         this.setAppointmentStatus(appointmentStatus);
         this.setMedicalOfficerName(medicalOfficerName);
         this.setMedicalOfficerSpeciality(medicalOfficerSpeciality);
