@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="644.0" prefWidth="882.0" style="-fx-background-color: #FFFFFF;" styleClass="root" stylesheets="@../../assets/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientDashBoardController.PatientAddAppointmentController">
+   <children>
+      <VBox alignment="CENTER" layoutX="29.0" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="607.0" prefWidth="815.0" spacing="20.0" style="-fx-background-color: #F7FAFC; -fx-background-radius: 15;" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="24.0">
+         <children>
+            <Label prefHeight="22.0" prefWidth="117.0" text="New Appointment" textFill="#172b4d">
+               <font>
+                  <Font name="Gotham-Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+               <children>
+                  <Pane prefHeight="50.0" prefWidth="322.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                     <children>
+                        <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/mail.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="username" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Name" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                           <font>
+                              <Font name="GothamRounded-Bold" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </TextField>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+               <children>
+                  <Pane prefHeight="50.0" prefWidth="323.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                     <children>
+                        <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/mail.png" />
+                           </image>
+                        </ImageView>
+                        <ComboBox fx:id="specialityAreaCombo" layoutX="33.0" layoutY="5.0" prefHeight="41.0" prefWidth="277.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+               <children>
+                  <Pane prefHeight="50.0" prefWidth="322.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                     <children>
+                        <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/mail.png" />
+                           </image>
+                        </ImageView>
+                        <JFXComboBox fx:id="DoctorCombo" focusColor="WHITE" layoutX="36.0" layoutY="5.0" prefHeight="41.0" prefWidth="277.0" unFocusColor="WHITE" />
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+                     <children>
+                        <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                           <children>
+                              <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/mail.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXComboBox fx:id="TimeCombo" focusColor="WHITE" layoutX="32.0" layoutY="5.0" prefHeight="41.0" prefWidth="220.0" promptText="Time" unFocusColor="WHITE" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                           <children>
+                              <DatePicker fx:id="date" layoutX="38.0" layoutY="4.0" prefHeight="41.0" prefWidth="220.0" promptText="Search by Date" style="-fx-background-color: #FFFFFF;" />
+                              <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/calendar@2x.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Add Appointment" textFill="WHITE">
+               <font>
+                  <Font name="GothamRounded-Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+      </VBox>
+      <Label layoutX="862.0" layoutY="7.0" prefHeight="34.0" prefWidth="14.0" text="x" textFill="#f7fafc">
+         <font>
+            <Font name="Gill Sans MT" size="28.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

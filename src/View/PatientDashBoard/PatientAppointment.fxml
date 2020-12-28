@@ -26,7 +26,7 @@
                     <children>
                         <Pane layoutX="796.0" layoutY="14.0" prefHeight="51.0" prefWidth="170.0" AnchorPane.rightAnchor="28.800000000000068">
                             <children>
-                                <JFXButton layoutX="8.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Export Data" textFill="WHITE">
+                                <JFXButton layoutX="8.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Add Appointment" textFill="WHITE">
                                     <font>
                                         <Font name="Gotham-Book" size="12.0" />
                                     </font>
@@ -53,15 +53,6 @@
                             </children>
                         </StackPane>
                         <ScrollBar layoutX="959.0" layoutY="141.0" orientation="VERTICAL" prefHeight="386.0" prefWidth="14.0" AnchorPane.rightAnchor="21.800000000000047" />
-                        <Pane layoutX="614.0" layoutY="15.0" prefHeight="48.0" prefWidth="170.0" AnchorPane.bottomAnchor="465.0" AnchorPane.rightAnchor="210.80000000000007" AnchorPane.topAnchor="15.0">
-                            <children>
-                                <JFXButton layoutX="8.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Add Appointment" textFill="WHITE">
-                                    <font>
-                                        <Font name="Gotham-Book" size="12.0" />
-                                    </font>
-                                </JFXButton>
-                            </children>
-                        </Pane>
                     </children>
                 </AnchorPane>
             </children>
