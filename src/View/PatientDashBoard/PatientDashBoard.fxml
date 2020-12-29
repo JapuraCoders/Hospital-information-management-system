@@ -17,7 +17,7 @@
             <left>
                 <Pane prefHeight="780.0" prefWidth="256.0" BorderPane.alignment="CENTER">
                     <children>
-                        <VBox prefHeight="780.0" prefWidth="265.0" spacing="15.0">
+                        <VBox prefHeight="780.0" prefWidth="265.0" spacing="15.0" style="-fx-background-color: #FFFFFF;">
                             <children>
                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="81.0" prefWidth="246.0" text="Patient" textFill="#172b4d">
                                     <font>
@@ -73,7 +73,7 @@
                                                 <Font name="Gotham-Book" size="16.0" />
                                             </font>
                                         </JFXButton>
-                                        <ImageView fitHeight="28.0" fitWidth="39.0" layoutX="44.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="28.0" fitWidth="39.0" layoutX="46.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../../assets/AdminDashBoard/Group%20422@2x.png" />
                                             </image>
@@ -81,8 +81,13 @@
                                     </children>
                                 </Pane>
                                 <Pane prefHeight="0.0" prefWidth="1296.0" VBox.vgrow="ALWAYS">
-                                    <children>
-                                        <JFXButton layoutY="42.0" onAction="#HandlePatientLogout" prefHeight="58.0" prefWidth="250.0" text="Logout" textFill="#172b4d">
+                                    <VBox.margin>
+                                        <Insets top="50.0" />
+                                    </VBox.margin>
+                                </Pane>
+                                <Pane prefHeight="138.0" prefWidth="266.0">
+                           <children>
+                                        <JFXButton layoutX="8.0" layoutY="71.0" onAction="#HandlePatientLogout" prefHeight="58.0" prefWidth="250.0" text="Logout" textFill="#172b4d">
                                             <font>
                                                 <Font name="Gotham-Book" size="16.0" />
                                             </font>
@@ -90,17 +95,12 @@
                                                 <Insets bottom="5.0" />
                                             </padding>
                                         </JFXButton>
-                                        <ImageView fitHeight="26.0" fitWidth="23.0" layoutX="51.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="26.0" fitWidth="23.0" layoutX="56.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../../assets/AdminDashBoard/log-out@2x.png" />
                                             </image>
                                         </ImageView>
-                                    </children>
-                                    <VBox.margin>
-                                        <Insets top="50.0" />
-                                    </VBox.margin>
-                                </Pane>
-                                <Pane prefHeight="200.0" prefWidth="200.0" />
+                           </children></Pane>
                             </children>
                             <opaqueInsets>
                                 <Insets bottom="5.0" left="45.0" />

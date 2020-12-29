@@ -6,7 +6,6 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -19,54 +18,6 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="788.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminDashBoard.AdminAppointmentController">
-   <center>
-      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F1F3F9;" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane layoutX="27.0" layoutY="20.0" prefHeight="548.0" prefWidth="995.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="28.200000000000045" AnchorPane.topAnchor="20.0">
-               <children>
-                  <Pane layoutX="796.0" layoutY="14.0" prefHeight="51.0" prefWidth="170.0" AnchorPane.rightAnchor="28.800000000000068">
-                     <children>
-                        <JFXButton layoutX="8.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Export Data" textFill="WHITE">
-                           <font>
-                              <Font name="Gotham-Book" size="12.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </Pane>
-                  <Label layoutX="25.0" layoutY="26.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="26.0" prefWidth="175.0" text="APPOINTMENT LIST" textFill="#172b4d">
-                     <font>
-                        <Font name="Gotham-Book" size="17.0" />
-                     </font>
-                  </Label>
-                  <StackPane layoutX="45.0" layoutY="113.0" prefHeight="414.0" prefWidth="906.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="44.0">
-                     <children>
-                        <TableView fx:id="tableView" maxWidth="1.7976931348623157E308" prefHeight="414.0" prefWidth="921.0">
-                          <columns>
-                            <TableColumn editable="false" prefWidth="75.0" text="No" />
-                            <TableColumn maxWidth="1.7976931348623157E308" prefWidth="203.19996643066406" text="Name" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="160.79998779296875" text="NIC" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="218.39996337890625" text="Assigned Doctor" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="143.199951171875" text="Date" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="104.0" text="Edit" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </StackPane>
-                  <ScrollBar layoutX="959.0" layoutY="141.0" orientation="VERTICAL" prefHeight="386.0" prefWidth="14.0" AnchorPane.rightAnchor="21.800000000000047" />
-                  <Pane layoutX="614.0" layoutY="15.0" prefHeight="48.0" prefWidth="170.0" AnchorPane.bottomAnchor="465.0" AnchorPane.rightAnchor="210.80000000000007" AnchorPane.topAnchor="15.0">
-                     <children>
-                        <JFXButton layoutX="8.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Add Appointment" textFill="WHITE">
-                           <font>
-                              <Font name="Gotham-Book" size="12.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </Pane>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-   </center>
    <top>
       <AnchorPane prefHeight="233.0" prefWidth="1050.0" style="-fx-background-color: #172B4D;" BorderPane.alignment="CENTER">
          <children>
@@ -74,7 +25,7 @@
                <children>
                   <Pane prefHeight="99.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                      <children>
-                        <Label layoutX="144.0" layoutY="43.0" prefHeight="36.0" prefWidth="38.0" text="00">
+                        <Label fx:id="appointCounterLabel" layoutX="144.0" layoutY="43.0" prefHeight="36.0" prefWidth="38.0" text="00">
                            <font>
                               <Font name="GothamRounded-Bold" size="25.0" />
                            </font>
@@ -94,7 +45,7 @@
                               <Image url="@../../assets/AdminDashBoard/Line@2x.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="147.0" layoutY="77.0" opacity="0.9" prefHeight="8.0" prefWidth="34.0" text="TODAY" textFill="#172b4d">
+                        <Label layoutX="147.0" layoutY="78.0" opacity="0.9" prefHeight="8.0" prefWidth="34.0" text="ALL" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="8.0" />
                            </font>
@@ -118,7 +69,7 @@
                               <Font name="Gotham-Bold" size="9.0" />
                            </font>
                         </Label>
-                        <Label layoutX="146.0" layoutY="78.0" opacity="0.9" prefHeight="8.0" prefWidth="34.0" text="TODAY" textFill="#172b4d">
+                        <Label layoutX="146.0" layoutY="78.0" opacity="0.9" prefHeight="8.0" prefWidth="34.0" text="ALL" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="8.0" />
                            </font>
@@ -146,7 +97,7 @@
                               <Font name="GothamRounded-Bold" size="25.0" />
                            </font>
                         </Label>
-                        <Label layoutX="144.0" layoutY="81.0" opacity="0.9" prefHeight="8.0" prefWidth="34.0" text="TODAY" textFill="#172b4d">
+                        <Label layoutX="144.0" layoutY="81.0" opacity="0.9" prefHeight="8.0" prefWidth="34.0" text="ALL" textFill="#172b4d">
                            <font>
                               <Font name="Gotham-Book" size="8.0" />
                            </font>
@@ -195,7 +146,7 @@
                   <Insets left="10.0" right="10.0" />
                </padding>
                <cursor>
-                  <Cursor fx:constant="NONE" />
+                  <Cursor fx:constant="DEFAULT" />
                </cursor>
             </HBox>
             <HBox alignment="CENTER" layoutX="139.0" layoutY="157.0" prefHeight="46.0" prefWidth="772.0" spacing="45.0" style="-fx-background-position: center;" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="139.4000000000001">
@@ -243,4 +194,54 @@
          </children>
       </AnchorPane>
    </top>
+   <center>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F1F3F9;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="27.0" layoutY="20.0" prefHeight="548.0" prefWidth="995.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="28.200000000000045" AnchorPane.topAnchor="20.0">
+               <children>
+                  <Pane layoutX="796.0" layoutY="14.0" prefHeight="51.0" prefWidth="170.0" AnchorPane.rightAnchor="28.800000000000068">
+                     <children>
+                        <JFXButton layoutX="8.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Export Data" textFill="WHITE">
+                           <font>
+                              <Font name="Gotham-Book" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+                  <Label layoutX="25.0" layoutY="26.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="26.0" prefWidth="175.0" text="APPOINTMENT LIST" textFill="#172b4d">
+                     <font>
+                        <Font name="Gotham-Book" size="17.0" />
+                     </font>
+                  </Label>
+                  <StackPane layoutX="14.0" layoutY="65.0" prefHeight="431.0" prefWidth="962.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="19.0">
+                     <children>
+                        <TableView fx:id="tableView" maxWidth="1.7976931348623157E308" prefHeight="423.0" prefWidth="892.0">
+                          <columns>
+                            <TableColumn fx:id="aptNo" editable="false" prefWidth="71.99996948242188" text="No" />
+                              <TableColumn fx:id="TimeStamp" editable="false" prefWidth="86.39999389648438" text="Time Stamp" />
+                            <TableColumn fx:id="patientName" maxWidth="1.7976931348623157E308" prefWidth="148.80001831054688" text="Patient Name" />
+                              <TableColumn fx:id="medicalOfficer" maxWidth="1.7976931348623157E308" prefWidth="144.79998779296875" text="Assigned Doctor" />
+                              <TableColumn fx:id="specialtyArea" maxWidth="1.7976931348623157E308" prefWidth="131.19998168945312" text="Specialty Area" />
+                              <TableColumn fx:id="status" maxWidth="1.7976931348623157E308" prefWidth="107.20001220703125" text="Status" />
+                              <TableColumn fx:id="date" maxWidth="1.7976931348623157E308" prefWidth="94.39996337890625" text=" Date" />
+                              <TableColumn fx:id="Time" maxWidth="1.7976931348623157E308" prefWidth="108.00006103515625" text="Time" />
+                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="64.800048828125" text="Edit" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </StackPane>
+                  <Pane layoutX="614.0" layoutY="15.0" prefHeight="48.0" prefWidth="170.0" AnchorPane.bottomAnchor="465.0" AnchorPane.rightAnchor="210.80000000000007" AnchorPane.topAnchor="15.0">
+                     <children>
+                        <JFXButton layoutX="8.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#AddAppointment" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Add Appointment" textFill="WHITE">
+                           <font>
+                              <Font name="Gotham-Book" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>
