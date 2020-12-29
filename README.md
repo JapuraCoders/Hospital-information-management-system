@@ -1,6 +1,6 @@
 "# Hospital-information-management-system" 
  
  ## screenshots
-![](mockup1.jpg)
-![](mockup.jpg)
+![](Mockup1.jpeg)
+![](Mockup.jpeg)
 
