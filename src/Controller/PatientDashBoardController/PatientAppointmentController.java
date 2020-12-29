@@ -22,6 +22,8 @@ public class PatientAppointmentController implements Initializable {
 
     @FXML
     private Label AppointmentNo;
+    @FXML
+    private Label errorMsg;
 
     @FXML
     private TextField PatientName;
@@ -54,23 +56,31 @@ public class PatientAppointmentController implements Initializable {
 
 
     public void addAppointment(javafx.event.ActionEvent event) throws IOException {
-        String inputPatientName = PatientName.getText().trim();
-        String inputSymptoms = Symptoms.getText().trim();
-        String selectedDoctor = SelectDoctorCombo.getValue();
-        String selectedSpecialityArea = specialityAreaCombo.getValue();
-        String selectedDate = date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        String selectedTime = TimeCombo.getValue();
+       try {
+           String inputPatientName = PatientName.getText().trim();
+
+           String inputSymptoms = Symptoms.getText().trim();
+           String selectedDoctor = SelectDoctorCombo.getValue();
+           String selectedSpecialityArea = specialityAreaCombo.getValue();
+           String selectedDate = date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+           String selectedTime = TimeCombo.getValue();
 
 
-        Appointment apt = new Appointment(inputPatientName,java.util.Calendar.getInstance().getTime(),inputSymptoms, AppointmentStatus.PENDING,selectedDoctor,selectedSpecialityArea,selectedDate,selectedTime);
-        AppointmentRecord aptRecord = new AppointmentRecord("Files/Details/AppointmentData.txt");
-        aptRecord.add(apt);
+           Appointment apt = new Appointment(inputPatientName, java.util.Calendar.getInstance().getTime(), inputSymptoms, AppointmentStatus.PENDING, selectedDoctor, selectedSpecialityArea, selectedDate, selectedTime);
+           AppointmentRecord aptRecord = new AppointmentRecord("Files/Details/AppointmentData.txt");
+           aptRecord.add(apt);
 
+
+
+       }catch (Exception e){
+           errorMsg.setText("Invalid Fields please Complete the Form !");
+       }
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        AppointmentNo.setText(String.valueOf(Appointment.appointmentCounter+1));
         specialityAreaCombo.setItems(dbTypeList);
         SelectDoctorCombo.setItems(docList);
         TimeCombo.setItems(docTimeList);
