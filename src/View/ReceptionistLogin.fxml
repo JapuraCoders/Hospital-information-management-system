@@ -83,5 +83,10 @@
             <Font name="Gill Sans MT" size="28.0" />
          </font>
       </Label>
+      <Label layoutX="5.0" text="&lt;" textFill="#f7fafc">
+         <font>
+            <Font name="Gill Sans MT" size="32.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
