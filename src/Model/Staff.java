@@ -11,7 +11,7 @@ public class Staff extends User{
     private Document cv;
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
-    public Staff(String name,String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus,String staffID,String staffEmailAddress,String dateJoining,Image staffPhotograph) {
+    public Staff(String name,String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus,String staffID,String staffEmailAddress,Date dateJoining,Image staffPhotograph) {
         super(name, phone, nIC, userName, gender, dOB, address, maritalStatus);
         this.setStaffID(staffID);
         this.setStaffEmailAddress(staffEmailAddress);
@@ -25,12 +25,8 @@ public class Staff extends User{
     public void setStaffEmailAddress (String staffEmailAddress){
         this.staffEmailAddress = staffEmailAddress;
     }
-    public void setDateJoining (String dateJoining){
-        try {
-            this.dateJoining = formatter.parse(dateJoining);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+    public void setDateJoining (Date dateJoining){
+        this.dateJoining = dateJoining;
     }
     public void setStaffPhotograph (Image staffPhotograph){
         this.staffPhotograph = staffPhotograph;
@@ -52,7 +48,7 @@ public class Staff extends User{
 
     @Override
     public String toString(){
-        return super.toString() + "\n" + this.getStaffID() + "\n" + this.getStaffEmailAddress() + "\n" + this.getDateJoining() + this.getStaffPhotograph();
+        return super.toString() + "," + this.getStaffID() + "," + this.getStaffEmailAddress() + "," + this.getDateJoining() + "," + this.getStaffPhotograph();
     }
 
 }

@@ -5,7 +5,7 @@ import java.util.Date;
 public class MedicalOfficer extends Staff {
     private String specialtyArea;
 
-    public MedicalOfficer(String name, String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus, String staffID, String staffEmailAddress, String dateJoining, Image staffPhotograph, String specialtyArea) {
+    public MedicalOfficer(String name, String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus, String staffID, String staffEmailAddress, Date dateJoining, Image staffPhotograph, String specialtyArea) {
         super(name, phone, nIC, userName, gender, dOB, address, maritalStatus, staffID, staffEmailAddress, dateJoining, staffPhotograph);
         this.setSpecialtyArea(specialtyArea);
     }
@@ -22,6 +22,6 @@ public class MedicalOfficer extends Staff {
 
     @Override
     public String toString(){
-        return super.toString() + "\n" + this.getSpecialtyArea();
+        return super.toString() + "," + this.getSpecialtyArea();
     }
 }

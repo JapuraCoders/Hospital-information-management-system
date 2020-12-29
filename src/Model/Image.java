@@ -74,6 +74,6 @@ public class Image {
 
     @Override
     public String toString(){
-        return this.getHeight() + "," + this.getWidth() + "," + this.getStorageFolderName() + this.getImageID();
+        return this.getHeight() + "," + this.getWidth() + "," + this.getStorageFolderName() + "," + this.getImageID();
     }
 }

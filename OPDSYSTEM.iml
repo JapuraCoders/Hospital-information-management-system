@@ -13,5 +13,6 @@
     <orderEntry type="library" name="jfoenix-9.0.10" level="project" />
     <orderEntry type="library" name="jfoenix-9.0.101" level="project" />
     <orderEntry type="library" name="com.jfoenix:jfoenix:9.0.10" level="project" />
+    <orderEntry type="library" name="pdfbox" level="project" />
   </component>
 </module>

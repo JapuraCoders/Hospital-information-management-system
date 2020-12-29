@@ -1,11 +1,13 @@
-
 package Model;
+
+import java.util.Date;
+
 public class Patient extends User {
 
     private BloodType bloodType;
     private String allergies;
 
-    public Patient(String name, String phone, String nIC , String userName, Gender gender, String dob, String address, MaritalStatus maritalStatus,BloodType bloodType, String allergies){
+    public Patient(String name, String phone, String nIC , String userName, Gender gender, Date dob, String address, MaritalStatus maritalStatus, BloodType bloodType, String allergies){
         super(name, phone, nIC, userName, gender,dob,address,maritalStatus);
         this.setBloodType(bloodType);
         this.setAllergies(allergies);

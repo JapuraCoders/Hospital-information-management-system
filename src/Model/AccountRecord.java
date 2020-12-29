@@ -1,6 +1,7 @@
 package Model;
 
 import java.io.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -22,7 +23,6 @@ public class AccountRecord {
     //------------------------------This will return all the account details----------------------------------------------
     public List<Account> viewAllAccounts() throws IOException, NoSuchElementException {
         String record, userType;
-        Account accountRecord = new Account();
         SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
         List<Account> accountRecordList = new ArrayList<>();
         try{
@@ -30,6 +30,7 @@ public class AccountRecord {
 
             //read line by line from the file
             while( ( record = br.readLine() ) != null ) {
+                Account accountRecord = new Account();
                 //separate data into tokens by ","
                 StringTokenizer accountDetail = new StringTokenizer(record,",");
                 //set data to accountRecord Object
@@ -41,23 +42,23 @@ public class AccountRecord {
                 switch (userType){
                     case "ADMIN":
                         accountRecord.setUserType(UserType.ADMIN);
-                        //create a user object according to the format of User(String name, String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus)
-                        accountRecord.setUser(new User(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken())));
+                        //create a user object according to the format of User(String name, String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus)
+                        accountRecord.setUser(new User(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),formatter.parse(accountDetail.nextToken()),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken())));
                         break;
                     case "MEDICALOFFICER":
                         accountRecord.setUserType(UserType.MEDICALOFFICER);
-                        //create a medical officer object according to the format of MedicalOfficer(String name, String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus, String staffID, String staffEmailAddress, String dateJoining, Image staffPhotograph, String specialtyArea)
-                        accountRecord.setUser(new MedicalOfficer(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),(new Image(Integer.parseInt(accountDetail.nextToken()),Integer.parseInt(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken())),accountDetail.nextToken()));
+                        //create a medical officer object according to the format of MedicalOfficer(String name, String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus, String staffID, String staffEmailAddress, Date dateJoining, Image staffPhotograph, String specialtyArea)
+                        accountRecord.setUser(new MedicalOfficer(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),formatter.parse(accountDetail.nextToken()),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),formatter.parse(accountDetail.nextToken()),(new Image(Integer.parseInt(accountDetail.nextToken()),Integer.parseInt(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken())),accountDetail.nextToken()));
                         break;
                     case "RECEPTIONIST":
                         accountRecord.setUserType(UserType.RECEPTIONIST);
-                        // create a staff object for receptionist according to the format of Staff(String name,String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus,String staffID,String staffEmailAddress,String dateJoining,Image staffPhotograph)
-                        accountRecord.setUser(new Staff(accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), Gender.valueOf(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken(), MaritalStatus.valueOf(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), (new Image(Integer.parseInt(accountDetail.nextToken()), Integer.parseInt(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken()))));
+                        // create a staff object for receptionist according to the format of Staff(String name,String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus,String staffID,String staffEmailAddress,Date dateJoining,Image staffPhotograph)
+                        accountRecord.setUser(new Staff(accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), Gender.valueOf(accountDetail.nextToken()), formatter.parse(accountDetail.nextToken()), accountDetail.nextToken(), MaritalStatus.valueOf(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken(), formatter.parse(accountDetail.nextToken()), (new Image(Integer.parseInt(accountDetail.nextToken()), Integer.parseInt(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken()))));
                         break;
                     case "PATIENT":
                         accountRecord.setUserType(UserType.PATIENT);
-                        //create a patient object according to the format of Patient(String name, String phone, String nIC , String userName, Gender gender, String dob, String address, MaritalStatus maritalStatus,BloodType bloodType, String allergies)
-                        accountRecord.setUser(new Patient(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()),BloodType.valueOf(accountDetail.nextToken()),accountDetail.nextToken()));
+                        //create a patient object according to the format of Patient(String name, String phone, String nIC , String userName, Gender gender, Date dob, String address, MaritalStatus maritalStatus,BloodType bloodType, String allergies)
+                        accountRecord.setUser(new Patient(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),formatter.parse(accountDetail.nextToken()),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()),BloodType.valueOf(accountDetail.nextToken()),accountDetail.nextToken()));
                         break;
                 }
                 accountRecordList.add(accountRecord);
@@ -65,7 +66,7 @@ public class AccountRecord {
             br.close();
         }
 
-        catch (IOException | NoSuchElementException e){
+        catch (IOException | NoSuchElementException | ParseException e){
             System.out.println("Error : " + e);
         }
         return accountRecordList;
@@ -95,30 +96,30 @@ public class AccountRecord {
                     switch (userType){
                         case "ADMIN":
                             accountRecord.setUserType(UserType.ADMIN);
-                            //create a user object according to the format of User(String name, String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus)
-                            accountRecord.setUser(new User(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken())));
+                            //create a user object according to the format of User(String name, String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus)
+                            accountRecord.setUser(new User(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),formatter.parse(accountDetail.nextToken()),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken())));
                             break;
                         case "MEDICALOFFICER":
                             accountRecord.setUserType(UserType.MEDICALOFFICER);
-                            //create a medical officer object according to the format of MedicalOfficer(String name, String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus, String staffID, String staffEmailAddress, String dateJoining, Image staffPhotograph, String specialtyArea)
-                            accountRecord.setUser(new MedicalOfficer(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),(new Image(Integer.parseInt(accountDetail.nextToken()),Integer.parseInt(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken())),accountDetail.nextToken()));
+                            //create a medical officer object according to the format of MedicalOfficer(String name, String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus, String staffID, String staffEmailAddress, Date dateJoining, Image staffPhotograph, String specialtyArea)
+                            accountRecord.setUser(new MedicalOfficer(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),formatter.parse(accountDetail.nextToken()),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),formatter.parse(accountDetail.nextToken()),(new Image(Integer.parseInt(accountDetail.nextToken()),Integer.parseInt(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken())),accountDetail.nextToken()));
                             break;
                         case "RECEPTIONIST":
                             accountRecord.setUserType(UserType.RECEPTIONIST);
-                            // create a staff object for receptionist according to the format of Staff(String name,String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus,String staffID,String staffEmailAddress,String dateJoining,Image staffPhotograph)
-                            accountRecord.setUser(new Staff(accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), Gender.valueOf(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken(), MaritalStatus.valueOf(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), (new Image(Integer.parseInt(accountDetail.nextToken()), Integer.parseInt(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken()))));
+                            // create a staff object for receptionist according to the format of Staff(String name,String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus,String staffID,String staffEmailAddress,Date dateJoining,Image staffPhotograph)
+                            accountRecord.setUser(new Staff(accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), Gender.valueOf(accountDetail.nextToken()), formatter.parse(accountDetail.nextToken()), accountDetail.nextToken(), MaritalStatus.valueOf(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken(), formatter.parse(accountDetail.nextToken()), (new Image(Integer.parseInt(accountDetail.nextToken()), Integer.parseInt(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken()))));
                             break;
                         case "PATIENT":
                             accountRecord.setUserType(UserType.PATIENT);
-                            //create a patient object according to the format of Patient(String name, String phone, String nIC , String userName, Gender gender, String dob, String address, MaritalStatus maritalStatus,BloodType bloodType, String allergies)
-                            accountRecord.setUser(new Patient(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()),BloodType.valueOf(accountDetail.nextToken()),accountDetail.nextToken()));
+                            //create a patient object according to the format of Patient(String name, String phone, String nIC , String userName, Gender gender, Date dob, String address, MaritalStatus maritalStatus,BloodType bloodType, String allergies)
+                            accountRecord.setUser(new Patient(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),formatter.parse(accountDetail.nextToken()),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()),BloodType.valueOf(accountDetail.nextToken()),accountDetail.nextToken()));
                             break;
                     }
                 }
             }
             br.close();
         }
-        catch (IOException | NullPointerException e){
+        catch (IOException | NullPointerException | ParseException e){
             System.out.println("Error : "+e);
         }
         if(accountRecord==null){
@@ -179,8 +180,9 @@ public class AccountRecord {
     //--------------------------------Edit single data in a file--------------------------------------------------------
     public void editAccountData(String accountID, String editfield, String updatedData) throws IOException{
         String record, userType;
-        //String userType, loginId, typedUserName, typedPassword, loginDateNTime, loginStatus, record;
-        //SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+        SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatter2 = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+
         try{
             //open Account details file for read the data
             File db = new File(this.getFileName());
@@ -206,7 +208,7 @@ public class AccountRecord {
                     case "ADMIN":
                         accountRecord.setUserType(UserType.ADMIN);
                         //create a user object according to the format of User(String name, String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus)
-                        User admin = new User(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()));
+                        User admin = new User(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),formatter2.parse(accountDetail.nextToken()),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()));
                         //Check whether that the account record to be edited... if it is then replace that record field according to given data
                         if(accountRecord.getAccountID().equals(accountID)){
                             switch (editfield) {
@@ -223,7 +225,7 @@ public class AccountRecord {
                                     admin.setGender(Gender.valueOf(updatedData));
                                     break;
                                 case "dOB":
-                                    admin.setDOB(updatedData);
+                                    admin.setDOB(formatter1.parse(updatedData));
                                     break;
                                 case "address":
                                     admin.setAddress(updatedData);
@@ -241,8 +243,8 @@ public class AccountRecord {
                         //-------------------If the user type is a medical officer-----------------
                     case "MEDICALOFFICER":
                         accountRecord.setUserType(UserType.MEDICALOFFICER);
-                        //create a medical officer object according to the format of MedicalOfficer(String name, String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus, String staffID, String staffEmailAddress, String dateJoining, Image staffPhotograph, String specialtyArea)
-                        MedicalOfficer medicalOfficer = new MedicalOfficer(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),(new Image(Integer.parseInt(accountDetail.nextToken()),Integer.parseInt(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken())),accountDetail.nextToken());
+                        //create a medical officer object according to the format of MedicalOfficer(String name, String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus, String staffID, String staffEmailAddress, Date dateJoining, Image staffPhotograph, String specialtyArea)
+                        MedicalOfficer medicalOfficer = new MedicalOfficer(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),formatter2.parse(accountDetail.nextToken()),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),formatter2.parse(accountDetail.nextToken()),(new Image(Integer.parseInt(accountDetail.nextToken()),Integer.parseInt(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken())),accountDetail.nextToken());
                         //Check whether that the account record to be edited... if it is then replace that record field according to given data
                         if(accountRecord.getAccountID().equals(accountID)){
                             switch (editfield) {
@@ -259,7 +261,7 @@ public class AccountRecord {
                                     medicalOfficer.setGender(Gender.valueOf(updatedData));
                                     break;
                                 case "dOB":
-                                    medicalOfficer.setDOB(updatedData);
+                                    medicalOfficer.setDOB(formatter1.parse(updatedData));
                                     break;
                                 case "address":
                                     medicalOfficer.setAddress(updatedData);
@@ -274,7 +276,7 @@ public class AccountRecord {
                                     medicalOfficer.setStaffEmailAddress(updatedData);
                                     break;
                                 case "dateJoining":
-                                    medicalOfficer.setDateJoining(updatedData);
+                                    medicalOfficer.setDateJoining(formatter1.parse(updatedData));
                                     break;
                                 case "staffPhotograph":
                                     medicalOfficer.getStaffPhotograph().addNewImage(updatedData);
@@ -289,11 +291,11 @@ public class AccountRecord {
                         }
                         accountRecord.setUser(medicalOfficer);
                         break;
-                        //--------------------If the user type is a receptionist---------------
+                        //--------------------If the user type is a receptionist-----------------------
                     case "RECEPTIONIST":
                         accountRecord.setUserType(UserType.RECEPTIONIST);
-                        // create a staff object for receptionist according to the format of Staff(String name,String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus,String staffID,String staffEmailAddress,String dateJoining,Image staffPhotograph)
-                        Staff receptionist = new Staff(accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), Gender.valueOf(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken(), MaritalStatus.valueOf(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), (new Image(Integer.parseInt(accountDetail.nextToken()), Integer.parseInt(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken())));
+                        // create a staff object for receptionist according to the format of Staff(String name,String phone, String nIC, String userName, Gender gender, String dOB, String address, MaritalStatus maritalStatus,String staffID,String staffEmailAddress,Date dateJoining,Image staffPhotograph)
+                        Staff receptionist = new Staff(accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), accountDetail.nextToken(), Gender.valueOf(accountDetail.nextToken()), formatter2.parse(accountDetail.nextToken()), accountDetail.nextToken(), MaritalStatus.valueOf(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken(), formatter2.parse(accountDetail.nextToken()), (new Image(Integer.parseInt(accountDetail.nextToken()), Integer.parseInt(accountDetail.nextToken()), accountDetail.nextToken(), accountDetail.nextToken())));
                         //Check whether that the account record to be edited... if it is then replace that record field according to given data
                         if(accountRecord.getAccountID().equals(accountID)){
                             switch (editfield) {
@@ -310,7 +312,7 @@ public class AccountRecord {
                                     receptionist.setGender(Gender.valueOf(updatedData));
                                     break;
                                 case "dOB":
-                                    receptionist.setDOB(updatedData);
+                                    receptionist.setDOB(formatter1.parse(updatedData));
                                     break;
                                 case "address":
                                     receptionist.setAddress(updatedData);
@@ -325,7 +327,7 @@ public class AccountRecord {
                                     receptionist.setStaffEmailAddress(updatedData);
                                     break;
                                 case "dateJoining":
-                                   receptionist.setDateJoining(updatedData);
+                                   receptionist.setDateJoining(formatter1.parse(updatedData));
                                     break;
                                 case "staffPhotograph":
                                     receptionist.getStaffPhotograph().addNewImage(updatedData);
@@ -341,7 +343,7 @@ public class AccountRecord {
                     case "PATIENT":
                         accountRecord.setUserType(UserType.PATIENT);
                         //create a patient object according to the format of Patient(String name, String phone, String nIC , String userName, Gender gender, String dob, String address, MaritalStatus maritalStatus,BloodType bloodType, String allergies)
-                        Patient patient = new Patient(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),accountDetail.nextToken(),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()),BloodType.valueOf(accountDetail.nextToken()),accountDetail.nextToken());
+                        Patient patient = new Patient(accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),accountDetail.nextToken(),Gender.valueOf(accountDetail.nextToken()),formatter2.parse(accountDetail.nextToken()),accountDetail.nextToken(),MaritalStatus.valueOf(accountDetail.nextToken()),BloodType.valueOf(accountDetail.nextToken()),accountDetail.nextToken());
                         //Check whether that the account record to be edited... if it is then replace that record field according to given data
                         if(accountRecord.getAccountID().equals(accountID)){
                             switch (editfield) {
@@ -358,7 +360,7 @@ public class AccountRecord {
                                     patient.setGender(Gender.valueOf(updatedData));
                                     break;
                                 case "dOB":
-                                    patient.setDOB(updatedData);
+                                    patient.setDOB(formatter1.parse(updatedData));
                                     break;
                                 case "address":
                                     patient.setAddress(updatedData);
@@ -388,7 +390,7 @@ public class AccountRecord {
             bw.close();
             db.delete();
             tempDb.renameTo(db);
-        } catch (IOException e) {
+        } catch (IOException | ParseException e) {
             System.out.println("Error :" + e);
         }
     }
