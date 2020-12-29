@@ -39,10 +39,12 @@ public class AppointmentRecord {
                 appointmentRecord.setPatientName(appointmentDetail.nextToken());
                 appointmentRecord.setAppointmentDateAndTime(formatter.parse(appointmentDetail.nextToken()));
                 appointmentRecord.setSymptoms(appointmentDetail.nextToken());
-                appointmentRecord.setAppointmentNo(Integer.parseInt(appointmentDetail.nextToken()));
+                appointmentRecord.setAppointmentNo(appointmentDetail.nextToken());
                 appointmentRecord.setAppointmentStatus(AppointmentStatus.valueOf(appointmentDetail.nextToken()));
                 appointmentRecord.setMedicalOfficerName(appointmentDetail.nextToken());
                 appointmentRecord.setMedicalOfficerSpeciality(appointmentDetail.nextToken());
+                appointmentRecord.setAppointmentDate(appointmentDetail.nextToken());
+                appointmentRecord.setAppointmentTime(appointmentDetail.nextToken());
 
 
 
@@ -76,11 +78,12 @@ public class AppointmentRecord {
                     appointmentRecord.setPatientName(appointmentDetail.nextToken());
                     appointmentRecord.setAppointmentDateAndTime(formatter.parse(appointmentDetail.nextToken()));
                     appointmentRecord.setSymptoms(appointmentDetail.nextToken());
-                    appointmentRecord.setAppointmentNo(Integer.parseInt(appointmentDetail.nextToken()));
+                    appointmentRecord.setAppointmentNo(appointmentDetail.nextToken());
                     appointmentRecord.setAppointmentStatus(AppointmentStatus.valueOf(appointmentDetail.nextToken()));
                     appointmentRecord.setMedicalOfficerName(appointmentDetail.nextToken());
                     appointmentRecord.setMedicalOfficerSpeciality(appointmentDetail.nextToken());
-
+                    appointmentRecord.setAppointmentDate(appointmentDetail.nextToken());
+                    appointmentRecord.setAppointmentTime(appointmentDetail.nextToken());
                 }
             }
             br.close();
@@ -113,11 +116,12 @@ public class AppointmentRecord {
                     appointmentRecord.setPatientName(appointmentDetail.nextToken());
                     appointmentRecord.setAppointmentDateAndTime(formatter.parse(appointmentDetail.nextToken()));
                     appointmentRecord.setSymptoms(appointmentDetail.nextToken());
-                    appointmentRecord.setAppointmentNo(Integer.parseInt(appointmentDetail.nextToken()));
+                    appointmentRecord.setAppointmentNo(appointmentDetail.nextToken());
                     appointmentRecord.setAppointmentStatus(AppointmentStatus.valueOf(appointmentDetail.nextToken()));
                     appointmentRecord.setMedicalOfficerName(appointmentDetail.nextToken());
                     appointmentRecord.setMedicalOfficerSpeciality(appointmentDetail.nextToken());
-
+                    appointmentRecord.setAppointmentDate(appointmentDetail.nextToken());
+                    appointmentRecord.setAppointmentTime(appointmentDetail.nextToken());
                 }
             }
             br.close();
@@ -178,11 +182,12 @@ public class AppointmentRecord {
         catch (IOException e){
             System.out.println("Error : "+e);
         }
-    }
+    }//-----------------------------------------------------------------------------------------------------------------
+
 
     //--------------------------------Edit single data in a file--------------------------------------------------------
     public void editLoginData(String patientname, String editfield, String updatedData) throws IOException{
-        String   patientName, appointmentDateAndTime, symptoms,appointmentNo,medicalOfficerName,medicalOfficerSpeciality,appointmentStatus ,record;
+        String   patientName, appointmentDateAndTime, symptoms,appointmentNo,medicalOfficerName,medicalOfficerSpeciality,appointmentStatus ,record,appointmentDate,appointmentTime;
         SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
         try{
             //open Login details file for read the data
@@ -204,9 +209,11 @@ public class AppointmentRecord {
                 appointmentStatus = appointmentDetail.nextToken();
                 medicalOfficerName = appointmentDetail.nextToken();
                 medicalOfficerSpeciality = appointmentDetail.nextToken();
+                appointmentDate = appointmentDetail.nextToken();
+                appointmentTime =appointmentDetail.nextToken();
 
 
-                Appointment appointmentRec = new Appointment(patientName,formatter.parse(appointmentDateAndTime),symptoms,Integer.parseInt(appointmentNo),AppointmentStatus.valueOf(appointmentStatus),medicalOfficerName,medicalOfficerSpeciality);
+                Appointment appointmentRec = new Appointment(patientName,formatter.parse(appointmentDateAndTime),symptoms,appointmentNo,AppointmentStatus.valueOf(appointmentStatus),medicalOfficerName,medicalOfficerSpeciality,appointmentDate,appointmentTime);
                 //Check whether that the visitor record to be edited... if it is then replace that record field according to given data
                 if(patientName.equals(patientname)){
                     switch (editfield) {
@@ -220,7 +227,7 @@ public class AppointmentRecord {
                             appointmentRec.setSymptoms(updatedData);
                             break;
                         case "appointmentNo":
-                            appointmentRec.setAppointmentNo(Integer.parseInt(updatedData));
+                            appointmentRec.setAppointmentNo(updatedData);
                             break;
                         case "appointmentStatus":
                             appointmentRec.setAppointmentStatus(AppointmentStatus.valueOf(updatedData));
@@ -231,6 +238,13 @@ public class AppointmentRecord {
                         case "medicalOfficerSpeciality":
                             appointmentRec.setMedicalOfficerSpeciality(updatedData);
                             break;
+                        case "appointmentDate":
+                            appointmentRec.setAppointmentDate(updatedData);
+                            break;
+                        case "appointmentTime":
+                            appointmentRec.setAppointmentTime(updatedData);
+                            break;
+
                         default:
                             System.out.println("Invalid Editfield");
                     }
