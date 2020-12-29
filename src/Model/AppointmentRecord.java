@@ -21,19 +21,18 @@ public class AppointmentRecord {
     }
 
     //------------------------------This will return all the appointment details----------------------------------------------
-    public List<Appointment> viewAllAppointments() throws IOException, NoSuchElementException {
-        String record;
-        Appointment appointmentRecord = new Appointment();
+    public ArrayList<Appointment> viewAllAppointments() throws IOException, NoSuchElementException {
 
-        SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
-
-
-        List<Appointment> appointmentRecordList = new ArrayList<>();
+        ArrayList<Appointment> appointmentRecordList = new ArrayList<>();
         try{
+
+
+
+            SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
             BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
-
+            String record;
             while( ( record = br.readLine() ) != null ) {
-
+                Appointment appointmentRecord = new Appointment();
                 StringTokenizer appointmentDetail = new StringTokenizer(record,",");
 
                 appointmentRecord.setPatientName(appointmentDetail.nextToken());

@@ -12,7 +12,7 @@ public class Appointment {
     private String medicalOfficerSpeciality;
     private String appointmentDate;
     private String appointmentTime;
-    private static int appointmentCounter;
+    public static int appointmentCounter;
 
 
     public Appointment(){
@@ -129,13 +129,14 @@ public class Appointment {
         return this.appointmentStatus;}
 
     public int getAppointmentCounter() {
+
         return Appointment.appointmentCounter;
     }
 
 
 
 
-    public static synchronized String appointmentNo()
+    public static String appointmentNo()
     {
         return String.format("%s%05d","Apt",appointmentCounter);
     }

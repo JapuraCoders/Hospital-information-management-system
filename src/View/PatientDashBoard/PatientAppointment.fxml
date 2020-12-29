@@ -41,18 +41,24 @@
                                             <Insets bottom="20.0" top="-38.0" />
                                         </VBox.margin>
                                     </Label>
+                              <Label fx:id="errorMsg" alignment="CENTER" prefHeight="18.0" prefWidth="318.0" textFill="#e51c23" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Gotham-Book" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="-29.0" top="-49.0" />
+                                 </VBox.margin>
+                              </Label>
                               <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
                                  <children>
-                                    <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                    <Pane prefHeight="50.0" prefWidth="231.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                                        <children>
-                                          <Label layoutX="37.0" layoutY="16.0" prefHeight="18.0" prefWidth="98.0" text="Appointment No :" textFill="#172b4d" />
+                                          <Label layoutX="22.0" layoutY="16.0" prefHeight="18.0" prefWidth="98.0" text="Appointment No :" textFill="#172b4d" />
                                           <Label fx:id="AppointmentNo" layoutX="139.0" layoutY="17.0" prefHeight="17.0" prefWidth="47.0" textFill="#172b4d" />
-                                          <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="7.0" layoutY="17.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../assets/mail.png" />
-                                             </image>
-                                          </ImageView>
                                        </children>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
                                     </Pane>
                                  </children>
                               </HBox>
