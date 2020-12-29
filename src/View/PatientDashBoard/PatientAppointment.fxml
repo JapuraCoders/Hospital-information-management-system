@@ -26,7 +26,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="746.0" prefWidth="1046.0" styleClass="root" stylesheets="@../../assets/style.css">
                      <children>
-                            <VBox alignment="CENTER" layoutX="95.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="677.0" prefWidth="859.0" spacing="56.0" style="-fx-background-color: #F7FAFC; -fx-background-radius: 15;" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="96.0">
+                            <VBox alignment="CENTER" layoutX="95.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="677.0" prefWidth="859.0" spacing="52.0" style="-fx-background-color: #F7FAFC; -fx-background-radius: 15;" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="96.0">
                                 <children>
                                     <Label prefHeight="22.0" prefWidth="255.0" text="Medical Appointment Form" textFill="#172b4d">
                                         <font>
@@ -46,29 +46,12 @@
                                     <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                                        <children>
                                           <Label layoutX="37.0" layoutY="16.0" prefHeight="18.0" prefWidth="98.0" text="Appointment No :" textFill="#172b4d" />
-                                          <Label layoutX="139.0" layoutY="17.0" prefHeight="17.0" prefWidth="47.0" textFill="#172b4d" />
+                                          <Label fx:id="AppointmentNo" layoutX="139.0" layoutY="17.0" prefHeight="17.0" prefWidth="47.0" textFill="#172b4d" />
                                           <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="7.0" layoutY="17.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../assets/mail.png" />
                                              </image>
                                           </ImageView>
-                                       </children>
-                                    </Pane>
-                                    <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
-                                       <children>
-                                          <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../assets/mail.png" />
-                                             </image>
-                                          </ImageView>
-                                          <TextField fx:id="username11112" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Mobile No" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-                                             <font>
-                                                <Font name="GothamRounded-Bold" size="12.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="DEFAULT" />
-                                             </cursor>
-                                          </TextField>
                                        </children>
                                     </Pane>
                                  </children>
@@ -82,7 +65,7 @@
                                                             <Image url="@../../assets/mail.png" />
                                                         </image>
                                                     </ImageView>
-                                                    <TextField fx:id="username" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Name" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                                                    <TextField fx:id="PatientName" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Name" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
                                                         <font>
                                                             <Font name="GothamRounded-Bold" size="12.0" />
                                                         </font>
@@ -92,14 +75,21 @@
                                                     </TextField>
                                                 </children>
                                             </Pane>
-                                            <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                            <Pane prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                                                 <children>
-                                                    <ImageView fitHeight="23.0" fitWidth="26.0" layoutX="8.0" layoutY="13.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                                    <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
                                                         <image>
-                                                            <Image url="@../../assets/calendar@2x.png" />
+                                                            <Image url="@../../assets/mail.png" />
                                                         </image>
                                                     </ImageView>
-                                          <DatePicker fx:id="date" layoutX="36.0" layoutY="5.0" prefHeight="41.0" prefWidth="220.0" promptText="Select Date" style="-fx-background-color: #FFFFFF;" />
+                                                    <TextField fx:id="Symptoms" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="48.0" prefWidth="243.0" promptText="Symptoms" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                                                        <font>
+                                                            <Font name="GothamRounded-Bold" size="12.0" />
+                                                        </font>
+                                                        <cursor>
+                                                            <Cursor fx:constant="DEFAULT" />
+                                                        </cursor>
+                                                    </TextField>
                                                 </children>
                                             </Pane>
                                         </children>
@@ -123,45 +113,51 @@
                                                             <Image url="@../../assets/mail.png" />
                                                         </image>
                                                     </ImageView>
-                                          <JFXComboBox fx:id="specialityAreaCombo1" focusColor="WHITE" layoutX="33.0" layoutY="5.0" opacity="0.8" prefHeight="41.0" prefWidth="230.0" promptText="  Select Doctor" unFocusColor="WHITE" />
+                                          <JFXComboBox fx:id="SelectDoctorCombo" focusColor="WHITE" layoutX="33.0" layoutY="5.0" opacity="0.8" prefHeight="41.0" prefWidth="230.0" promptText="  Select Doctor" unFocusColor="WHITE" />
                                                 </children>
                                             </Pane>
                                         </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
                                         <children>
-                                            <Pane prefHeight="61.0" prefWidth="391.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                            <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                                                 <children>
-                                                    <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                                    <ImageView fitHeight="23.0" fitWidth="26.0" layoutX="8.0" layoutY="13.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
                                                         <image>
-                                                            <Image url="@../../assets/mail.png" />
+                                                            <Image url="@../../assets/calendar@2x.png" />
                                                         </image>
                                                     </ImageView>
-                                                    <TextField fx:id="username111111" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="48.0" prefWidth="349.0" promptText="Symptoms" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-                                                        <font>
-                                                            <Font name="GothamRounded-Bold" size="12.0" />
-                                                        </font>
-                                                        <cursor>
-                                                            <Cursor fx:constant="DEFAULT" />
-                                                        </cursor>
-                                                    </TextField>
+                                          <DatePicker fx:id="date" layoutX="36.0" layoutY="5.0" prefHeight="41.0" prefWidth="220.0" promptText="Select Date" style="-fx-background-color: #FFFFFF;" />
                                                 </children>
                                             </Pane>
+                                    <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                       <children>
+                                          <ImageView fitHeight="23.0" fitWidth="26.0" layoutX="8.0" layoutY="13.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../assets/calendar@2x.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXComboBox fx:id="TimeCombo" focusColor="WHITE" layoutX="37.0" layoutY="4.0" opacity="0.8" prefHeight="41.0" prefWidth="230.0" promptText="Select time" unFocusColor="WHITE" />
+                                       </children>
+                                    </Pane>
                                         </children>
                                     </HBox>
                               <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
                                  <children>
-                                          <JFXButton fx:id="signInBtn" alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Add Appointment" textFill="WHITE">
+                                          <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#addAppointment" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Add Appointment" textFill="WHITE">
                                               <font>
                                                   <Font name="GothamRounded-Bold" size="12.0" />
                                               </font>
                                           </JFXButton>
-                                    <JFXButton fx:id="signInBtn1" alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Print Receipt" textFill="WHITE">
+                                    <JFXButton fx:id="PrintReceipt" alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Print Receipt" textFill="WHITE">
                                        <font>
                                           <Font name="GothamRounded-Bold" size="12.0" />
                                        </font>
                                     </JFXButton>
                                  </children>
+                                 <padding>
+                                    <Insets top="8.0" />
+                                 </padding>
                               </HBox>
                                 </children>
                             </VBox>

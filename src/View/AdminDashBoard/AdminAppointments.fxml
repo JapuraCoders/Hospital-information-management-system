@@ -44,11 +44,11 @@
                         <TableView fx:id="tableView" maxWidth="1.7976931348623157E308" prefHeight="434.0" prefWidth="906.0">
                           <columns>
                             <TableColumn fx:id="no" editable="false" prefWidth="75.0" text="No" />
-                            <TableColumn fx:id="name" maxWidth="1.7976931348623157E308" prefWidth="203.19996643066406" text="Name" />
-                              <TableColumn fx:id="nic" maxWidth="1.7976931348623157E308" prefWidth="160.79998779296875" text="NIC" />
-                              <TableColumn fx:id="assignedDoctor" maxWidth="1.7976931348623157E308" prefWidth="218.39996337890625" text="Assigned Doctor" />
-                              <TableColumn fx:id="date" maxWidth="1.7976931348623157E308" prefWidth="143.199951171875" text="Date" />
-                              <TableColumn fx:id="edit" maxWidth="1.7976931348623157E308" prefWidth="104.0" text="Edit" />
+                            <TableColumn fx:id="name" maxWidth="1.7976931348623157E308" prefWidth="203.19996643066406" text="Patient Name" />
+                              <TableColumn fx:id="nic" maxWidth="1.7976931348623157E308" prefWidth="159.20001220703125" text="NIC" />
+                              <TableColumn fx:id="assignedDoctor" maxWidth="1.7976931348623157E308" prefWidth="220.0" text="Assigned Doctor" />
+                              <TableColumn fx:id="date" maxWidth="1.7976931348623157E308" prefWidth="128.79998779296875" text="Date" />
+                              <TableColumn fx:id="edit" maxWidth="1.7976931348623157E308" prefWidth="119.20001220703125" text="Edit" />
                           </columns>
                            <stylesheets>
                               <URL value="@../../assets/table.css" />
