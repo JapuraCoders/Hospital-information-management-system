@@ -54,7 +54,6 @@
                      </children>
                   </StackPane>
                   <ScrollBar layoutX="959.0" layoutY="141.0" orientation="VERTICAL" prefHeight="386.0" prefWidth="14.0" AnchorPane.rightAnchor="21.800000000000047" />
-                  <Pane layoutX="614.0" layoutY="15.0" prefHeight="48.0" prefWidth="170.0" AnchorPane.bottomAnchor="465.0" AnchorPane.rightAnchor="210.80000000000007" AnchorPane.topAnchor="15.0" />
                </children>
             </AnchorPane>
          </children>
