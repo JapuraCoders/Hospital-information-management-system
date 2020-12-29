@@ -34,10 +34,6 @@ public class AdminLoginController implements Initializable {
     @FXML
     private PasswordField password;
 
-
-    @FXML
-    private Label label;
-
     @FXML
     private Label errorMsg;
 
@@ -91,9 +87,15 @@ public class AdminLoginController implements Initializable {
 
 
 
-    @FXML
-    private void handleClose(MouseEvent event) {
-        System.exit(0);
+   @FXML
+    private void handleClose(ActionEvent event) throws IOException {
+        Stage stage =(Stage) errorMsg.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/View/LoginSelect.fxml"));
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 
 

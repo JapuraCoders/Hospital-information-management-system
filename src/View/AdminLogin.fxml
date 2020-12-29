@@ -84,6 +84,11 @@
             <Font name="Gill Sans MT" size="28.0" />
          </font>
       </Label>
+      <Label layoutX="3.0" prefHeight="34.0" prefWidth="34.0" text="&lt;" textFill="#f7fafc">
+         <font>
+            <Font name="Gill Sans MT" size="33.0" />
+         </font>
+      </Label>
    </children>
    <stylesheets>
       <URL value="@../assets/style.css" />
