@@ -9,17 +9,17 @@ public class Account {
     private static int accountCounter = 0; //static counter variable
 
     public Account(){
-        this.setAccountID(null);
-        this.setPassword(null);
+        this.setAccountID("");
+        this.setPassword("");
     }
 
         //this constructor valid when creating a user by admin
         public Account(UserType userType, User user){
-            this.setAccountID(accountIDGenerator());
-            this.setPassword(defaultPassword());
-            this.setImage(new Image(520,520,"Files\\UserPhotos",this.getAccountID()));
             this.setUser(user);
             this.setUserType(userType);
+            this.setAccountID(accountIDGenerator());
+            this.setPassword(defaultPassword());
+            this.setImage(new Image(520,520,"UserPhotos",this.getAccountID()));
 
             accountCounter++;
             this.image.addNewImage(defaultImage());
@@ -90,19 +90,19 @@ public class Account {
 
         //methods
         public String accountIDGenerator(){
-            String accountType = "NULL";
+            String accountType = "";
             int accountNo = this.getAccountCounter();
-            UserType thisAccountUser = this.getUserType();
-            if (thisAccountUser==UserType.ADMIN){
+            String thisAccountUser = String.valueOf(this.getUserType());
+            if (thisAccountUser.equals("ADMIN")){
                 accountType = "AD";
             }
-            else if (thisAccountUser==UserType.MEDICALOFFICER){
+            else if (thisAccountUser.equals("MEDICALOFFICER")){
                 accountType = "MED";
             }
-            else if (thisAccountUser==UserType.RECEPTIONIST){
+            else if (thisAccountUser.equals("RECEPTIONIST")){
                 accountType = "RE";
             }
-            else if (thisAccountUser==UserType.PATIENT){
+            else if (thisAccountUser.equals("PATIENT")){
                 accountType = "PAT";
             }
             else{
@@ -119,11 +119,11 @@ public class Account {
         public String defaultImage(){
             String inputFileName = "Null";
             if(this.getUser().getGender()==Gender.MALE){
-                inputFileName = "Files\\UserPhotos\\DefaultMale";
+                inputFileName = "Files\\UserPhotos\\DefaultMale.jpg";
                 //set DefaultMale image in UserPhotos folder for Male user
             }
             else if(this.getUser().getGender()==Gender.FEMALE){
-                inputFileName = "Files\\UserPhotos\\DefaultFemale";
+                inputFileName = "Files\\UserPhotos\\DefaultFemale.jpg";
                 //set DefaultMale image in UserPhotos folder for Female user
             }
             else{

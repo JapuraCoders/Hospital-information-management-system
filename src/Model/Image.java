@@ -50,16 +50,16 @@ public class Image {
 
     //add new image method
     public void addNewImage(String inputFilename) {
-
         try {
             File input = new File(inputFilename); // image file path
             image = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_ARGB);
             image = ImageIO.read(input);
 
-            File save = new File("Files\\"+ this.getStorageFolderName() + "\\" + this.getImageID());//output file path
-            ImageIO.write(image,"jpg", save);
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
+            File save = new File("Files\\"+ this.getStorageFolderName() + "\\" + this.getImageID() + ".jpg");//output file path
+            ImageIO.write(image,"jpg",save);
+        }
+        catch (Exception e){
+            System.out.println("Error : " + e);
         }
     }
 

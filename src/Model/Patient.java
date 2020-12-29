@@ -1,6 +1,5 @@
 
 package Model;
-import java.util.Date;
 public class Patient extends User {
 
     private BloodType bloodType;
@@ -65,5 +64,3 @@ public class Patient extends User {
         return super.toString() + "," + this.getBloodType() + "," + this.getAllergies();
     }
 }
-
-
