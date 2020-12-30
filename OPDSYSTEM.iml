@@ -10,10 +10,10 @@
     <orderEntry type="library" name="Javafx" level="project" />
     <orderEntry type="library" name="javfx" level="project" />
     <orderEntry type="library" name="jfoenix-9.0.101" level="project" />
-    <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="jfoenix-9.0.10" level="project" />
     <orderEntry type="library" name="com.jfoenix:jfoenix:9.0.10" level="project" />
     <orderEntry type="library" name="pdfbox" level="project" />
     <orderEntry type="library" name="pdfbox-app-2.0.22" level="project" />
+    <orderEntry type="library" name="javafx" level="project" />
   </component>
 </module>
