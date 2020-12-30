@@ -33,7 +33,7 @@ public abstract class Person {
     }
     @Override
     public String toString(){
-        return this.getName() + "\n" + this.getPhone() + "\n" + this.getNIC();
+        return this.getName() + "," + this.getPhone() + "," + this.getNIC();
     }
 
 }

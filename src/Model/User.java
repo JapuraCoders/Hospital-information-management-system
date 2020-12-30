@@ -2,16 +2,16 @@ package Model;
 
 import java.util.Date;
 
-public abstract class User extends Person {
-    protected String userName;
-    protected Gender gender;
-    protected Date dOB;
-    protected String address;
-    protected MaritalStatus maritalStatus;
+public class User extends Person {
+    public String userName;
+    public Gender gender;
+    public Date dOB;
+    public String address;
+    public MaritalStatus maritalStatus;
 
-    protected User(String s, String name, String phone, String nIC, Gender gender, Date dOB, String address, MaritalStatus maritalStatus/*, Account account*/){
+    public User(String name, String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus){
         super (name, phone, nIC);
-        this.setUserName(name);
+        this.setUserName(userName);
         this.setGender(gender);
         this.setDOB(dOB);
         this.setAddress(address);
@@ -34,9 +34,7 @@ public abstract class User extends Person {
     public void setMaritalStus(MaritalStatus maritalStatus){
         this.maritalStatus = maritalStatus;
     }
-    /*public void setAccount(Account account){
-        this.account = account;
-    }*/
+
     //getters
     public String getUserName(){
         return this.userName;
@@ -56,6 +54,6 @@ public abstract class User extends Person {
 
     @Override
     public String toString(){
-        return super.toString() + "-" + this.getUserName() + "-" + this.getGender() + "-" + this.getDOB() + "-" + this.getAddress() + "-" + this.getMaritalStatus();
+        return super.toString() + "," + this.getUserName() + "," + this.getGender() + "," + this.getDOB() + "," + this.getAddress() + "," + this.getMaritalStatus();
     }
 }

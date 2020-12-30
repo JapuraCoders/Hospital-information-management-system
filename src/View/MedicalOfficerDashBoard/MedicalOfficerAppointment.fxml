@@ -1,232 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollBar?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="788.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MedicalOfficerController.MedicalOfficerAppointmentController">
    <center>
-      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F1F3F9;" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane layoutX="27.0" layoutY="20.0" prefHeight="548.0" prefWidth="995.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="28.200000000000045" AnchorPane.topAnchor="20.0">
-               <children>
-                  <Pane layoutX="796.0" layoutY="14.0" prefHeight="51.0" prefWidth="170.0" AnchorPane.rightAnchor="28.800000000000068" />
-                  <Label layoutX="25.0" layoutY="26.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="26.0" prefWidth="175.0" text="APPOINTMENT LIST" textFill="#172b4d">
-                     <font>
-                        <Font name="Gotham-Book" size="17.0" />
-                     </font>
-                  </Label>
-                  <StackPane layoutX="45.0" layoutY="113.0" prefHeight="414.0" prefWidth="906.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="44.0">
+      <JFXTabPane cache="true" styleClass="jfx-tab-pane" stylesheets="@../../assets/tabs.css" BorderPane.alignment="CENTER">
+         <tabs>
+          <Tab text="ADD APPOINTMENT">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="746.0" prefWidth="1046.0" styleClass="root" stylesheets="@../../assets/style.css">
                      <children>
-                        <TableView fx:id="tableView" maxWidth="1.7976931348623157E308" prefHeight="414.0" prefWidth="921.0">
-                           <columns>
-                              <TableColumn editable="false" prefWidth="81.0" text="No" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="158.0" text="Appointment No" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="193.0" text="Name" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="144.0" text="NIC" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="147.0" text="Date" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="184.0" text="Edit Status " />
-                           </columns>
-                        </TableView>
+                            <VBox alignment="CENTER" layoutX="95.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="677.0" prefWidth="859.0" spacing="52.0" style="-fx-background-color: #F7FAFC; -fx-background-radius: 15;" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="96.0">
+                                <children>
+                                    <Label prefHeight="22.0" prefWidth="255.0" text="Medical Appointment Form" textFill="#172b4d">
+                                        <font>
+                                            <Font name="Gotham-Bold" size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <Label prefHeight="22.0" prefWidth="274.0" text="Please complete the form below for your Appointment" textFill="#172b4d">
+                                        <font>
+                                            <Font name="Gotham-Book" size="10.0" />
+                                        </font>
+                                        <VBox.margin>
+                                            <Insets bottom="20.0" top="-38.0" />
+                                        </VBox.margin>
+                                    </Label>
+                              <Label fx:id="errorMsg" alignment="CENTER" prefHeight="18.0" prefWidth="318.0" textFill="#e51c23" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Gotham-Book" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="-29.0" top="-49.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+                                 <children>
+                                    <Pane prefHeight="50.0" prefWidth="231.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                       <children>
+                                          <Label layoutX="22.0" layoutY="16.0" prefHeight="18.0" prefWidth="98.0" text="Appointment No :" textFill="#172b4d" />
+                                          <Label fx:id="AppointmentNo" layoutX="139.0" layoutY="17.0" prefHeight="17.0" prefWidth="47.0" textFill="#172b4d" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Pane>
+                                 </children>
+                              </HBox>
+                                    <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+                                        <children>
+                                            <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                                <children>
+                                                    <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="6.0" layoutY="18.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@../../assets/mail.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                    <TextField fx:id="PatientName" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Name" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                                                        <font>
+                                                            <Font name="GothamRounded-Bold" size="12.0" />
+                                                        </font>
+                                                        <cursor>
+                                                            <Cursor fx:constant="DEFAULT" />
+                                                        </cursor>
+                                                    </TextField>
+                                                </children>
+                                            </Pane>
+                                            <Pane prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                                <children>
+                                                    <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@../../assets/mail.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                    <TextField fx:id="Symptoms" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="48.0" prefWidth="243.0" promptText="Symptoms" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                                                        <font>
+                                                            <Font name="GothamRounded-Bold" size="12.0" />
+                                                        </font>
+                                                        <cursor>
+                                                            <Cursor fx:constant="DEFAULT" />
+                                                        </cursor>
+                                                    </TextField>
+                                                </children>
+                                            </Pane>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+                                        <children>
+                                            <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                                <children>
+                                                    <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@../../assets/mail.png" />
+                                                        </image>
+                                                    </ImageView>
+                                          <JFXComboBox fx:id="specialityAreaCombo" focusColor="WHITE" layoutX="31.0" layoutY="4.0" opacity="0.8" prefHeight="41.0" prefWidth="230.0" promptText="Select specialty type" unFocusColor="WHITE" />
+                                                </children>
+                                            </Pane>
+                                            <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                                <children>
+                                                    <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="5.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@../../assets/mail.png" />
+                                                        </image>
+                                                    </ImageView>
+                                          <JFXComboBox fx:id="SelectDoctorCombo" focusColor="WHITE" layoutX="33.0" layoutY="5.0" opacity="0.8" prefHeight="41.0" prefWidth="230.0" promptText="  Select Doctor" unFocusColor="WHITE" />
+                                                </children>
+                                            </Pane>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+                                        <children>
+                                            <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                                <children>
+                                                    <ImageView fitHeight="23.0" fitWidth="26.0" layoutX="8.0" layoutY="13.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@../../assets/calendar@2x.png" />
+                                                        </image>
+                                                    </ImageView>
+                                          <DatePicker fx:id="date" layoutX="36.0" layoutY="5.0" prefHeight="41.0" prefWidth="220.0" promptText="Select Date" style="-fx-background-color: #FFFFFF;" />
+                                                </children>
+                                            </Pane>
+                                    <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                       <children>
+                                          <ImageView fitHeight="23.0" fitWidth="26.0" layoutX="8.0" layoutY="13.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../assets/calendar@2x.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXComboBox fx:id="TimeCombo" focusColor="WHITE" layoutX="37.0" layoutY="4.0" opacity="0.8" prefHeight="41.0" prefWidth="230.0" promptText="Select time" unFocusColor="WHITE" />
+                                       </children>
+                                    </Pane>
+                                        </children>
+                                    </HBox>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+                                 <children>
+                                          <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#addAppointment" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Add Appointment" textFill="WHITE">
+                                              <font>
+                                                  <Font name="GothamRounded-Bold" size="12.0" />
+                                              </font>
+                                          </JFXButton>
+                                    <JFXButton fx:id="PrintReceipt" alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Print Receipt" textFill="WHITE">
+                                       <font>
+                                          <Font name="GothamRounded-Bold" size="12.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                                 <padding>
+                                    <Insets top="8.0" />
+                                 </padding>
+                              </HBox>
+                                </children>
+                            </VBox>
                      </children>
-                  </StackPane>
-                  <ScrollBar layoutX="959.0" layoutY="141.0" orientation="VERTICAL" prefHeight="386.0" prefWidth="14.0" AnchorPane.rightAnchor="21.800000000000047" />
-                  <Pane layoutX="614.0" layoutY="15.0" prefHeight="48.0" prefWidth="170.0" AnchorPane.bottomAnchor="465.0" AnchorPane.rightAnchor="210.80000000000007" AnchorPane.topAnchor="15.0" />
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="VIEW APPOINTMENT">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1050.0" styleClass="root" stylesheets="@../../assets/style.css" />
+            </content>
+          </Tab>
+         </tabs>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </JFXTabPane>
    </center>
-   <top>
-      <AnchorPane prefHeight="233.0" prefWidth="1050.0" style="-fx-background-color: #172B4D;" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER" focusTraversable="true" layoutX="78.0" layoutY="14.0" prefHeight="99.0" prefWidth="894.0" spacing="40.0" style="-fx-background-position: center;" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="78.0">
-               <children>
-                  <Pane prefHeight="99.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
-                     <children>
-                        <Label layoutX="144.0" layoutY="43.0" prefHeight="36.0" prefWidth="38.0" text="00">
-                           <font>
-                              <Font name="GothamRounded-Bold" size="25.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="137.0" layoutY="12.0" prefHeight="19.0" prefWidth="48.0" style="-fx-background-color: #22CE8B; -fx-background-radius: 8;" text="  +25 %" textFill="WHITE">
-                           <font>
-                              <Font name="Gotham-Bold" size="9.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="8.0" layoutY="17.0" text="APPOINTMENTS" textFill="#172b4d">
-                           <font>
-                              <Font name="Gotham-Book" size="11.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="35.0" fitWidth="105.0" layoutX="14.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/AdminDashBoard/Line@2x.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="147.0" layoutY="77.0" opacity="0.9" prefHeight="8.0" prefWidth="34.0" text="TODAY" textFill="#172b4d">
-                           <font>
-                              <Font name="Gotham-Book" size="8.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="99.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
-                     <children>
-                        <Label layoutX="14.0" layoutY="14.0" text="CONSULTATIONS" textFill="#172b4d">
-                           <font>
-                              <Font name="Gotham-Book" size="11.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="142.0" layoutY="47.0" prefHeight="27.0" prefWidth="37.0" text="00">
-                           <font>
-                              <Font name="GothamRounded-Bold" size="25.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="136.0" layoutY="10.0" prefHeight="19.0" prefWidth="48.0" style="-fx-background-color: #FECD54; -fx-background-radius: 8;" text="  +25 %" textFill="WHITE">
-                           <font>
-                              <Font name="Gotham-Bold" size="9.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="146.0" layoutY="78.0" opacity="0.9" prefHeight="8.0" prefWidth="34.0" text="TODAY" textFill="#172b4d">
-                           <font>
-                              <Font name="Gotham-Book" size="8.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="271.0" layoutY="20.0" prefHeight="19.0" prefWidth="48.0" style="-fx-background-color: #22CE8B; -fx-background-radius: 8;" text="  +25 %" textFill="WHITE">
-                           <font>
-                              <Font name="Gotham-Bold" size="9.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="26.0" fitWidth="131.0" layoutX="5.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/AdminDashBoard/Line1@2x.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="99.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
-                     <children>
-                        <Label layoutX="14.0" layoutY="14.0" text="CANCELED" textFill="#172b4d">
-                           <font>
-                              <Font name="Gotham-Book" size="11.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="141.0" layoutY="50.0" prefHeight="28.0" prefWidth="38.0" text="00">
-                           <font>
-                              <Font name="GothamRounded-Bold" size="25.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="144.0" layoutY="81.0" opacity="0.9" prefHeight="8.0" prefWidth="34.0" text="TODAY" textFill="#172b4d">
-                           <font>
-                              <Font name="Gotham-Book" size="8.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="138.0" layoutY="9.0" prefHeight="19.0" prefWidth="48.0" style="-fx-background-color: #E94E60; -fx-background-radius: 8;" text="  +25 %" textFill="WHITE">
-                           <font>
-                              <Font name="Gotham-Bold" size="9.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="31.0" fitWidth="128.0" layoutX="12.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/AdminDashBoard/Line2@2x.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="99.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
-                     <children>
-                        <Label layoutX="14.0" layoutY="14.0" text="URGENT" textFill="#172b4d">
-                           <font>
-                              <Font name="Gotham-Book" size="11.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="143.0" layoutY="50.0" prefHeight="17.0" prefWidth="37.0" text="00">
-                           <font>
-                              <Font name="GothamRounded-Bold" size="25.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="137.0" layoutY="8.0" prefHeight="19.0" prefWidth="48.0" style="-fx-background-color: #FECD54; -fx-background-radius: 8;" text="  +25 %" textFill="WHITE">
-                           <font>
-                              <Font name="Gotham-Bold" size="9.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="147.0" layoutY="80.0" opacity="0.9" prefHeight="8.0" prefWidth="34.0" text="TODAY" textFill="#172b4d">
-                           <font>
-                              <Font name="Gotham-Book" size="8.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="53.0" fitWidth="75.0" layoutX="52.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/AdminDashBoard/bg2@2x.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-               </children>
-               <padding>
-                  <Insets left="10.0" right="10.0" />
-               </padding>
-               <cursor>
-                  <Cursor fx:constant="NONE" />
-               </cursor>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="139.0" layoutY="157.0" prefHeight="46.0" prefWidth="772.0" spacing="45.0" style="-fx-background-position: center;" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="139.4000000000001">
-               <children>
-                  <Pane prefHeight="68.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
-                     <children>
-                        <JFXTextField focusColor="WHITE" layoutX="39.0" layoutY="6.0" prefHeight="38.0" prefWidth="172.0" promptText="     Search By NIC" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" unFocusColor="WHITE">
-                           <font>
-                              <Font name="Gotham-Book" size="12.0" />
-                           </font>
-                        </JFXTextField>
-                        <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/AdminDashBoard/search@2x.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="47.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
-                     <children>
-                        <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/calendar@2x.png" />
-                           </image>
-                        </ImageView>
-                        <DatePicker layoutX="42.0" layoutY="11.0" promptText="Search by Date" style="-fx-background-color: #FFFFFF;" />
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="47.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
-                     <children>
-                        <JFXTextField focusColor="WHITE" layoutX="39.0" layoutY="6.0" prefHeight="38.0" prefWidth="172.0" promptText="  Search By medical Officer" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" unFocusColor="WHITE">
-                           <font>
-                              <Font name="Gotham-Book" size="12.0" />
-                           </font>
-                        </JFXTextField>
-                        <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/AdminDashBoard/search@2x.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-               </children>
-            </HBox>
-         </children>
-      </AnchorPane>
-   </top>
 </BorderPane>

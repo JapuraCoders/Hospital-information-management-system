@@ -1,10 +1,8 @@
 package Model;
 
 public enum MaritalStatus {
-    SINGLE,
     MARRIED,
-    SEPARATED,
+    UNMARRIED,
     DIVORCED,
     WIDOW
-
 }

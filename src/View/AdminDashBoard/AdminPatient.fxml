@@ -5,7 +5,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -37,22 +36,23 @@
                         <Font name="Gotham-Book" size="17.0" />
                      </font>
                   </Label>
-                  <StackPane layoutX="25.0" layoutY="89.0" prefHeight="418.0" prefWidth="939.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="31.0">
+                  <StackPane layoutX="25.0" layoutY="68.0" prefHeight="439.0" prefWidth="960.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="10.0">
                      <children>
                         <TableView fx:id="tableView" maxWidth="1.7976931348623157E308" prefHeight="431.0" prefWidth="932.0">
                            <columns>
-                              <TableColumn editable="false" prefWidth="86.4000244140625" text="PATIENT ID" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="182.40003967285156" text="Name" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="146.39996337890625" text="NIC" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="186.40005493164062" text="LAST LOGIN" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="144.79998779296875" text="GENDER" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="111.20001220703125" text="BLOOD GROUP" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="77.5999755859375" text="EDIT" />
+                              <TableColumn fx:id="patientId" editable="false" prefWidth="86.4000244140625" text="PATIENT ID" />
+                              <TableColumn fx:id="name" maxWidth="1.7976931348623157E308" prefWidth="94.39996337890625" text="Name" />
+                              <TableColumn fx:id="nic" maxWidth="1.7976931348623157E308" prefWidth="113.59994506835938" text="NIC" />
+                              <TableColumn fx:id="ontactNumber" maxWidth="1.7976931348623157E308" prefWidth="148.0" text="Contact Number" />
+                              <TableColumn fx:id="gender" maxWidth="1.7976931348623157E308" prefWidth="115.199951171875" text="GENDER" />
+                              <TableColumn fx:id="bloodGroup" maxWidth="1.7976931348623157E308" prefWidth="117.60003662109375" text="BLOOD GROUP" />
+                              <TableColumn fx:id="username" maxWidth="1.7976931348623157E308" prefWidth="128.79998779296875" text="Username" />
+                              <TableColumn fx:id="password" maxWidth="1.7976931348623157E308" prefWidth="79.20002441406245" text="Password" />
+                              <TableColumn fx:id="edit" maxWidth="1.7976931348623157E308" prefWidth="79.99993896484375" text="EDIT" />
                            </columns>
                         </TableView>
                      </children>
                   </StackPane>
-                  <ScrollBar layoutX="966.0" layoutY="91.0" orientation="VERTICAL" prefHeight="415.0" prefWidth="14.0" AnchorPane.rightAnchor="15.0" />
                   <Pane layoutX="614.0" layoutY="15.0" prefHeight="45.0" prefWidth="170.0" AnchorPane.bottomAnchor="454.0" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="15.0">
                      <children>
                         <JFXButton layoutX="8.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#AddPatient" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Add Patient" textFill="WHITE">
