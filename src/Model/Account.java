@@ -1,5 +1,7 @@
 package Model;
 
+import java.io.IOException;
+
 public class Account {
     private String accountID;
     private String password;
@@ -91,25 +93,39 @@ public class Account {
         //methods
         public String accountIDGenerator(){
             String accountType = "";
-            int accountNo = this.getAccountCounter();
+            int accountCount = 0;
+        try{
+            //int accountNo = this.getAccountCounter();
             String thisAccountUser = String.valueOf(this.getUserType());
             if (thisAccountUser.equals("ADMIN")){
+                AccountRecord adminRecord = new AccountRecord("Files\\Details\\AdminData.txt");
+                accountCount = adminRecord.viewAllAccounts().size();
                 accountType = "AD";
             }
             else if (thisAccountUser.equals("MEDICALOFFICER")){
+                AccountRecord medOfficerRecord = new AccountRecord("Files\\Details\\MedicalOfficerData.txt");
+                accountCount = medOfficerRecord.viewAllAccounts().size();
                 accountType = "MED";
             }
             else if (thisAccountUser.equals("RECEPTIONIST")){
+                AccountRecord receptionistRecord = new AccountRecord("Files\\Details\\ReceptionistData.txt");
+                accountCount = receptionistRecord.viewAllAccounts().size();
                 accountType = "RE";
             }
             else if (thisAccountUser.equals("PATIENT")){
+                AccountRecord patientRecord = new AccountRecord("Files\\Details\\PatientData.txt");
+                accountCount = patientRecord.viewAllAccounts().size();
+                System.out.println(accountCount);
                 accountType = "PAT";
             }
             else{
                 System.out.println("Cannot generate accountID cause of Invalid User Type");
             }
-            return String.format("%s%05d",accountType,accountNo);
+        }catch (IOException e){
+            System.out.println("Error on AccountIDGenerator : " + e);
         }
+            return String.format("%s%05d",accountType,accountCount);
+    }
 
         public String defaultPassword(){
             return user.getNIC();
