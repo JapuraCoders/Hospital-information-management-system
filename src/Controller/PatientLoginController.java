@@ -1,7 +1,10 @@
 package Controller;
 
 
-
+import Model.Account;
+import Model.AccountRecord;
+import Model.Login;
+import Model.LoginRecord;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,17 +15,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import javax.swing.*;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 
 
@@ -55,14 +57,19 @@ public  class PatientLoginController implements Initializable {
             String passwordInput = password.getText().trim();
 
             try {
-                Scanner in = new Scanner(new File("Files/Data/Credentials/AdminUserCredentials.txt"));
-                while (in.hasNextLine())
+                AccountRecord patientAccRecord= new AccountRecord("Files/Details/PatientData.txt");
+                LoginRecord loginRecord =new LoginRecord("Files/Details/PatientLoginDetails.txt");
+                Login loginData= new Login(userNameInput,passwordInput, Calendar.getInstance().getTime());
+                ArrayList<Account> sArray = patientAccRecord.viewAllAccounts();
+                int i;
+                for (  i=1 ;i<sArray.size();i++);
                 {
-                    String s = in.nextLine();
-                    String[] sArray = s.split(",");
 
-                    if (userNameInput.equals(sArray[0]) && passwordInput.equals(sArray[1]))
+
+                    if (userNameInput.equals(sArray.get(i-1).getUser().getUserName()) && passwordInput.equals(sArray.get(i-1).getPassword()))
                     {
+
+
                         Stage stage =(Stage) signInBtn.getScene().getWindow();
                         stage.close();
                         Stage primaryStage = new Stage();
@@ -70,14 +77,19 @@ public  class PatientLoginController implements Initializable {
                         primaryStage.initStyle(StageStyle.DECORATED);
                         primaryStage.setScene(new Scene(root));
                         primaryStage.show();
+                        loginData.setLoginStatus(true);
+
+
                     }
+
                     else{
                         errorMsg.setText("Invalid UserName or Password!");
-                    }
+                        loginData.setLoginStatus(false);
+                   }
 
                 }
+                loginRecord.add(loginData);
 
-                in.close();
 
             } catch (FileNotFoundException e) {
                 JOptionPane.showMessageDialog(null,
