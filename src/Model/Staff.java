@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Staff extends User{
+    private String mail;
+    private String specialtyArea;
     private String staffID;
     private String staffEmailAddress;
     private Date dateJoining;
@@ -18,6 +20,24 @@ public class Staff extends User{
         this.setDateJoining(dateJoining);
         this.setStaffPhotograph(staffPhotograph);
     }
+
+
+
+
+
+    public Staff (String name, String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus, String specialtyArea, String mail){
+        super(name, phone, nIC, userName, gender, dOB, address, maritalStatus);
+        this.setSpecialtyArea(specialtyArea);
+        this.setMail(mail);
+
+    }
+
+    public Staff (String name, String phone, String nIC, String userName, Gender gender, Date dOB, String address, MaritalStatus maritalStatus){
+        super(name, phone, nIC, userName, gender, dOB, address, maritalStatus);
+
+
+    }
+
     //setters
     public void setStaffID (String staffID){
         this.staffID = staffID;
@@ -31,6 +51,8 @@ public class Staff extends User{
     public void setStaffPhotograph (Image staffPhotograph){
         this.staffPhotograph = staffPhotograph;
     }
+    public void setMail(String mail) { this.mail = mail; }
+    public void setSpecialtyArea(String specialtyArea) { this.specialtyArea = specialtyArea; }
 
     //getters
     public String getStaffID(){
@@ -45,6 +67,8 @@ public class Staff extends User{
     public Image getStaffPhotograph(){
         return this.staffPhotograph;
     }
+    public String getMail() { return mail; }
+    public String getSpecialtyArea() { return specialtyArea; }
 
     @Override
     public String toString(){

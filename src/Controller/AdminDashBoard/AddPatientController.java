@@ -2,7 +2,9 @@
 package Controller.AdminDashBoard;
 
 import Model.*;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
@@ -56,7 +58,8 @@ public class AddPatientController implements Initializable {
     private TextField Allergies;
 
     @FXML
-    private Label closeLabel;
+    private JFXButton close;
+
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
 
@@ -92,12 +95,13 @@ public class AddPatientController implements Initializable {
         }
 
     }
-
-
-    public void handleClose(javafx.scene.input.MouseEvent mouseEvent) {
-        Stage stage = (Stage) closeLabel.getScene().getWindow();
+    @FXML
+    public void handleCloseButtonAction(ActionEvent event) {
+        Stage stage = (Stage) close.getScene().getWindow();
         stage.close();
     }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -107,6 +111,7 @@ public class AddPatientController implements Initializable {
         selectMaritalStatus.getItems().addAll(MaritalStatus.values());
         selectBloodGroup.getItems().addAll(BloodType.values());
     }
+
 
 
 }
