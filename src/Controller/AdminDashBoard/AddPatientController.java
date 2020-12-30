@@ -57,6 +57,7 @@ public class AddPatientController implements Initializable {
 
     @FXML
     private Label closeLabel;
+
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
 

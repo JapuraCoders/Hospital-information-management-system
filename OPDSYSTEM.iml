@@ -15,5 +15,6 @@
     <orderEntry type="library" name="pdfbox" level="project" />
     <orderEntry type="library" name="pdfbox-app-2.0.22" level="project" />
     <orderEntry type="library" name="javafx" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
