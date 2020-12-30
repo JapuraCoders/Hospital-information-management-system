@@ -213,7 +213,7 @@
                         <Font name="Gotham-Book" size="17.0" />
                      </font>
                   </Label>
-                  <StackPane layoutX="14.0" layoutY="65.0" prefHeight="431.0" prefWidth="962.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="19.0">
+                  <StackPane layoutX="12.0" layoutY="79.0" prefHeight="426.0" prefWidth="971.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
                      <children>
                         <TableView fx:id="tableView" maxWidth="1.7976931348623157E308" prefHeight="423.0" prefWidth="892.0">
                           <columns>
@@ -225,14 +225,14 @@
                               <TableColumn fx:id="status" maxWidth="1.7976931348623157E308" prefWidth="107.20001220703125" text="Status" />
                               <TableColumn fx:id="date" maxWidth="1.7976931348623157E308" prefWidth="94.39996337890625" text=" Date" />
                               <TableColumn fx:id="Time" maxWidth="1.7976931348623157E308" prefWidth="108.00006103515625" text="Time" />
-                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="64.800048828125" text="Edit" />
+                              <TableColumn maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="75.20000000000005" text="Edit" />
                           </columns>
                         </TableView>
                      </children>
                   </StackPane>
-                  <Pane layoutX="614.0" layoutY="15.0" prefHeight="48.0" prefWidth="170.0" AnchorPane.bottomAnchor="465.0" AnchorPane.rightAnchor="210.80000000000007" AnchorPane.topAnchor="15.0">
+                  <Pane layoutX="614.0" layoutY="21.0" prefHeight="48.0" prefWidth="170.0" AnchorPane.bottomAnchor="459.0" AnchorPane.rightAnchor="210.80000000000007" AnchorPane.topAnchor="21.0">
                      <children>
-                        <JFXButton layoutX="8.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#AddAppointment" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Add Appointment" textFill="WHITE">
+                        <JFXButton layoutX="8.0" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#AddAppointment" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Add Appointment" textFill="WHITE">
                            <font>
                               <Font name="Gotham-Book" size="12.0" />
                            </font>
