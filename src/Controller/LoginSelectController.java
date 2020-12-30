@@ -1,5 +1,6 @@
 package Controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +29,11 @@ public class LoginSelectController implements Initializable {
 
     @FXML
     private Button adminBtn;
+
+    @FXML
+    private JFXButton close;
+
+
 
     @FXML
     void handleClose(MouseEvent event) {
@@ -78,6 +84,14 @@ public class LoginSelectController implements Initializable {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
+
+    @FXML
+    public void handleCloseButtonAction(ActionEvent event) {
+        Stage stage = (Stage) close.getScene().getWindow();
+        stage.close();
+    }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

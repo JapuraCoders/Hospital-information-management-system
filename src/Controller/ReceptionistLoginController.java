@@ -34,12 +34,17 @@ public class ReceptionistLoginController implements Initializable {
     private PasswordField password;
 
 
-
     @FXML
     private JFXButton signInBtn;
 
     @FXML
     private Label errorMsg;
+
+    @FXML
+    private JFXButton close;
+
+    @FXML
+    private JFXButton back;
 
     @FXML
     void handleSignInBtn(ActionEvent event) throws IOException {
@@ -87,11 +92,14 @@ public class ReceptionistLoginController implements Initializable {
 
 
 
-
-
     @FXML
-    private void handleClose(ActionEvent event) throws IOException {
-        Stage stage =(Stage) errorMsg.getScene().getWindow();
+    public void handleCloseButtonAction(ActionEvent event) {
+        Stage stage = (Stage) close.getScene().getWindow();
+        stage.close();
+    }
+
+    public void handleBackButtonAction(javafx.event.ActionEvent event) throws IOException {
+        Stage stage =(Stage) back.getScene().getWindow();
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/View/LoginSelect.fxml"));
