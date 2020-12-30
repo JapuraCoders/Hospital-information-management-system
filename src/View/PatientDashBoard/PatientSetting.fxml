@@ -175,12 +175,12 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="50.0" prefWidth="688.0" spacing="60.0">
                            <children>
-                              <JFXButton alignment="CENTER" contentDisplay="CENTER"  prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Reset" textFill="WHITE">
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Reset" textFill="WHITE">
                                  <font>
                                     <Font name="GothamRounded-Bold" size="12.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton alignment="CENTER" contentDisplay="CENTER"  prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Save" textFill="WHITE">
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Save" textFill="WHITE">
                                  <font>
                                     <Font name="GothamRounded-Bold" size="12.0" />
                                  </font>
