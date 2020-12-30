@@ -25,9 +25,6 @@ public class AppointmentRecord {
 
         ArrayList<Appointment> appointmentRecordList = new ArrayList<>();
         try{
-
-
-
             SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
             BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
             String record;
@@ -35,6 +32,7 @@ public class AppointmentRecord {
                 Appointment appointmentRecord = new Appointment();
                 StringTokenizer appointmentDetail = new StringTokenizer(record,",");
 
+                appointmentRecord.setAppointmentID(appointmentDetail.nextToken());
                 appointmentRecord.setPatientName(appointmentDetail.nextToken());
                 appointmentRecord.setAppointmentDateAndTime(formatter.parse(appointmentDetail.nextToken()));
                 appointmentRecord.setSymptoms(appointmentDetail.nextToken());
@@ -44,8 +42,6 @@ public class AppointmentRecord {
                 appointmentRecord.setMedicalOfficerSpeciality(appointmentDetail.nextToken());
                 appointmentRecord.setAppointmentDate(appointmentDetail.nextToken());
                 appointmentRecord.setAppointmentTime(appointmentDetail.nextToken());
-
-
 
                 appointmentRecordList.add(appointmentRecord);
             }
@@ -58,22 +54,23 @@ public class AppointmentRecord {
     }
 
     //-----------------------------Return appointment object by patient Name-------------------------------------------------------
-    public Appointment viewByPatientName(String patientName) throws IOException{
+    public Appointment viewByAppointmentID(String appointmentID) throws IOException{
         String record;
         Appointment appointmentRecord = new Appointment();
         SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
         try{
             BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
 
-            System.out.println("\t Search Appointment Record of PatientName : " + patientName);
+            System.out.println("\t Search Appointment Record of appointmentID : " + appointmentID);
 
             //read line by line from the file
             while( ( record = br.readLine() ) != null ) {
                 //separate data into tokens by ","
                 StringTokenizer appointmentDetail = new StringTokenizer(record,",");
                 //Check whether that the login record looking for
-                if( record.contains(patientName) ) {
+                if( record.contains(appointmentID) ) {
                     //set data to loginRecordObject
+                    appointmentRecord.setAppointmentID(appointmentDetail.nextToken());
                     appointmentRecord.setPatientName(appointmentDetail.nextToken());
                     appointmentRecord.setAppointmentDateAndTime(formatter.parse(appointmentDetail.nextToken()));
                     appointmentRecord.setSymptoms(appointmentDetail.nextToken());
@@ -91,7 +88,7 @@ public class AppointmentRecord {
             System.out.println("Error : "+e);
         }
         if(appointmentRecord==null){
-            System.out.println("There is no record contained " + patientName);
+            System.out.println("There is no record contained " + appointmentID);
         }
         return appointmentRecord;
     }
@@ -112,6 +109,7 @@ public class AppointmentRecord {
 
                 if( record.contains(appointmentStatus) ) {
 
+                    appointmentRecord.setAppointmentID(appointmentDetail.nextToken());
                     appointmentRecord.setPatientName(appointmentDetail.nextToken());
                     appointmentRecord.setAppointmentDateAndTime(formatter.parse(appointmentDetail.nextToken()));
                     appointmentRecord.setSymptoms(appointmentDetail.nextToken());
@@ -152,9 +150,9 @@ public class AppointmentRecord {
     }
 
     //--------------------------------Delete login details according to patientName-----------------------------------------
-    public void dlt(String patientName ) throws IOException {
+    public void dlt(String appointmentID) throws IOException {
         try {
-            String record, name = patientName;
+            String record, ID = appointmentID;
 
             //open Login details file for read the data
             File db = new File(this.getFileName());
@@ -165,7 +163,7 @@ public class AppointmentRecord {
             BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
 
             while ((record = br.readLine()) != null) {
-                if (!record.contains(name)) {
+                if (!record.contains(ID)) {
                     bw.write(record);
                     bw.flush();
                     bw.newLine();
@@ -176,7 +174,7 @@ public class AppointmentRecord {
 
             db.delete();
             tempDB.renameTo(db);
-            System.out.println("\t Delete Account Record of login ID : " + patientName + "is successfully");
+            System.out.println("\t Delete Account Record of appointment ID : " + appointmentID + "is successfully");
         }
         catch (IOException e){
             System.out.println("Error : "+e);
@@ -185,8 +183,8 @@ public class AppointmentRecord {
 
 
     //--------------------------------Edit single data in a file--------------------------------------------------------
-    public void editLoginData(String patientname, String editfield, String updatedData) throws IOException{
-        String   patientName, appointmentDateAndTime, symptoms,appointmentNo,medicalOfficerName,medicalOfficerSpeciality,appointmentStatus ,record,appointmentDate,appointmentTime;
+    public void editLoginData(String appointmentID, String editfield, String updatedData) throws IOException{
+        String ID,  patientName, appointmentDateAndTime, symptoms,appointmentNo,medicalOfficerName,medicalOfficerSpeciality,appointmentStatus ,record,appointmentDate,appointmentTime;
         SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
         try{
             //open Login details file for read the data
@@ -201,6 +199,7 @@ public class AppointmentRecord {
             while( ( record = br.readLine() ) != null ) {
                 StringTokenizer appointmentDetail = new StringTokenizer(record,",");
 
+                ID = appointmentDetail.nextToken();
                 patientName = appointmentDetail.nextToken();
                 appointmentDateAndTime = appointmentDetail.nextToken();
                 symptoms = appointmentDetail.nextToken();
@@ -212,9 +211,9 @@ public class AppointmentRecord {
                 appointmentTime =appointmentDetail.nextToken();
 
 
-                Appointment appointmentRec = new Appointment(patientName,formatter.parse(appointmentDateAndTime),symptoms,appointmentNo,AppointmentStatus.valueOf(appointmentStatus),medicalOfficerName,medicalOfficerSpeciality,appointmentDate,appointmentTime);
+                Appointment appointmentRec = new Appointment(ID,patientName,formatter.parse(appointmentDateAndTime),symptoms,appointmentNo,AppointmentStatus.valueOf(appointmentStatus),medicalOfficerName,medicalOfficerSpeciality,appointmentDate,appointmentTime);
                 //Check whether that the visitor record to be edited... if it is then replace that record field according to given data
-                if(patientName.equals(patientname)){
+                if(patientName.equals(appointmentID)){
                     switch (editfield) {
                         case "patientName":
                             appointmentRec.setPatientName(updatedData);
@@ -248,7 +247,7 @@ public class AppointmentRecord {
                             System.out.println("Invalid Editfield");
                     }
                 }
-                // add loginRec object to the temporary file
+                // add appointmentRec object to the temporary file
                 bw.write(appointmentRec.toString());
                 bw.flush();
                 bw.newLine();
