@@ -91,7 +91,7 @@ public class AdminAppointmentController implements Initializable {
                 appointmentData.add(appointmentArrayList.get(i));
             }
 
-            aptNo.setCellValueFactory(new PropertyValueFactory<>("appointmentNo"));
+            aptNo.setCellValueFactory(new PropertyValueFactory<>("appointmentID"));
             TimeStamp.setCellValueFactory(new PropertyValueFactory<>("appointmentDateAndTime"));
             patientName.setCellValueFactory(new PropertyValueFactory<>("patientName"));
             medicalOfficer.setCellValueFactory(new PropertyValueFactory<>("medicalOfficerName"));
@@ -102,21 +102,8 @@ public class AdminAppointmentController implements Initializable {
 
             tableView.setItems(appointmentData);
 
-
-
         } catch (Exception e) {
 
         }
-
-
     }
 }
-
-
-
-
-
-
-
-
-
