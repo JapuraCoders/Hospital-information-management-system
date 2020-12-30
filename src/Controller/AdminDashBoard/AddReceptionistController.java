@@ -1,5 +1,6 @@
 package Controller.AdminDashBoard;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +41,7 @@ public class AddReceptionistController implements Initializable {
     private TextField address;
 
     @FXML
-    private Label closeLabel;
+    private JFXButton close;
 
     public AddReceptionistController() throws IOException {
     }
@@ -53,8 +54,8 @@ public class AddReceptionistController implements Initializable {
 
 
     @FXML
-    void handleClose(javafx.scene.input.MouseEvent mouseEvent) {
-        Stage stage = (Stage) closeLabel.getScene().getWindow();
+    public void handleCloseButtonAction(ActionEvent event) {
+        Stage stage = (Stage) close.getScene().getWindow();
         stage.close();
     }
 

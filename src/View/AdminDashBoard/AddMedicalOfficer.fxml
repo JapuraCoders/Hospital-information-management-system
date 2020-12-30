@@ -202,11 +202,11 @@
                         </JFXButton>
                     </children>
                 </VBox>
-                <Label fx:id="closeLabel" layoutX="862.0" layoutY="7.0" onMousePressed="#handleClose" prefHeight="34.0" prefWidth="14.0" text="x" textFill="#f7fafc">
-                    <font>
-                        <Font name="Gill Sans MT" size="28.0" />
-                    </font>
-                </Label>
+            <JFXButton fx:id="close" cancelButton="true" layoutX="859.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" text="X" textFill="#f7fafc">
+               <font>
+                  <Font name="Gill Sans MT" size="15.0" />
+               </font>
+            </JFXButton>
             </children>
         </AnchorPane>
     </top>
