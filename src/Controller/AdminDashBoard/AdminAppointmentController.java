@@ -61,8 +61,6 @@ public class AdminAppointmentController implements Initializable {
     void AddAppointment(ActionEvent event) {
 
     }
-
-
     @FXML
     void AddAppointment(javafx.event.ActionEvent event) throws IOException {
         Stage primaryStage = new Stage();
@@ -71,6 +69,8 @@ public class AdminAppointmentController implements Initializable {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
+
+
     @FXML
     void ExportData(ActionEvent event) {
 

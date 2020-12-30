@@ -1,13 +1,14 @@
 package Controller.AdminDashBoard;
 
 import Model.Reference;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -39,18 +40,18 @@ public class AddAppointmentController<line> implements Initializable {
 
 
     @FXML
-    private Label closeLabel;
+    private JFXButton close;
 
     public AddAppointmentController() throws IOException {
+
     }
 
 
     @FXML
-    void handleClose(javafx.scene.input.MouseEvent mouseEvent) {
-        Stage stage = (Stage) closeLabel.getScene().getWindow();
+    void handleCloseButtonAction(ActionEvent event) {
+        Stage stage = (Stage) close.getScene().getWindow();
         stage.close();
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)  {
@@ -58,4 +59,6 @@ public class AddAppointmentController<line> implements Initializable {
     }
 
 
+    public void addAppointment(ActionEvent event) {
+    }
 }
