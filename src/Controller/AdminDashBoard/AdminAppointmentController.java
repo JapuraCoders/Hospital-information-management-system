@@ -63,15 +63,6 @@ public class AdminAppointmentController implements Initializable {
     }
 
 
-
-
-
-
-
-
-
-
-
     @FXML
     void AddAppointment(javafx.event.ActionEvent event) throws IOException {
         Stage primaryStage = new Stage();
@@ -105,7 +96,7 @@ public class AdminAppointmentController implements Initializable {
             patientName.setCellValueFactory(new PropertyValueFactory<>("patientName"));
             medicalOfficer.setCellValueFactory(new PropertyValueFactory<>("medicalOfficerName"));
             specialtyArea.setCellValueFactory(new PropertyValueFactory<>("medicalOfficerSpeciality"));
-            status.setCellValueFactory(new PropertyValueFactory<>(" appointmentStatus"));
+            status.setCellValueFactory(new PropertyValueFactory<>("appointmentStatus"));
             date.setCellValueFactory(new PropertyValueFactory<>("appointmentDate"));
             Time.setCellValueFactory(new PropertyValueFactory<>("appointmentTime"));
 
