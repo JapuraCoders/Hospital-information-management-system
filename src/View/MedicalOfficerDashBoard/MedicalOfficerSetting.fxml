@@ -1,137 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="788.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MedicalOfficerController.MedicalOfficerSettingController">
    <center>
-      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F1F3F9;" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" styleClass="root" stylesheets="@../../assets/style.css" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="27.0" layoutY="20.0" prefHeight="548.0" prefWidth="995.0" style="-fx-background-radius: 15; -fx-background-color: #8898AA;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="28.200000000000045" AnchorPane.topAnchor="20.0">
+            <AnchorPane layoutX="116.0" layoutY="56.0" prefHeight="689.0" prefWidth="818.0" style="-fx-background-radius: 15; -fx-background-color: #F7FAFC;" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="56.0">
                <children>
-                  <ImageView fitHeight="131.0" fitWidth="164.0" layoutX="420.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../assets/avatar.jpg" />
-                     </image>
-                  </ImageView>
                   <Label layoutX="432.0" layoutY="154.0" prefHeight="17.0" prefWidth="53.0">
                      <font>
                         <Font name="Gotham-Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="250.0" layoutY="171.0" prefHeight="48.0" prefWidth="170.0">
+                  <VBox layoutX="1.0" layoutY="2.0" prefHeight="690.0" prefWidth="815.0" spacing="40.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="2.2000000000000455">
                      <children>
-                        <JFXButton layoutX="8.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#AddAppointment" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Upload Photo" textFill="WHITE">
-                           <font>
-                              <Font name="Gotham-Book" size="12.0" />
-                           </font>
-                        </JFXButton>
+                        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="688.0" spacing="60.0">
+                           <children>
+                              <ImageView fitHeight="96.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/avatar.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="7.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="688.0" spacing="60.0">
+                           <children>
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="111.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Upload Photo" textFill="WHITE">
+                                 <font>
+                                    <Font name="GothamRounded-Bold" size="12.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="114.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Remove Photo" textFill="WHITE">
+                                 <font>
+                                    <Font name="GothamRounded-Bold" size="12.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="-27.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="34.0" prefWidth="688.0" spacing="60.0">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="139.0" text="Edit User Data" textFill="#172b4d">
+                                 <font>
+                                    <Font name="Gotham-Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="688.0" spacing="60.0">
+                           <children>
+                              <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                 <children>
+                                    <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="6.0" layoutY="18.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../assets/mail.png" />
+                                       </image>
+                                    </ImageView>
+                                    <TextField fx:id="PatientName" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Name" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="GothamRounded-Bold" size="12.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                    </TextField>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                 <children>
+                                    <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../assets/mail.png" />
+                                       </image>
+                                    </ImageView>
+                                    <TextField fx:id="Address1" focusTraversable="false" layoutX="29.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Mobile No" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="GothamRounded-Bold" size="12.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                    </TextField>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+                           <children>
+                              <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                 <children>
+                                    <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../assets/mail.png" />
+                                       </image>
+                                    </ImageView>
+                                    <JFXComboBox fx:id="selectMaritalStatus" focusColor="WHITE" layoutX="33.0" layoutY="5.0" opacity="0.8" prefHeight="41.0" prefWidth="225.0" promptText="Maritial Status" unFocusColor="WHITE" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                 <children>
+                                    <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../assets/mail.png" />
+                                       </image>
+                                    </ImageView>
+                                    <TextField fx:id="Address" focusTraversable="false" layoutX="36.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Address" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="GothamRounded-Bold" size="12.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                    </TextField>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="688.0" spacing="60.0">
+                           <children>
+                              <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                 <children>
+                                    <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="6.0" layoutY="18.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../assets/mail.png" />
+                                       </image>
+                                    </ImageView>
+                                    <TextField fx:id="PatientName1" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Current Password" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="GothamRounded-Bold" size="12.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                    </TextField>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                                 <children>
+                                    <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../assets/mail.png" />
+                                       </image>
+                                    </ImageView>
+                                    <TextField fx:id="Address11" focusTraversable="false" layoutX="29.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="New Pasword" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                                       <font>
+                                          <Font name="GothamRounded-Bold" size="12.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                    </TextField>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="688.0" spacing="60.0">
+                           <children>
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Reset" textFill="WHITE">
+                                 <font>
+                                    <Font name="GothamRounded-Bold" size="12.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Save" textFill="WHITE">
+                                 <font>
+                                    <Font name="GothamRounded-Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="13.0" />
+                           </VBox.margin>
+                        </HBox>
                      </children>
-                  </Pane>
-                  <Pane layoutX="543.0" layoutY="171.0" prefHeight="48.0" prefWidth="170.0">
-                     <children>
-                        <JFXButton layoutX="8.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#AddAppointment" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Remove Photo" textFill="WHITE">
-                           <font>
-                              <Font name="Gotham-Book" size="12.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </Pane>
-                  <Label layoutX="692.0" layoutY="344.0" prefHeight="17.0" prefWidth="146.0" text="Reset Password">
-                     <font>
-                        <Font name="Gotham-Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <Pane layoutX="689.0" layoutY="491.0" prefHeight="50.0" prefWidth="269.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
-                     <children>
-                        <ImageView fitHeight="22.0" fitWidth="20.0" layoutX="4.0" layoutY="14.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/NicIcon.png" />
-                           </image>
-                        </ImageView>
-                        <PasswordField fx:id="password" layoutX="34.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Current Password" style="-fx-text-fill: #172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-                           <font>
-                              <Font name="GothamRounded-Bold" size="12.0" />
-                           </font>
-                        </PasswordField>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="692.0" layoutY="402.0" prefHeight="50.0" prefWidth="269.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
-                     <children>
-                        <ImageView fitHeight="22.0" fitWidth="20.0" layoutX="4.0" layoutY="14.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/NicIcon.png" />
-                           </image>
-                        </ImageView>
-                        <PasswordField fx:id="password1" layoutX="34.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="New Password" style="-fx-text-fill: #172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-                           <font>
-                              <Font name="GothamRounded-Bold" size="12.0" />
-                           </font>
-                        </PasswordField>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="401.0" layoutY="586.0" prefHeight="48.0" prefWidth="170.0">
-                     <children>
-                        <JFXButton layoutX="8.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#AddAppointment" prefHeight="38.0" prefWidth="154.0" style="-fx-background-color: #172B4D; -fx-background-radius: 4;" text="Reset" textFill="WHITE">
-                           <font>
-                              <Font name="Gotham-Book" size="12.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="65.0" layoutY="402.0" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
-                     <children>
-                        <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/UserIcon.png" />
-                           </image>
-                        </ImageView>
-                        <TextField fx:id="username1" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Display Name" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-                           <font>
-                              <Font name="GothamRounded-Bold" size="12.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="DEFAULT" />
-                           </cursor>
-                        </TextField>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="65.0" layoutY="508.0" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
-                     <children>
-                        <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/mobileIcon.png" />
-                           </image>
-                        </ImageView>
-                        <TextField fx:id="username11" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Mobilr Number" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-                           <font>
-                              <Font name="GothamRounded-Bold" size="12.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="DEFAULT" />
-                           </cursor>
-                        </TextField>
-                     </children>
-                  </Pane>
-                  <Label layoutX="65.0" layoutY="344.0" prefHeight="17.0" prefWidth="146.0" text="Display Name">
-                     <font>
-                        <Font name="Gotham-Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="65.0" layoutY="474.0" prefHeight="17.0" prefWidth="146.0" text="Moblile Number">
-                     <font>
-                        <Font name="Gotham-Bold" size="15.0" />
-                     </font>
-                  </Label>
+                  </VBox>
                </children>
             </AnchorPane>
          </children>
