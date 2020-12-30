@@ -6,19 +6,20 @@ import java.util.Date;
 public class PostalMail {
 
     private String refNo;
-    private String mailType;//add a new attribute to display extends classes.
-                            // because extended classes also have these attributes nothing else.
-                            // mail type means either received mail or dispatched mail.
+    private MailType mailType;//add a new attribute to display extends classes. because extended classes also have these attributes nothing else.// mail type means either received mail or dispatched mail.
     private String toName;
     private String fromName;
     private String address;
     private String note;
-    //private document;put here document data type and update constructor,getters setters and toString method
-    private LocalDateTime date;//assign here current date
+    private Document document; //put here document data type and update constructor,getters setters and toString method
+    private Date date;//assign here current date
 
+    public PostalMail(){
+        this.setRefNo(null);
+    }
 
     //constructer
-    protected PostalMail(String refNo,String mailType,String toName,String fromName,String address,String note,LocalDateTime date){
+    public PostalMail(String refNo,MailType mailType,String toName,String fromName,String address,String note,Date date){
         this.setRefNo(refNo);
         this.setMailType(mailType);
         this.setToName(toName);
@@ -33,7 +34,7 @@ public class PostalMail {
     public void setRefNo(String refNo){
         this.refNo=refNo;
     }
-    public void setMailType(String mailType){this.mailType=mailType; }
+    public void setMailType(MailType mailType){this.mailType=mailType; }
     public void setToName(String toName){
         this.toName=toName;
     }
@@ -46,14 +47,14 @@ public class PostalMail {
     public void setNote(String note){
         this.note=note;
     }
-    public void setDate(LocalDateTime date){
+    public void setDate(Date date){
         this.date=date;
     }
 
 
     //getters
     public String getRefNo(){return this.refNo; }
-    public String getMailType(){
+    public MailType getMailType(){
         return this.mailType;
     }
     public String getToName(){
@@ -65,14 +66,14 @@ public class PostalMail {
     public String getAddress(){
         return this.note;
     }
-    public LocalDateTime getDate(){
+    public Date getDate(){
         return this.date;
     }
 
 
     @Override
     public String toString(){
-        return getRefNo()+getMailType()+"\n"+getToName()+"\n"+getFromName()+"\n"+"\n"+getAddress()+"\n"+getDate();
+        return getRefNo()+","+getMailType()+","+getToName()+","+getFromName()+","+getAddress()+","+getDate();
     }
 
 

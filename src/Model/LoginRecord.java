@@ -21,16 +21,16 @@ public class LoginRecord {
     }
 
     //------------------------------This will return all the login details----------------------------------------------
-    public List<Login> viewAllLogins() throws NoSuchElementException {
+    public ArrayList<Login> viewAllLogins() throws NoSuchElementException {
         String record;
-        Login loginRecord = new Login();
         SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
-        List<Login> loginRecordList = new ArrayList<>();
+        ArrayList<Login> loginRecordList = new ArrayList<>();
         try{
             BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
 
             //read line by line from the file
             while( ( record = br.readLine() ) != null ) {
+                Login loginRecord = new Login();
                 //separate data into tokens by ","
                 StringTokenizer loginDetail = new StringTokenizer(record,",");
                 //set data to loginRecordObject
