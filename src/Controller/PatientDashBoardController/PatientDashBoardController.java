@@ -58,7 +58,9 @@ public class PatientDashBoardController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("PatientHome");
+        mainpane.setCenter(view);
     }
 
 }

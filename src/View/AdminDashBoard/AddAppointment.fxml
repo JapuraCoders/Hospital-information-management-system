@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="644.0" prefWidth="882.0" style="-fx-background-color: #FFFFFF;" styleClass="root" stylesheets="@../../assets/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminDashBoard.AddAppointmentController">
+<AnchorPane prefHeight="644.0" prefWidth="881.0" style="-fx-background-color: #FFFFFF;" styleClass="root" stylesheets="@../../assets/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminDashBoard.AddAppointmentController">
    <children>
       <VBox alignment="CENTER" layoutX="59.0" layoutY="28.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="589.0" prefWidth="765.0" spacing="40.0" style="-fx-background-color: #F7FAFC; -fx-background-radius: 15;" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="28.0">
          <children>
@@ -104,7 +104,7 @@
                   </HBox>
                </children>
             </HBox>
-            <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Add Appointment" textFill="WHITE">
+            <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#addAppointment" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Add Appointment" textFill="WHITE">
                <font>
                   <Font name="GothamRounded-Bold" size="12.0" />
                </font>
@@ -114,10 +114,10 @@
             </JFXButton>
          </children>
       </VBox>
-      <Label fx:id="closeLabel" layoutX="861.0" layoutY="4.0" prefHeight="34.0" prefWidth="14.0" text="x" textFill="#f7fafc">
+      <JFXButton fx:id="close" cancelButton="true" layoutX="850.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" text="X" textFill="#f7fafc">
          <font>
-            <Font name="Gill Sans MT" size="28.0" />
+            <Font name="Gill Sans MT" size="15.0" />
          </font>
-      </Label>
+      </JFXButton>
    </children>
 </AnchorPane>

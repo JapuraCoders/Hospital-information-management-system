@@ -64,7 +64,9 @@ public class ReceptionistDashBoardController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("ReceptionistHome");
+        mainpane.setCenter(view);
     }
 
 }

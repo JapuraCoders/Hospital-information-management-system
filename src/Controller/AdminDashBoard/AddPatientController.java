@@ -2,9 +2,7 @@
 package Controller.AdminDashBoard;
 
 import Model.*;
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
@@ -58,8 +56,7 @@ public class AddPatientController implements Initializable {
     private TextField Allergies;
 
     @FXML
-    private JFXButton close;
-
+    private Label closeLabel;
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
 
@@ -97,9 +94,8 @@ public class AddPatientController implements Initializable {
     }
 
 
-    @FXML
-    public void handleCloseButtonAction(ActionEvent event) {
-        Stage stage = (Stage) close.getScene().getWindow();
+    public void handleClose(javafx.scene.input.MouseEvent mouseEvent) {
+        Stage stage = (Stage) closeLabel.getScene().getWindow();
         stage.close();
     }
 
