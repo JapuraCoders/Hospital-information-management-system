@@ -15,28 +15,57 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="644.0" prefWidth="881.0" style="-fx-background-color: #FFFFFF;" styleClass="root" stylesheets="@../../assets/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminDashBoard.AddAppointmentController">
+<AnchorPane prefHeight="706.0" prefWidth="908.0" style="-fx-background-color: #FFFFFF;" styleClass="root" stylesheets="@../../assets/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminDashBoard.AddAppointmentController">
    <children>
-      <VBox alignment="CENTER" layoutX="59.0" layoutY="28.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="589.0" prefWidth="765.0" spacing="40.0" style="-fx-background-color: #F7FAFC; -fx-background-radius: 15;" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="28.0">
+      <VBox alignment="CENTER" layoutX="58.0" layoutY="23.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="660.0" prefWidth="792.0" spacing="40.0" style="-fx-background-color: #F7FAFC; -fx-background-radius: 15;" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="23.0">
          <children>
-            <Label prefHeight="22.0" prefWidth="150.0" text="New Appointment Form" textFill="#172b4d">
+            <Label prefHeight="22.0" prefWidth="255.0" text="Medical Appointment Form" textFill="#172b4d">
                <font>
-                  <Font name="Gotham-Bold" size="12.0" />
+                  <Font name="Gotham-Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="22.0" prefWidth="274.0" text="Please complete the form below for your Appointment" textFill="#172b4d">
+               <font>
+                  <Font name="Gotham-Book" size="10.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="20.0" />
+                  <Insets top="-30.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="errorMsg" alignment="CENTER" prefHeight="18.0" prefWidth="318.0" textFill="#e51c23">
+               <font>
+                  <Font name="Gotham-Book" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="-12.0" />
                </VBox.margin>
             </Label>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
                <children>
-                  <Pane prefHeight="50.0" prefWidth="322.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                  <Pane prefHeight="50.0" prefWidth="231.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                      <children>
-                        <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                        <Label layoutX="22.0" layoutY="16.0" prefHeight="18.0" prefWidth="98.0" text="Appointment No :" textFill="#172b4d" />
+                        <Label fx:id="AppointmentNo" layoutX="132.0" layoutY="17.0" prefHeight="17.0" prefWidth="47.0" textFill="#172b4d" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+               <VBox.margin>
+                  <Insets top="-29.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+               <children>
+                  <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                     <children>
+                        <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="6.0" layoutY="18.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../assets/mail.png" />
                            </image>
                         </ImageView>
-                        <TextField fx:id="username" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Name" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                        <TextField fx:id="PatientName" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Name" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
                            <font>
                               <Font name="GothamRounded-Bold" size="12.0" />
                            </font>
@@ -46,32 +75,21 @@
                         </TextField>
                      </children>
                   </Pane>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
-               <children>
-                  <Pane prefHeight="50.0" prefWidth="323.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                  <Pane prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
                      <children>
                         <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../assets/mail.png" />
                            </image>
                         </ImageView>
-                        <JFXComboBox fx:id="specialityAreaCombo" focusColor="WHITE" layoutX="32.0" layoutY="5.0" prefHeight="41.0" prefWidth="277.0" promptText="Select specialty type" unFocusColor="WHITE" />
-                     </children>
-                  </Pane>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
-               <children>
-                  <Pane prefHeight="50.0" prefWidth="322.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
-                     <children>
-                        <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/mail.png" />
-                           </image>
-                        </ImageView>
-                        <JFXComboBox fx:id="DoctorCombo" focusColor="WHITE" layoutX="33.0" layoutY="5.0" prefHeight="41.0" prefWidth="277.0" promptText="Select Doctor" unFocusColor="WHITE" />
+                        <TextField fx:id="Symptoms" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="48.0" prefWidth="243.0" promptText="Symptoms" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                           <font>
+                              <Font name="GothamRounded-Bold" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </TextField>
                      </children>
                   </Pane>
                </children>
@@ -87,7 +105,35 @@
                                     <Image url="@../../assets/mail.png" />
                                  </image>
                               </ImageView>
-                              <JFXComboBox fx:id="TimeCombo" focusColor="WHITE" layoutX="32.0" layoutY="5.0" prefHeight="41.0" prefWidth="220.0" promptText="Time" unFocusColor="WHITE" />
+                              <JFXComboBox fx:id="specialityAreaCombo" focusColor="WHITE" layoutX="31.0" layoutY="4.0" opacity="0.8" prefHeight="41.0" prefWidth="230.0" promptText="Select specialty type" unFocusColor="WHITE" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                           <children>
+                              <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="5.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/mail.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXComboBox fx:id="SelectDoctorCombo" focusColor="WHITE" layoutX="33.0" layoutY="5.0" opacity="0.8" prefHeight="41.0" prefWidth="230.0" promptText="  Select Doctor" unFocusColor="WHITE" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="592.0" spacing="60.0">
+                     <children>
+                        <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
+                           <children>
+                              <ImageView fitHeight="18.0" fitWidth="28.0" layoutX="3.0" layoutY="16.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/mail.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXComboBox fx:id="TimeCombo" focusColor="WHITE" layoutX="32.0" layoutY="5.0" opacity="0.8" prefHeight="41.0" prefWidth="220.0" promptText="Time" unFocusColor="WHITE" />
                            </children>
                         </Pane>
                         <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
@@ -114,7 +160,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <JFXButton fx:id="close" cancelButton="true" layoutX="850.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" text="X" textFill="#f7fafc">
+      <JFXButton fx:id="close" cancelButton="true" layoutX="877.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" text="X" textFill="#f7fafc">
          <font>
             <Font name="Gill Sans MT" size="15.0" />
          </font>
