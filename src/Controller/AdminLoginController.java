@@ -37,6 +37,12 @@ public class AdminLoginController implements Initializable {
     @FXML
     private Label errorMsg;
 
+    @FXML
+    private JFXButton close;
+
+    @FXML
+    private JFXButton back;
+
 
 
     @FXML
@@ -87,9 +93,14 @@ public class AdminLoginController implements Initializable {
 
 
 
-   @FXML
-    private void handleClose(ActionEvent event) throws IOException {
-        Stage stage =(Stage) errorMsg.getScene().getWindow();
+    @FXML
+    public void handleCloseButtonAction(ActionEvent event) {
+        Stage stage = (Stage) close.getScene().getWindow();
+        stage.close();
+    }
+
+        public void handleBackButtonAction(javafx.event.ActionEvent event) throws IOException {
+        Stage stage =(Stage) back.getScene().getWindow();
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/View/LoginSelect.fxml"));
@@ -99,12 +110,10 @@ public class AdminLoginController implements Initializable {
     }
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
 
 
 

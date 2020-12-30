@@ -78,15 +78,15 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="753.0" layoutY="-3.0" onMouseClicked="#handleClose" prefHeight="34.0" prefWidth="14.0" text="x" textFill="#f7fafc">
+      <JFXButton fx:id="close" cancelButton="true" layoutX="745.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" text="X" textFill="#f7fafc">
          <font>
-            <Font name="Gill Sans MT" size="28.0" />
+            <Font name="Gill Sans MT" size="15.0" />
          </font>
-      </Label>
-      <Label layoutX="4.0" text="&lt;" textFill="#f7fafc">
+      </JFXButton>
+      <JFXButton fx:id="back" layoutX="-3.0" layoutY="-2.0" mnemonicParsing="false" onAction="#handleBackButtonAction" prefHeight="28.0" prefWidth="31.0" text="&lt;" textFill="#f7fafc">
          <font>
-            <Font name="Gill Sans MT" size="33.0" />
+            <Font name="Gill Sans MT" size="18.0" />
          </font>
-      </Label>
+      </JFXButton>
    </children>
 </AnchorPane>
