@@ -39,7 +39,7 @@
                                                 <Image url="@../../assets/mail.png" />
                                             </image>
                                         </ImageView>
-                                        <TextField fx:id="PatientName" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Name" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                                        <TextField fx:id="MedicalOfficerName" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Name" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
                                             <font>
                                                 <Font name="GothamRounded-Bold" size="12.0" />
                                             </font>
@@ -94,7 +94,7 @@
                                                 <Image url="@../../assets/mail.png" />
                                             </image>
                                         </ImageView>
-                                        <JFXComboBox fx:id="SelectGender" focusColor="WHITE" layoutX="31.0" layoutY="5.0" opacity="0.8" prefHeight="41.0" prefWidth="225.0" promptText="Select Gender" unFocusColor="WHITE" />
+                                        <JFXComboBox fx:id="SelectGender" focusColor="WHITE" layoutX="33.0" layoutY="5.0" opacity="0.8" prefHeight="41.0" prefWidth="225.0" promptText="Select Gender" unFocusColor="WHITE" />
                                     </children>
                                 </Pane>
                             </children>
@@ -125,7 +125,7 @@
                                                 <Image url="@../../assets/mail.png" />
                                             </image>
                                         </ImageView>
-                                        <DatePicker fx:id="Dob" layoutX="38.0" layoutY="3.0" prefHeight="41.0" prefWidth="220.0" promptText="DOB" style="-fx-background-color: #FFFFFF;" />
+                                        <DatePicker fx:id="Dob" layoutX="36.0" layoutY="3.0" prefHeight="41.0" prefWidth="220.0" promptText="DOB" style="-fx-background-color: #FFFFFF;" />
                                     </children>
                                 </Pane>
                             </children>
@@ -139,7 +139,7 @@
                                                 <Image url="@../../assets/mail.png" />
                                             </image>
                                         </ImageView>
-                                        <JFXComboBox fx:id="selectMaritalStatus" focusColor="WHITE" layoutX="33.0" layoutY="5.0" opacity="0.8" prefHeight="41.0" prefWidth="225.0" promptText="Maritial Status" unFocusColor="WHITE" />
+                                        <JFXComboBox fx:id="selectMaritalStatus" focusColor="WHITE" layoutX="33.0" layoutY="5.0" opacity="0.8" prefHeight="41.0" prefWidth="225.0" promptText="Marital Status" unFocusColor="WHITE" />
                                     </children>
                                 </Pane>
                                 <Pane prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;">
@@ -149,14 +149,7 @@
                                                 <Image url="@../../assets/mail.png" />
                                             </image>
                                         </ImageView>
-                                        <TextField fx:id="Address" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Address" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-                                            <font>
-                                                <Font name="GothamRounded-Bold" size="12.0" />
-                                            </font>
-                                            <cursor>
-                                                <Cursor fx:constant="DEFAULT" />
-                                            </cursor>
-                                        </TextField>
+                              <JFXComboBox fx:id="selectSpecialtyArea" focusColor="WHITE" layoutX="31.0" layoutY="5.0" opacity="0.8" prefHeight="41.0" prefWidth="225.0" promptText="Specialty Area" unFocusColor="WHITE" />
                                     </children>
                                 </Pane>
                             </children>
@@ -170,7 +163,7 @@
                                                 <Image url="@../../assets/mail.png" />
                                             </image>
                                         </ImageView>
-                                        <TextField fx:id="username1" focusTraversable="false" layoutX="36.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Staff ID" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                                        <TextField fx:id="Address" focusTraversable="false" layoutX="36.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Adress" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
                                             <font>
                                                 <Font name="GothamRounded-Bold" size="12.0" />
                                             </font>
@@ -187,7 +180,7 @@
                                                 <Image url="@../../assets/mail.png" />
                                             </image>
                                         </ImageView>
-                                        <TextField fx:id="Allergies" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Staff Mail" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+                                        <TextField fx:id="email" focusTraversable="false" layoutX="33.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.65" prefHeight="50.0" prefWidth="220.0" promptText="Mail" style="-fx-text-fill: #172B4D#172B4D; -fx-background-color: #FFFFFF; -fx-background-radius: 10;">
                                             <font>
                                                 <Font name="GothamRounded-Bold" size="12.0" />
                                             </font>
@@ -199,7 +192,7 @@
                                 </Pane>
                             </children>
                         </HBox>
-                        <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#AddPatient" prefHeight="34.0" prefWidth="93.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Add Patient" textFill="WHITE">
+                        <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#AddMedicalOfficer" prefHeight="34.0" prefWidth="156.0" style="-fx-background-color: #11CDEF; -fx-background-radius: 4;" text="Add Medical Officer" textFill="WHITE">
                             <font>
                                 <Font name="GothamRounded-Bold" size="12.0" />
                             </font>

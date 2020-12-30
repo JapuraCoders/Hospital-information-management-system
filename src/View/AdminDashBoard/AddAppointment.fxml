@@ -19,7 +19,7 @@
    <children>
       <VBox alignment="CENTER" layoutX="59.0" layoutY="28.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="589.0" prefWidth="765.0" spacing="40.0" style="-fx-background-color: #F7FAFC; -fx-background-radius: 15;" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="28.0">
          <children>
-            <Label prefHeight="22.0" prefWidth="117.0" text="New Appointment" textFill="#172b4d">
+            <Label prefHeight="22.0" prefWidth="150.0" text="New Appointment Form" textFill="#172b4d">
                <font>
                   <Font name="Gotham-Bold" size="12.0" />
                </font>
@@ -114,7 +114,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <Label layoutX="861.0" layoutY="4.0" prefHeight="34.0" prefWidth="14.0" text="x" textFill="#f7fafc">
+      <Label fx:id="closeLabel" layoutX="861.0" layoutY="4.0" prefHeight="34.0" prefWidth="14.0" text="x" textFill="#f7fafc">
          <font>
             <Font name="Gill Sans MT" size="28.0" />
          </font>
