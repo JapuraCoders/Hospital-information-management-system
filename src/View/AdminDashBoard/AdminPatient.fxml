@@ -41,14 +41,9 @@
                         <TableView fx:id="tableView" maxWidth="1.7976931348623157E308" prefHeight="431.0" prefWidth="932.0">
                            <columns>
                               <TableColumn fx:id="patientId" editable="false" prefWidth="86.4000244140625" text="PATIENT ID" />
-                              <TableColumn fx:id="name" maxWidth="1.7976931348623157E308" prefWidth="94.39996337890625" text="Name" />
-                              <TableColumn fx:id="nic" maxWidth="1.7976931348623157E308" prefWidth="113.59994506835938" text="NIC" />
-                              <TableColumn fx:id="ontactNumber" maxWidth="1.7976931348623157E308" prefWidth="148.0" text="Contact Number" />
-                              <TableColumn fx:id="gender" maxWidth="1.7976931348623157E308" prefWidth="115.199951171875" text="GENDER" />
-                              <TableColumn fx:id="bloodGroup" maxWidth="1.7976931348623157E308" prefWidth="117.60003662109375" text="BLOOD GROUP" />
-                              <TableColumn fx:id="username" maxWidth="1.7976931348623157E308" prefWidth="128.79998779296875" text="Username" />
-                              <TableColumn fx:id="password" maxWidth="1.7976931348623157E308" prefWidth="79.20002441406245" text="Password" />
-                              <TableColumn fx:id="edit" maxWidth="1.7976931348623157E308" prefWidth="79.99993896484375" text="EDIT" />
+                              <TableColumn fx:id="username" maxWidth="1.7976931348623157E308" prefWidth="650.3999633789062" text="Patient Name|PhoneNo|NIC|UserName|Gender|DOB|Adress|Marital Status|Blood Group | Allegies" />
+                              <TableColumn fx:id="password" maxWidth="1.7976931348623157E308" prefWidth="128.00006103515625" text="Password" />
+                              <TableColumn fx:id="edit" maxWidth="1.7976931348623157E308" prefWidth="95.20001220703125" text="EDIT" />
                            </columns>
                         </TableView>
                      </children>
