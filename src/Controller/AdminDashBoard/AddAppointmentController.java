@@ -23,11 +23,8 @@ public class AddAppointmentController<line> implements Initializable {
 
     @FXML
     private JFXComboBox<String> specialityAreaCombo;
-    Reference doctorSpecialtyArea = new Reference("DoctorSpecialtyArea.txt");
+    Reference doctorSpecialtyArea = new Reference("Files/Data/DoctorSpecialtyArea.txt");
     private ObservableList<String> dbTypeList = FXCollections.observableArrayList(doctorSpecialtyArea.view());
-
-
-
 
     @FXML
     private JFXComboBox<String> DoctorCombo;
@@ -58,9 +55,7 @@ public class AddAppointmentController<line> implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)  {
         specialityAreaCombo.setItems(dbTypeList);
-
     }
 
 
-    }
-
+}
