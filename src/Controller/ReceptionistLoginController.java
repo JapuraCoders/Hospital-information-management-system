@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -65,7 +64,7 @@ public class ReceptionistLoginController implements Initializable {
                         Stage stage =(Stage) signInBtn.getScene().getWindow();
                         stage.close();
                         Stage primaryStage = new Stage();
-                        Parent root = FXMLLoader.load(getClass().getResource("/View/AdminDashBoard/AdminDashBoard.fxml"));
+                        Parent root = FXMLLoader.load(getClass().getResource("/View/ReceptionistDashBoard/ReceptionistDashBoard.fxml"));
                         primaryStage.initStyle(StageStyle.DECORATED);
                         primaryStage.setScene(new Scene(root));
                         primaryStage.show();
