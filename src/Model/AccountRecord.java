@@ -21,10 +21,10 @@ public class AccountRecord {
 
     //methods
     //------------------------------This will return all the account details----------------------------------------------
-    public List<Account> viewAllAccounts() throws IOException, NoSuchElementException {
+    public ArrayList<Account> viewAllAccounts() throws IOException, NoSuchElementException {
         String record, userType;
         SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
-        List<Account> accountRecordList = new ArrayList<>();
+        ArrayList<Account> accountRecordList = new ArrayList<>();
         try{
             BufferedReader br = new BufferedReader( new FileReader(this.getFileName()) );
 

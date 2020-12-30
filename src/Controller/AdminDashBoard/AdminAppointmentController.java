@@ -94,7 +94,6 @@ public class AdminAppointmentController implements Initializable {
         try {
             AppointmentRecord aptRecord = new AppointmentRecord("Files/Details/AppointmentData.txt");
             ArrayList<Appointment> appointmentArrayList = aptRecord.viewAllAppointments();
-            System.out.println(appointmentArrayList);
             int appointmentCount = appointmentArrayList.size();
             ObservableList<Appointment> appointmentData = FXCollections.observableArrayList();
             for (int i = 0; i < appointmentCount; i++) {

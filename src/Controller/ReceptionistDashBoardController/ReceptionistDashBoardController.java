@@ -31,9 +31,7 @@ public class ReceptionistDashBoardController implements Initializable{
 
     @FXML
     void HandleReceptionistLogout(javafx.event.ActionEvent event) {
-        FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage("ReceptionistLogout");
-        mainpane.setCenter(view);
+
     }
 
     @FXML
