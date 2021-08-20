@@ -8,9 +8,7 @@ OPD (Out-Patient Department) is responsible for managing out-patients who just c
 <p>This system will be mainly used by:</p>
 <ul><li>Receptionist</li><li>Patient</li><li>Medical Officer</li><li>Admin</li></ul>
 
-<p align="middle">
-  <img src="../master/interfaces/github.png"/>
- </p>
+
  
 <p>The Hospital-OPD Management System we developed is a desktop application system that was built according to the MVC architecture, using the technologies which are Java, JavaFX, itextpdf and jfoenix libraries, singleton pattern, and File Handling. By analyzing the project requirements, we categorized our system into seven main functions which also include their subfunctions as well. Therefore, the seven main functions are Visitor management, Postal management, Complain management, Appointment management, Reference management, User management, and Report management. Since we have analyzed and recognized well our project’s main requirements, and with our group members’ efforts, we were able to build a successful Hospital management System with additional features that we were able to do project satisfaction level.</p>
 
